@@ -2,16 +2,24 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	ofSetVerticalSync(true);
+	//ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
+	
+	input.setup("Camera");
+	input.allocate(640, 480);
+	input.setSource(cam);
 	
 	redBoost.setup();
 	redBoost.allocate(640, 480);
+	redBoost.setGUIPosition(200, 0);
+	redBoost.addInput(&input);
 	
-	stack.setup("My stack");
-	stack.allocate(640, 480);
 	
-	stack.registerEffect<ofxGPUCv::RedBoost>();
+	
+	//stack.setup("My stack");
+	//stack.allocate(640, 480);
+	
+	//stack.registerEffect<ofxGPUCv::RedBoost>();
 	
 	
 	
@@ -21,16 +29,20 @@ void testApp::setup(){
 void testApp::update(){
 	cam.update();
 	if(cam.isFrameNew()){
-		//redBoost.setTexture(cam.getTextureReference());
-		//redBoost.update();
+		
+		input.update();
+		
+		redBoost.update();
 	}
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	//redBoost.draw(0,0);
-	stack.drawGUI();
-	//redBoost.drawGUI();
+	input.drawGUI();
+	
+	redBoost.drawGUI();
+	
+	ofDrawBitmapString(ofToString(ofGetFrameRate()), 10,10);
 }
 
 //--------------------------------------------------------------

@@ -38,5 +38,31 @@
          landmarkName = "FXStack::~FXStack()"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/src/Patch.cpp"
+         timestampString = "364080844.650701"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5"
+         endingLineNumber = "5"
+         landmarkName = "Patch::Patch()"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/include/ofxGPUCv/Patch.h"
+         timestampString = "364132983.763647"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
+         landmarkName = "class PatchInput"
+         landmarkType = "3">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

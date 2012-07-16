@@ -3,17 +3,11 @@
 #include "ofMain.h"
 #include "ofxFX.h"
 
-//#ifdef OFX_GPU_CV_USE_GUI
 #include "ofxGui.h"
-//#endif
 
 #define OFX_GPU_CV_MAX_PARAMETERS 20
 
 namespace ofxGPUCv {
-	
-	typedef void (*Param1fCallback) (float value);
-	typedef void (*Param1iCallback) (int value);
-	
 	
 	struct Param1fDefaults{
 		Param1fDefaults(){
@@ -49,15 +43,13 @@ namespace ofxGPUCv {
 		
 		virtual string getName();
 		
-		//#ifdef OFX_GPU_CV_USE_GUI
 		virtual void setGUIPosition(float x, float y);
 		virtual void drawGUI();
-		//#endif
-		
+
 		bool compileCode();
 		void update();
 
-	//protected:
+	protected:
 		string name;
 		string filename;
 		bool bypass;
@@ -68,15 +60,12 @@ namespace ofxGPUCv {
 		
 		Param1fDefaults param1fDefaults[OFX_GPU_CV_MAX_PARAMETERS];
 		Param1iDefaults param1iDefaults[OFX_GPU_CV_MAX_PARAMETERS];
-		
-		//#ifdef OFX_GPU_CV_USE_GUI
+
 		ofxPanel gui;
 		ofxFloatSlider * param1fSliders;
 		ofxIntSlider * param1iSliders;
 		void onParam1fChange(float & value);
 		void onParam1iChange(int & value);
 		void onBypassChange(bool & value);
-		//#endif
-
 	};
 }
