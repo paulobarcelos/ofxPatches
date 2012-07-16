@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/ExtendedFXObject.cpp"
-         timestampString = "364035097.618773"
+         timestampString = "364135340.241387"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162">
+         startingLineNumber = "163"
+         endingLineNumber = "163">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -43,11 +43,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Patch.cpp"
-         timestampString = "364080844.650701"
+         timestampString = "364153685.684351"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "5"
-         endingLineNumber = "5"
+         startingLineNumber = "9"
+         endingLineNumber = "9"
          landmarkName = "Patch::Patch()"
          landmarkType = "5">
       </FileBreakpoint>
@@ -55,14 +55,62 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "../libs/ofxGPUCv/include/ofxGPUCv/Patch.h"
-         timestampString = "364132983.763647"
+         filePath = "../libs/ofxGPUCv/src/Manager.cpp"
+         timestampString = "364153685.684351"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
-         landmarkName = "class PatchInput"
+         startingLineNumber = "94"
+         endingLineNumber = "94">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/include/ofxGPUCv/Patch.h"
+         timestampString = "364153685.684351"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "23"
+         endingLineNumber = "23"
+         landmarkName = "class Patch"
          landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/src/Patch.cpp"
+         timestampString = "364153685.684351"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
+         landmarkName = "Patch::setInput(Patch * patch, int index)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/src/PatchOutput.cpp"
+         timestampString = "364153303.299008"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "5"
+         endingLineNumber = "5"
+         landmarkName = "PatchOutput::PatchOutput(Patch * parent)"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "../libs/ofxGPUCv/src/PatchOutput.cpp"
+         timestampString = "364153313.976858"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "9"
+         endingLineNumber = "9">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

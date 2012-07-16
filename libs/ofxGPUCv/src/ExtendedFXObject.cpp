@@ -37,18 +37,19 @@ void ExtendedFXObject::setup(string name, string filename){
 		this->filename = this->name + ".xml";
 	}
 	gui.setup(this->name, this->filename);
+	// Reset the gui
+	gui.clear();
+	
+	// Add the bypass toogle	
+	ofxToggle * bypassToggle = new ofxToggle("Bypass", false);
+	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
+	gui.add(bypassToggle);
 }
  
 bool ExtendedFXObject::compileCode(){
 	
 
-	// Reset the gui
-	gui.clear();
-
-	// Add the bypass toogle	
-	ofxToggle * bypassToggle = new ofxToggle("Bypass", false);
-	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
-	gui.add(bypassToggle);
+	
 	
 
 	

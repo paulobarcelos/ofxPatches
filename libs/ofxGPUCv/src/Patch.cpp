@@ -1,15 +1,26 @@
 #include "ofxGPUCv/Patch.h"
+#include "ofxGPUCv/PatchInput.h"
+#include "ofxGPUCv/PatchOutput.h"
+#include "ofxGPUCv/Manager.h"
+
 using namespace ofxGPUCv;
 
 Patch::Patch(){
 	output = new PatchOutput(this);
+	manager = NULL;
 	ExtendedFXObject::ExtendedFXObject();
 }
 
 Patch::~Patch(){
 	delete output;
 }
- 
+
+void Patch::setup(Manager * manager, string name, string filename, int id){
+	ExtendedFXObject::setup(name, filename);
+	this->manager = manager;
+	this->id = id;
+}
+
 bool Patch::compileCode(){
 	if (ExtendedFXObject::compileCode()) {
 		inputs.clear();
@@ -24,21 +35,11 @@ bool Patch::compileCode(){
 	}
 }
 
-void Patch::addInput(Patch * patch, int index){
+void Patch::setInput(Patch * patch, int index){
 	//if (inputs.size() && index >= 0 && index < inputs.size() - 1) {
 		inputs[index]->setPatch(patch); 
 	//}
 }
-
-
-/*void Patch::onMouseDragged(ofMouseEventArgs & args){
-	ofRectangle r = gui.getShape();
-	
-	for (int i = 0; i < inputs.size(); i++) {
-		ofRectangle inputRectangle = ofRectangle(r.x -7, r.y + i * (7 + 2), 7, 7);
-		
-	}
-}*/
 
 void Patch::update(){
 	for (int i = 0; i < inputs.size(); i++) {
@@ -68,5 +69,13 @@ void Patch::drawGUI(){
 	for (int i = 0; i < inputs.size(); i++) {
 		inputs[i]->draw();	
 	}
+}
+
+void Patch::setId(int id){
+	this->id =  id;
+}
+
+int Patch::getId(){
+	return  id;
 }
 

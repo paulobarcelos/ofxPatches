@@ -32,8 +32,6 @@ namespace ofxGPUCv {
 		ExtendedFXObject();
 		virtual ~ExtendedFXObject();
 		
-		virtual ExtendedFXObject * create() { return new ExtendedFXObject();};  
-		
 		virtual void setup(string name = "", string filename = "");
 		
 		virtual void setParam1f(float param, int _paramNum = 0);

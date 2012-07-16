@@ -1,35 +1,42 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofxGPUCv/ExtendedFXObject.h"
+#include "ofxGPUCv/Patch.h"
+#include "ofxGPUCv/PatchInput.h"
+#include "ofxGPUCv/PatchOutput.h"
+#include "ofxGPUCv/effects/FixedSource.h"
 
-//#ifdef OFX_GPU_CV_USE_GUI
 #include "ofxGui.h"
-//#endif
 
 namespace ofxGPUCv {
 
 	using namespace ofxGPUCv;
 	
-	class ManagerPatchGUIHandler; // forward
+	class ManagerPatchGUIHandler; // forward declaration
 	
 	class Manager : public ofxFXObject {
+		friend class Patch;
+		friend class PatchInput;
+		friend class PatchOutput;
 	public:
 		Manager();
-		virtual ~Manager();
+		~Manager();
 		
-		virtual void setup(string name = "", string filename = "");
+		void setup(int nSources = 1, string name = "", string filename = "");
+		
+		bool compileCode();
 		
 		template <class PatchType>
 		int registerPatch();
+		void unregisterAllPatches();
 		
-		void addPatch(int label);
+		Patch * getPatchById(int id);
+		
+		void addPatch(int label, int id);
 		void removeLastPatch();
 		
-		//#ifdef OFX_GPU_CV_USE_GUI
-		virtual void setGUIPosition(float x, float y);
-		virtual void drawGUI();
-		//#endif
+		void setGUIPosition(float x, float y);
+		void drawGUI();
 		
 		void update();
 		
@@ -37,34 +44,26 @@ namespace ofxGPUCv {
 		string name;
 		string filename;
 		
-		vector<ExtendedFXObject*> effects;
-		vector<ManagerPatchGUIHandler*> effectsHandlers;
-		vector<ExtendedFXObject*> stack;
+		vector<Patch*> registeredPatches;
+		vector<ManagerPatchGUIHandler*> registeredPatchesHandlers;
+		vector<Patch*> currentPatches;
 		
-		
-		//#ifdef OFX_GPU_CV_USE_GUI
 		ofxPanel gui;
 		void onRemoveLasetPatchButton(bool & value);
-		//ofxFloatSlider * param1fSliders;
-		//ofxIntSlider * param1iSliders;
-		//void onParam1fChange(float & value);
-		//void onParam1iChange(int & value);
-		//#endif
-		
 	};
 	
 	class ManagerPatchGUIHandler {
 	public:
-		ManagerPatchGUIHandler(Manager * stack, int effectLabel){
-			this->stack = stack;
-			this->effectLabel = effectLabel;
+		ManagerPatchGUIHandler(Manager * manager, int patchLabel){
+			this->manager = manager;
+			this->patchLabel = patchLabel;
 		};
 		void onPatchButton(bool & value){
-			stack->addPatch(effectLabel);
+			manager->addPatch(patchLabel, rand());
 		};
 	private:
-		Manager * stack;
-		int effectLabel;
+		Manager * manager;
+		int patchLabel;
 	};
 }
 
@@ -72,17 +71,17 @@ using namespace ofxGPUCv;
 
 template <class PatchType>
 int Manager::registerPatch(){
-	ExtendedFXObject * effect = new PatchType();
+	Patch * patch = new PatchType();
 	
-	ofxButton * effectButton = new ofxButton();
-	effectButton->setup(effect->getName());
+	ofxButton * patchButton = new ofxButton();
+	patchButton->setup(patch->getName());
 	
-	ManagerPatchGUIHandler * handler = new ManagerPatchGUIHandler(this, stack.size());
-	effectButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);
+	ManagerPatchGUIHandler * handler = new ManagerPatchGUIHandler(this, registeredPatches.size());
+	patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);
 	
-	effects.push_back(effect);
-	gui.add(effectButton);
-	effectsHandlers.push_back(handler);
+	registeredPatches.push_back(patch);
+	gui.add(patchButton);
+	registeredPatchesHandlers.push_back(handler);
 	
-	return effects.size() - 1;
+	return registeredPatches.size() - 1;
 };
