@@ -26,7 +26,7 @@ class testApp : public ofBaseApp{
 	ofVideoGrabber cam;
 	ofxGPUCv::RedBoost redBoost;
 	ofxGPUCv::Empty input;
-	//ofxGPUCv::FXStack stack;
+	//ofxGPUCv::Manager stack;
 	
 		
 };

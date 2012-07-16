@@ -19,7 +19,7 @@ void testApp::setup(){
 	//stack.setup("My stack");
 	//stack.allocate(640, 480);
 	
-	//stack.registerEffect<ofxGPUCv::RedBoost>();
+	//stack.registerPatch<ofxGPUCv::RedBoost>();
 	
 	
 	
