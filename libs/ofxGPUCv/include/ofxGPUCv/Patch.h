@@ -1,9 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGPUCv/Constants.h"
 #include "ofxGPUCv/ExtendedFXObject.h"
-
-#define OFX_GPUCV_PATCH_CONNECTOR_SIZE 10
 
 namespace ofxGPUCv {
 	
@@ -21,27 +20,30 @@ namespace ofxGPUCv {
 		virtual Patch * create() { return new Patch();};
 		
 		virtual void setup(Manager * manager, string name = "", string filename = "", int id = rand());
-		
+			
 		virtual bool compileCode();	
 		virtual void update();		
 		virtual void setInput(Patch * patch, int index = 0);		
 		virtual void drawGUI();
+		virtual void applyGuiValues(); // useful when loading the settings;
+		
 		Patch * getOutput(float x, float y);
 		
 		virtual void setId(int id);
 		virtual int getId();
+		
+		virtual void setLabel(int label);
+		virtual int getLabel();
 		
 		void onDelete(bool & value);
 		void onPreview(bool & value);
 		
 	protected:
 		int id;
+		int label;
 		bool preview;
 		vector<PatchInput*> inputs;
 		PatchOutput* output;
 		Manager * manager;
-		
-		
-		
 	};
 }

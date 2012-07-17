@@ -17,7 +17,19 @@ Patch::~Patch(){
 }
 
 void Patch::setup(Manager * manager, string name, string filename, int id){
-	ExtendedFXObject::setup(name, filename);
+	if(name.compare("")){
+		this->name = name;
+	}
+	if(filename.compare("")){
+		this->filename = filename;
+	}
+	if(!this->filename.compare("")){
+		this->filename = this->name + ".xml";
+	}
+	
+	if(manager)	this->filename = manager->baseFolder + this->filename;	
+	
+	ExtendedFXObject::setup();
 	this->manager = manager;
 	this->id = id;
 	
@@ -31,6 +43,14 @@ void Patch::setup(Manager * manager, string name, string filename, int id){
 	ofxToggle * previewToogle = new ofxToggle("Preview", true);
 	previewToogle->addListener(this, &Patch::onPreview);
 	gui.add(previewToogle);
+}
+
+void Patch::setLabel(int label){
+	this->label = label;
+}
+
+int Patch::getLabel(){
+	return label;
 }
 
 bool Patch::compileCode(){
@@ -83,6 +103,11 @@ void Patch::drawGUI(){
 	for (int i = 0; i < inputs.size(); i++) {
 		inputs[i]->draw();	
 	}
+}
+
+void Patch::applyGuiValues(){
+	ExtendedFXObject::applyGuiValues();
+	onPreview(gui.getToggle("Preview"));
 }
 
 void Patch::setId(int id){

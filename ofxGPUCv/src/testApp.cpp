@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+	
 	//ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
 	
@@ -14,12 +15,16 @@ void testApp::setup(){
 	redBoost.setGUIPosition(200, 20);
 	redBoost.setInput(&input);*/
 	
-	
+	/**
+	 Always this order:
+	 - setup
+	 - allocate
+	 - registerPatch
+	 - loadSettings
+	**/
 	
 	manager.setup(1, "My stack");
 	manager.allocate(640, 480);
-	manager.setGUIPosition(20, 200);
-	
 	manager.registerPatch<ofxGPUCv::RedBoost>();
 	//manager.registerPatch<ofxGPUCv::RedBoost>();
 	

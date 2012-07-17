@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGPUCv/Constants.h"
 #include "ofxGPUCv/Patch.h"
 #include "ofxGPUCv/PatchInput.h"
 #include "ofxGPUCv/Manager.h"

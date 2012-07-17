@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxXmlSettings.h"
 #include "ofxGPUCv/Patch.h"
 #include "ofxGPUCv/PatchInput.h"
 #include "ofxGPUCv/PatchOutput.h"
@@ -22,9 +23,9 @@ namespace ofxGPUCv {
 		Manager();
 		~Manager();
 		
-		void setup(int nSources = 1, string name = "", string filename = "");
-		
+		void setup(int nSources = 1, string name = "", string filename = "");		
 		bool compileCode();
+		void update();
 		
 		template <class PatchType>
 		int registerPatch();
@@ -38,13 +39,20 @@ namespace ofxGPUCv {
 		
 		void setGUIPosition(float x, float y);
 		void drawGUI();
+		void applyGuiValues(); // useful when loading the settings;
 		
-		void update();
+		void saveSettings();
+		void loadSettings();
 		
 	protected:
+		string baseFolder;
+		
 		vector<Patch*> registeredPatches;
 		vector<ManagerPatchGUIHandler*> registeredPatchesHandlers;
 		vector<Patch*> currentPatches;
+		
+		void onSaveSettings(bool & value);
+		void onLoadSettings(bool & value);
 	};
 	
 	class ManagerPatchGUIHandler {
