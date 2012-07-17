@@ -38,11 +38,15 @@ namespace ofxGPUCv {
 		void removePatch(int id);
 		
 		void setGUIPosition(float x, float y);
+		void setPatchesGUIPosition(float x, float y);
 		void drawGUI();
 		void applyGuiValues(); // useful when loading the settings;
 		
 		void saveSettings();
 		void loadSettings();
+		
+		void enableEditing();
+		void disableEditing();
 		
 	protected:
 		string baseFolder;
@@ -51,8 +55,13 @@ namespace ofxGPUCv {
 		vector<ManagerPatchGUIHandler*> registeredPatchesHandlers;
 		vector<Patch*> currentPatches;
 		
+		ofxPanel patchesGui;
+		
+		bool isEditing;
+		
 		void onSaveSettings(bool & value);
 		void onLoadSettings(bool & value);
+		void onEdit(bool & value);
 	};
 	
 	class ManagerPatchGUIHandler {
@@ -83,7 +92,7 @@ int Manager::registerPatch(){
 	patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);
 	
 	registeredPatches.push_back(patch);
-	gui.add(patchButton);
+	patchesGui.add(patchButton);
 	registeredPatchesHandlers.push_back(handler);
 	
 	return registeredPatches.size() - 1;

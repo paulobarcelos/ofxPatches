@@ -36,12 +36,8 @@ void Manager::setup(int nSources, string name, string filename){
 	
 	gui.setup(this->name, this->filename);
 	gui.setPosition(ofGetWidth()/2, ofGetHeight()/2);
-	
-}
-
-bool Manager::compileCode(){
 	gui.clear();
-	unregisterAllPatches();
+	
 	
 	// Add th load / save buttons
 	ofxButton * saveSettingsButton = new ofxButton();
@@ -54,14 +50,26 @@ bool Manager::compileCode(){
 	loadSettingsButton->addListener(this, &Manager::onLoadSettings);
 	gui.add(loadSettingsButton);
 	
+	// Add the edit toogle
+	ofxToggle * editToogle = new ofxToggle("Edit", true);
+	editToogle->addListener(this, &Manager::onEdit);
+	gui.add(editToogle);
 	
-	// Add the preview button
+	// Add the preview toogle
 	ofxToggle * previewToogle = new ofxToggle("Preview", true);
 	previewToogle->addListener((Patch*)this, &Patch::onPreview);
 	gui.add(previewToogle);
 	
+	patchesGui.setup("Patches", baseFolder + "patches_gui.xml");	
+	patchesGui.setPosition(100, 100);	
+}
+
+bool Manager::compileCode(){
+	unregisterAllPatches();
+	
 	bool compileSuccess =  ofxFXObject::compileCode();
 	
+	patchesGui.clear();
 	for (int i  = 0; i < nTextures - 1; i ++) {
 		Patch * patch = new FixedSource(&(textures[i]), string("Source " + ofToString(i)));
 		
@@ -72,7 +80,7 @@ bool Manager::compileCode(){
 		patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);
 		
 		registeredPatches.push_back(patch);
-		gui.add(patchButton);
+		patchesGui.add(patchButton);
 		registeredPatchesHandlers.push_back(handler);
 	}
 	
@@ -200,147 +208,196 @@ void Manager::update(){
 }
 
 void Manager::drawGUI(){
-	Patch::drawGUI();
+	ExtendedFXObject::drawGUI();
 	
-	for (int i = 0; i < currentPatches.size(); i++) {
-		currentPatches[i]->drawGUI();
+	if(preview) draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
+	
+	if(isEditing){
+		if(output) output->draw();	
+		for (int i = 0; i < inputs.size(); i++) {
+			inputs[i]->draw();	
+		}
+		
+		patchesGui.draw();	
+		for (int i = 0; i < currentPatches.size(); i++) {
+			currentPatches[i]->drawGUI();
+		}
 	}
+	
 }
 void Manager::setGUIPosition(float x, float y){
 	gui.setPosition(x, y);
 }
 
+void Manager::setPatchesGUIPosition(float x, float y){
+	patchesGui.setPosition(x, y);
+}
+
 void Manager::applyGuiValues(){
 	Patch::applyGuiValues();
-	//onPreview(gui.getToggle("Preview"));
+	onEdit(gui.getToggle("Edit"));
+}
+
+void Manager::saveSettings(){
+	// make sure dir exists
+	ofDirectory::createDirectory(baseFolder, true, true);
+	// Save gui
+	gui.saveToFile(filename);
+	
+	// Create the main settings xml
+	ofxXmlSettings settings;
+	
+	// Save the current input
+	settings.addTag("inputs");
+	if(inputs.size()){
+		settings.pushTag("inputs");
+		for (int i = 0; i < inputs.size(); i++) {
+			if(inputs[i]->getPatch()){
+				settings.addTag("id");
+				settings.setValue("id", inputs[i]->getPatch()->getId(), i);
+			}
+			
+		}
+		settings.popTag();
+	}
+	
+	// Save the current position
+	settings.addTag("gui_position");
+	settings.pushTag("gui_position");
+	
+	settings.addTag("x");
+	settings.setValue("x", gui.getPosition().x);
+	settings.addTag("y");
+	settings.setValue("y", gui.getPosition().y);
+	
+	settings.popTag();
+	
+	settings.addTag("patches_gui_position");
+	settings.pushTag("patches_gui_position");
+	
+	settings.addTag("x");
+	settings.setValue("x", patchesGui.getPosition().x);
+	settings.addTag("y");
+	settings.setValue("y", patchesGui.getPosition().y);
+	
+	settings.popTag();	
+	
+	// Save all the patches 
+	settings.addTag("patches");
+	settings.pushTag("patches");
+	for (int i = 0; i < currentPatches.size(); i++) {
+		// Save each individual gui
+		currentPatches[i]->gui.saveToFile(currentPatches[i]->filename);
+		
+		settings.addTag("patch");
+		settings.pushTag("patch", i);
+		
+		settings.addTag("id");
+		settings.setValue("id", currentPatches[i]->getId());
+		settings.addTag("label");
+		settings.setValue("label", currentPatches[i]->getLabel());
+		
+		settings.addTag("gui_position");
+		settings.pushTag("gui_position");
+		settings.addTag("x");
+		settings.setValue("x", currentPatches[i]->gui.getPosition().x);
+		settings.addTag("y");
+		settings.setValue("y", currentPatches[i]->gui.getPosition().y);
+		settings.popTag();
+		
+		settings.addTag("inputs");
+		settings.pushTag("inputs");			
+		for (int j = 0; j < currentPatches[i]->inputs.size(); j++) {
+			if(currentPatches[i]->inputs[j]->getPatch()){
+				
+				settings.addTag("id");
+				settings.setValue("id", currentPatches[i]->inputs[j]->getPatch()->getId(), j);
+				
+			}
+		}
+		settings.popTag();
+		
+		settings.popTag();
+	}
+	settings.popTag();
+	
+	// Save the file
+	settings.saveFile(baseFolder + "_settings.xml");
+}
+
+void Manager::loadSettings(){
+	// Load the gui
+	gui.loadFromFile(filename);
+	applyGuiValues();
+	
+	// Open the xml file (and if it's not there, return early)
+	ofxXmlSettings settings;
+	if(!settings.loadFile(baseFolder + "_settings.xml")) return;
+	
+	// Set the position
+	setGUIPosition(settings.getValue("gui_position:x", 0.0), settings.getValue("gui_position:y", 0.0));
+	setPatchesGUIPosition(settings.getValue("patches_gui_position:x", 0.0), settings.getValue("patches_gui_position:y", 0.0));
+	
+	// Create each of the patches
+	
+	while (currentPatches.size()) {
+		removePatch(currentPatches[currentPatches.size()-1]->getId());
+	}
+	
+	settings.pushTag("patches");
+	for (int i = 0; i < settings.getNumTags("patch"); i++) {
+		settings.pushTag("patch", i);
+		// create the patch
+		addPatch(settings.getValue("label", -1), settings.getValue("id", -1));
+		// load the gui
+		currentPatches[i]->gui.loadFromFile(currentPatches[i]->filename);
+		currentPatches[i]->applyGuiValues();
+		// set the position
+		currentPatches[i]->setGUIPosition(settings.getValue("gui_position:x", 0.0), settings.getValue("gui_position:y", 0.0));
+		// set all the inputs
+		settings.pushTag("inputs");
+		for (int j = 0; j < settings.getNumTags("id"); j++) {
+			currentPatches[i]->setInput(getPatchById(settings.getValue("id", -1, j)), j);
+		}
+		settings.popTag();
+		
+		settings.popTag();
+	}
+	settings.popTag();
+	
+	// Now that all patches are created, we are safe to add the manager inputs
+	settings.pushTag("inputs");
+	for (int i = 0; i < settings.getNumTags("id"); i++) {
+		setInput(getPatchById(settings.getValue("id", -1, i)), i);
+	}
+	settings.popTag();
 }
 
 void Manager::onSaveSettings(bool & value){
 	if(value){
-		// make sure dir exists
-		ofDirectory::createDirectory(baseFolder, true, true);
-		// Save gui
-		gui.saveToFile(filename);
-	
-		// Create the main settings xml
-		ofxXmlSettings settings;
-		
-		// Save the current input
-		settings.addTag("inputs");
-		if(inputs.size()){
-			settings.pushTag("inputs");
-			for (int i = 0; i < inputs.size(); i++) {
-				if(inputs[i]->getPatch()){
-					settings.addTag("id");
-					settings.setValue("id", inputs[i]->getPatch()->getId(), i);
-				}
-				
-			}
-			settings.popTag();
-		}
-		
-		// Save the current position
-		settings.addTag("position");
-		settings.pushTag("position");
-		
-		settings.addTag("x");
-		settings.setValue("x", gui.getPosition().x);
-		settings.addTag("y");
-		settings.setValue("y", gui.getPosition().y);
-		
-		settings.popTag();		
-		
-		// Save all the patches 
-		settings.addTag("patches");
-		settings.pushTag("patches");
-		for (int i = 0; i < currentPatches.size(); i++) {
-			// Save each individual gui
-			currentPatches[i]->gui.saveToFile(currentPatches[i]->filename);
-			
-			settings.addTag("patch");
-			settings.pushTag("patch", i);
-			
-			settings.addTag("id");
-			settings.setValue("id", currentPatches[i]->getId());
-			settings.addTag("label");
-			settings.setValue("label", currentPatches[i]->getLabel());
-			
-			settings.addTag("position");
-			settings.pushTag("position");
-			settings.addTag("x");
-			settings.setValue("x", currentPatches[i]->gui.getPosition().x);
-			settings.addTag("y");
-			settings.setValue("y", currentPatches[i]->gui.getPosition().y);
-			settings.popTag();
-			
-			settings.addTag("inputs");
-			settings.pushTag("inputs");			
-			for (int j = 0; j < currentPatches[i]->inputs.size(); j++) {
-				if(currentPatches[i]->inputs[j]->getPatch()){
-					
-					settings.addTag("id");
-					settings.setValue("id", currentPatches[i]->inputs[j]->getPatch()->getId(), j);
-					
-				}
-			}
-			settings.popTag();
-			
-			settings.popTag();
-		}
-		settings.popTag();
-		
-		// Save the file
-		settings.saveFile(baseFolder + "_settings.xml");
-		
+		saveSettings();
 	}
 }
 
 void Manager::onLoadSettings(bool & value){
 	if(value){
-		// Load the gui
-		gui.loadFromFile(filename);
-		applyGuiValues();
-		
-		// Open the xml file (and if it's not there, return early)
-		ofxXmlSettings settings;
-		if(!settings.loadFile(baseFolder + "_settings.xml")) return;
-		
-		// Set the position
-		setGUIPosition(settings.getValue("position:x", 0.0), settings.getValue("position:y", 0.0));
-		
-		// Create each of the patches
-	
-		while (currentPatches.size()) {
-			removePatch(currentPatches[currentPatches.size()-1]->getId());
-		}
-		
-		settings.pushTag("patches");
-		for (int i = 0; i < settings.getNumTags("patch"); i++) {
-			settings.pushTag("patch", i);
-			// create the patch
-			addPatch(settings.getValue("label", -1), settings.getValue("id", -1));
-			// load the gui
-			currentPatches[i]->gui.loadFromFile(currentPatches[i]->filename);
-			currentPatches[i]->applyGuiValues();
-			// set the position
-			currentPatches[i]->setGUIPosition(settings.getValue("position:x", 0.0), settings.getValue("position:y", 0.0));
-			// set all the inputs
-			settings.pushTag("inputs");
-			for (int j = 0; j < settings.getNumTags("id"); j++) {
-				currentPatches[i]->setInput(getPatchById(settings.getValue("id", -1, j)), j);
-			}
-			settings.popTag();
-			
-			settings.popTag();
-		}
-		settings.popTag();
-		
-		// Now that all patches are created, we are safe to add the manager inputs
-		settings.pushTag("inputs");
-		for (int i = 0; i < settings.getNumTags("id"); i++) {
-			setInput(getPatchById(settings.getValue("id", -1, i)), i);
-		}
-		settings.popTag();
-		
+		loadSettings();
 	}
+}
+
+void Manager::onEdit(bool & value){
+	if(value){
+		enableEditing();
+	}
+	else{
+		disableEditing();
+	}
+}
+
+void Manager::enableEditing(){
+	isEditing = true;
+}
+
+void Manager::disableEditing(){
+	isEditing = false;
 }

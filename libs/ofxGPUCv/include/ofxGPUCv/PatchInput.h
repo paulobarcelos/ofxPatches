@@ -6,8 +6,6 @@
 #include "ofxGPUCv/Patch.h"
 #include "ofxGPUCv/Manager.h"
 
-
-
 namespace ofxGPUCv {
 	
 	class PatchInput {

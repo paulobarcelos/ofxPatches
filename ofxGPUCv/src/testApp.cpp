@@ -6,15 +6,6 @@ void testApp::setup(){
 	//ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
 	
-	/*input.setup("Camera");
-	input.allocate(640, 480);
-	input.setSource(cam);
-	
-	redBoost.setup();
-	redBoost.allocate(640, 480);
-	redBoost.setGUIPosition(200, 20);
-	redBoost.setInput(&input);*/
-	
 	/**
 	 Always this order:
 	 - setup
@@ -25,9 +16,8 @@ void testApp::setup(){
 	
 	manager.setup(1, "My stack");
 	manager.allocate(640, 480);
-	manager.registerPatch<ofxGPUCv::RedBoost>();
-	//manager.registerPatch<ofxGPUCv::RedBoost>();
-	
+	manager.registerPatch<ofxGPUCv::RedBoost>();	
+	manager.loadSettings();
 	
 	
 }
@@ -36,10 +26,6 @@ void testApp::setup(){
 void testApp::update(){
 	cam.update();
 	if(cam.isFrameNew()){
-		
-		//input.update();
-		
-		//redBoost.update();
 		manager.setTexture(cam.getTextureReference());
 		manager.update();
 	}
@@ -47,10 +33,7 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	//input.drawGUI();
-	
-	//redBoost.drawGUI();
-	
+	manager.draw(0,0);
 	manager.drawGUI();
 	
 	ofDrawBitmapString(ofToString(ofGetFrameRate()), 10,10);

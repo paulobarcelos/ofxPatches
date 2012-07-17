@@ -1,8 +1,5 @@
 #pragma once
 
-//Comment this line in case you don't want to use the built-in GUI
-#define OFX_GPU_CV_USE_GUI
-
 #include "ofMain.h"
 #include "ofxGPUCv.h"
 
@@ -24,8 +21,6 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 	
 	ofVideoGrabber cam;
-	ofxGPUCv::RedBoost redBoost;
-	ofxGPUCv::FixedSource input;
 	ofxGPUCv::Manager manager;
 	
 		
