@@ -8,17 +8,29 @@ using namespace ofxGPUCv;
 Patch::Patch(){
 	output = new PatchOutput(this);
 	manager = NULL;
+	preview = true;
 	ExtendedFXObject::ExtendedFXObject();
 }
 
 Patch::~Patch(){
-	delete output;
+	if(output) delete output;
 }
 
 void Patch::setup(Manager * manager, string name, string filename, int id){
 	ExtendedFXObject::setup(name, filename);
 	this->manager = manager;
 	this->id = id;
+	
+	// Add the delete button
+	ofxButton * deleteButton = new ofxButton();
+	deleteButton->setup("Delete");
+	deleteButton->addListener(this, &Patch::onDelete);
+	gui.add(deleteButton);
+	
+	// Add the preview button
+	ofxToggle * previewToogle = new ofxToggle("Preview", true);
+	previewToogle->addListener(this, &Patch::onPreview);
+	gui.add(previewToogle);
 }
 
 bool Patch::compileCode(){
@@ -36,9 +48,9 @@ bool Patch::compileCode(){
 }
 
 void Patch::setInput(Patch * patch, int index){
-	//if (inputs.size() && index >= 0 && index < inputs.size() - 1) {
+	if (index >= 0 && index < inputs.size()) {
 		inputs[index]->setPatch(patch); 
-	//}
+	}
 }
 
 void Patch::update(){
@@ -65,7 +77,9 @@ void Patch::update(){
 void Patch::drawGUI(){
 	ExtendedFXObject::drawGUI();
 
-	output->draw();	
+	if(preview) draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
+	
+	if(output) output->draw();	
 	for (int i = 0; i < inputs.size(); i++) {
 		inputs[i]->draw();	
 	}
@@ -77,5 +91,17 @@ void Patch::setId(int id){
 
 int Patch::getId(){
 	return  id;
+}
+
+
+void Patch::onDelete(bool & value){
+	if(value){
+		gui.clear();
+		manager->removePatch(id);
+	}
+}
+
+void Patch::onPreview(bool & value){
+	preview = value;
 }
 

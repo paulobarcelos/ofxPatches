@@ -14,7 +14,7 @@ namespace ofxGPUCv {
 	
 	class ManagerPatchGUIHandler; // forward declaration
 	
-	class Manager : public ofxFXObject {
+	class Manager : public Patch {
 		friend class Patch;
 		friend class PatchInput;
 		friend class PatchOutput;
@@ -31,9 +31,10 @@ namespace ofxGPUCv {
 		void unregisterAllPatches();
 		
 		Patch * getPatchById(int id);
+		int getPatchLabelById(int id);
 		
 		void addPatch(int label, int id);
-		void removeLastPatch();
+		void removePatch(int id);
 		
 		void setGUIPosition(float x, float y);
 		void drawGUI();
@@ -41,15 +42,9 @@ namespace ofxGPUCv {
 		void update();
 		
 	protected:
-		string name;
-		string filename;
-		
 		vector<Patch*> registeredPatches;
 		vector<ManagerPatchGUIHandler*> registeredPatchesHandlers;
 		vector<Patch*> currentPatches;
-		
-		ofxPanel gui;
-		void onRemoveLasetPatchButton(bool & value);
 	};
 	
 	class ManagerPatchGUIHandler {
@@ -59,7 +54,7 @@ namespace ofxGPUCv {
 			this->patchLabel = patchLabel;
 		};
 		void onPatchButton(bool & value){
-			manager->addPatch(patchLabel, rand());
+			if(value)manager->addPatch(patchLabel, rand());
 		};
 	private:
 		Manager * manager;

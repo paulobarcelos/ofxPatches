@@ -3,7 +3,7 @@
 #include "ofMain.h"
 #include "ofxGPUCv/ExtendedFXObject.h"
 
-#define OFX_GPUCV_PATCH_CONNECTOR_SIZE 7
+#define OFX_GPUCV_PATCH_CONNECTOR_SIZE 10
 
 namespace ofxGPUCv {
 	
@@ -20,22 +20,28 @@ namespace ofxGPUCv {
 		~Patch();
 		virtual Patch * create() { return new Patch();};
 		
-		void setup(Manager * manager, string name = "", string filename = "", int id = rand());
+		virtual void setup(Manager * manager, string name = "", string filename = "", int id = rand());
 		
-		bool compileCode();	
-		void update();		
-		void setInput(Patch * patch, int index = 0);		
-		void drawGUI();
+		virtual bool compileCode();	
+		virtual void update();		
+		virtual void setInput(Patch * patch, int index = 0);		
+		virtual void drawGUI();
 		Patch * getOutput(float x, float y);
 		
-		void setId(int id);
-		int getId();
+		virtual void setId(int id);
+		virtual int getId();
+		
+		void onDelete(bool & value);
+		void onPreview(bool & value);
 		
 	protected:
 		int id;
+		bool preview;
 		vector<PatchInput*> inputs;
 		PatchOutput* output;
 		Manager * manager;
+		
+		
 		
 	};
 }

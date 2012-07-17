@@ -6,13 +6,13 @@
 #include "ofxGPUCv/Manager.h"
 
 
-#define OFX_GPUCV_PATCH_CONNECTOR_SIZE 7
 
 namespace ofxGPUCv {
 	
 	class PatchInput {
 	public:
 		PatchInput(Patch * parent = NULL, Patch * patch = NULL, int inputIndex = -1);
+		~PatchInput();
 		
 		void setParent(Patch * parent);		
 		void setPatch(Patch * patch);		

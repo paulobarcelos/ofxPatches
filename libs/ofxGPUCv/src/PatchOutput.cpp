@@ -19,15 +19,15 @@ void PatchOutput::draw(){
 	ofRectangle shape = getShape();
 	
 	ofPushStyle();
-	ofSetColor(255);
-	ofRect(shape);
+	ofSetColor(0);
+	ofCircle(shape.getCenter(), shape.width/2);
 	ofPopStyle();
 };
 
 ofRectangle PatchOutput::getShape(){
 	if(!parent) return ofRectangle();
 	ofRectangle gui = parent->gui.getShape();
-	return ofRectangle(gui.x + gui.width, gui.y, OFX_GPUCV_PATCH_CONNECTOR_SIZE, OFX_GPUCV_PATCH_CONNECTOR_SIZE);
+	return ofRectangle(gui.x + gui.width  + 1, gui.y + 2, OFX_GPUCV_PATCH_CONNECTOR_SIZE, OFX_GPUCV_PATCH_CONNECTOR_SIZE);
 }
 
 Patch * PatchOutput::getPatchIfInside(float x, float y){

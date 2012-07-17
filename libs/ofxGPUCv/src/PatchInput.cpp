@@ -9,6 +9,9 @@ PatchInput::PatchInput(Patch * parent, Patch * patch, int inputIndex){
 	isConnecting = false;
 	ofRegisterMouseEvents(this);
 };
+PatchInput::~PatchInput(){
+	ofUnregisterMouseEvents(this);
+};
 
 void PatchInput::setParent(Patch * parent){
 	this->parent = parent;
@@ -61,8 +64,9 @@ void PatchInput::draw(){
 	ofRectangle shape = getShape();
 	
 	ofPushStyle();
-	ofSetColor(255);
-	ofRect(shape);
+	if(patch) ofSetColor(255,255,0);
+	else ofSetColor(255);
+	ofCircle(shape.getCenter(), shape.width/2);
 	ofPopStyle();
 	
 	if(patch){				
@@ -72,21 +76,11 @@ void PatchInput::draw(){
 		ofSetColor(255);
 		ofLine(shape.getCenter(), shape2.getCenter());
 		ofPopStyle();
-		
-		ofPushStyle();
-		ofSetColor(0);
-		ofLine(shape.getCenter()+ofPoint(0,1), shape2.getCenter()+ofPoint(0,1));
-		ofPopStyle();
 	}
 	else if(isConnecting){
 		ofPushStyle();
 		ofSetColor(255);
 		ofLine(shape.getCenter(), mouse);
-		ofPopStyle();
-		
-		ofPushStyle();
-		ofSetColor(0);
-		ofLine(shape.getCenter()+ofPoint(0,1), mouse+ofPoint(0,1));
 		ofPopStyle();
 	}
 };
@@ -94,7 +88,7 @@ void PatchInput::draw(){
 ofRectangle PatchInput::getShape(){
 	if(!parent) return ofRectangle();
 	ofRectangle gui = parent->gui.getShape();
-	return ofRectangle(gui.x - OFX_GPUCV_PATCH_CONNECTOR_SIZE, gui.y + inputIndex * (OFX_GPUCV_PATCH_CONNECTOR_SIZE + 2), OFX_GPUCV_PATCH_CONNECTOR_SIZE, OFX_GPUCV_PATCH_CONNECTOR_SIZE);
+	return ofRectangle(gui.x - OFX_GPUCV_PATCH_CONNECTOR_SIZE - 1, gui.y + inputIndex * (OFX_GPUCV_PATCH_CONNECTOR_SIZE + 2) + 2, OFX_GPUCV_PATCH_CONNECTOR_SIZE, OFX_GPUCV_PATCH_CONNECTOR_SIZE);
 }
 
 Patch * PatchInput::getPatchIfInside(float x, float y){

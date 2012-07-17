@@ -233,8 +233,6 @@ void ExtendedFXObject::setGUIPosition(float x, float y){
 }
 void ExtendedFXObject::drawGUI(){
 	gui.draw();
-	
-	draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
 }
 void ExtendedFXObject::onParam1fChange(float & value){
 	for (int i = 0; i < nParam1fs; i++) {
