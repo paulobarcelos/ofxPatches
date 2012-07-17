@@ -27,7 +27,7 @@ void PatchOutput::draw(){
 ofRectangle PatchOutput::getShape(){
 	if(!parent) return ofRectangle();
 	ofRectangle gui = parent->gui.getShape();
-	return ofRectangle(gui.x + gui.width  + 1, gui.y + 2, OFX_GPUCV_PATCH_CONNECTOR_SIZE, OFX_GPUCV_PATCH_CONNECTOR_SIZE);
+	return ofRectangle(gui.x + gui.width  + 1, gui.y + 2, OFX_GPU_CV_PATCH_CONNECTOR_SIZE, OFX_GPU_CV_PATCH_CONNECTOR_SIZE);
 }
 
 Patch * PatchOutput::getPatchIfInside(float x, float y){

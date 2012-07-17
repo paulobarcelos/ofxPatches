@@ -9,6 +9,8 @@ ExtendedFXObject::ExtendedFXObject(){
 	param1is = NULL;
 	param1fSliders = NULL;
 	param1iSliders = NULL;
+	nParam1fs = 0;
+	nParam1is = 0;
 }
 
 ExtendedFXObject::~ExtendedFXObject(){
@@ -36,6 +38,7 @@ void ExtendedFXObject::setup(string name, string filename){
 	if(!this->filename.compare("")){
 		this->filename = this->name + ".xml";
 	}
+		
 	gui.setup(this->name, this->filename);
 	// Reset the gui
 	gui.clear();
@@ -47,11 +50,6 @@ void ExtendedFXObject::setup(string name, string filename){
 }
  
 bool ExtendedFXObject::compileCode(){
-	
-
-	
-	
-
 	
     int num;
     // See how many float parameters it's need on the injected fragment shader
@@ -151,12 +149,7 @@ bool ExtendedFXObject::compileCode(){
     
     gui.loadFromFile(filename);
 	// kick the values in
-	float f = 0.0;
-	int i = 0;	
-	onParam1fChange(f);
-	onParam1iChange(i);
-	onBypassChange(gui.getToggle("Bypass"));
-
+	applyGuiValues();
 	
 	return ofxFXObject::compileCode();
 }
@@ -246,4 +239,12 @@ void ExtendedFXObject::onParam1iChange(int & value){
 }
 void ExtendedFXObject::onBypassChange(bool & value){
 	setBypass(value);
+}
+
+void ExtendedFXObject::applyGuiValues(){
+	onBypassChange(gui.getToggle("Bypass"));
+	float f = 0.0;
+	int i = 0;
+	onParam1fChange(f);
+	onParam1iChange(i);
 }

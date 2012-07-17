@@ -121,6 +121,7 @@
 		325bd94ffb93161bbc68336eb66928c3 /* ofxCv.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCv.h; path = ../../../addons/ofxCv/src/ofxCv.h; sourceTree = SOURCE_ROOT; };
 		33ff03222909c1a0ece437531183b507 /* cv.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cv.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
+		3802E0BC15B5B51500A0D421 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/Constants.h; sourceTree = "<group>"; };
 		3820D33115B3562F007DB4BA /* Patch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Patch.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/Patch.h; sourceTree = "<group>"; };
 		3820D33215B35673007DB4BA /* Patch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Patch.cpp; path = ../libs/ofxGPUCv/src/Patch.cpp; sourceTree = "<group>"; };
 		3820D33515B43BB6007DB4BA /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Manager.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/Manager.h; sourceTree = "<group>"; };
@@ -902,6 +903,7 @@
 			children = (
 				da53f5083ab27c3f954a7808c1262d70 /* effects */,
 				784d3f03d0e4b16702a7a1c93ba238ac /* ExtendedFXObject.h */,
+				3802E0BC15B5B51500A0D421 /* Constants.h */,
 				3820D33515B43BB6007DB4BA /* Manager.h */,
 				3820D33115B3562F007DB4BA /* Patch.h */,
 				3820D33D15B4876E007DB4BA /* PatchInput.h */,

@@ -2,10 +2,9 @@
 
 #include "ofMain.h"
 #include "ofxFX.h"
-
 #include "ofxGui.h"
 
-#define OFX_GPU_CV_MAX_PARAMETERS 20
+#include "ofxGPUCv/Constants.h"
 
 namespace ofxGPUCv {
 	
@@ -43,6 +42,8 @@ namespace ofxGPUCv {
 		
 		virtual void setGUIPosition(float x, float y);
 		virtual void drawGUI();
+		virtual void applyGuiValues(); // useful when loading the settings;
+		
 
 		bool compileCode();
 		void update();

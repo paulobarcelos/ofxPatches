@@ -1,6 +1,8 @@
 #pragma once
 
-#include "ofxGPUCv/ExtendedFXObject.h"
+#include "ofxGPUCv/Constants.h"
+
+#include "ofxGPUCv/Patch.h"
 #include "ofxGPUCv/Manager.h"
 
 #include "ofxGPUCv/effects/FixedSource.h"
