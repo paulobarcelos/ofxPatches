@@ -37,20 +37,21 @@ void ExtendedFXObject::setup(string name, string filename){
 		this->filename = this->name + ".xml";
 	}
 	gui.setup(this->name, this->filename);
-}
- 
-bool ExtendedFXObject::compileCode(){
-	
-//#ifdef OFX_GPU_CV_USE_GUI
 	// Reset the gui
 	gui.clear();
-
+	
 	// Add the bypass toogle	
 	ofxToggle * bypassToggle = new ofxToggle("Bypass", false);
 	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
 	gui.add(bypassToggle);
+}
+ 
+bool ExtendedFXObject::compileCode(){
 	
-//#endif
+
+	
+	
+
 	
     int num;
     // See how many float parameters it's need on the injected fragment shader
@@ -75,18 +76,18 @@ bool ExtendedFXObject::compileCode(){
 		param1fs = NULL;
 	}
 	
-//#ifdef OFX_GPU_CV_USE_GUI
+
 	if (nParam1fs > 0){
 		param1fSliders = new ofxFloatSlider[nParam1fs];
 	} else if ( nParam1fs == 0 ){
 		param1fSliders = NULL;
 	}
-//#endif
+
 	
 	for (int i = 0; i < nParam1fs; i++) {
 		param1fs[i] = param1fDefaults[i].value;
 		
-//#ifdef OFX_GPU_CV_USE_GUI
+
 		string sliderName;
 		if(!param1fDefaults[i].name.compare("undefined")){ // Slider was not defined
 			sliderName = "param1f" + ofToString(i);
@@ -98,7 +99,7 @@ bool ExtendedFXObject::compileCode(){
 		param1fSliders[i].setup(sliderName, param1fDefaults[i].value, param1fDefaults[i].min, param1fDefaults[i].max);
 		param1fSliders[i].addListener(this, &ExtendedFXObject::onParam1fChange);
 		gui.add(&(param1fSliders[i]));
-//#endif
+
 	}
 	
 	// See how many int parameters it's need on the injected fragment shader
@@ -123,18 +124,18 @@ bool ExtendedFXObject::compileCode(){
 		param1is = NULL;
 	}
 	
-//#ifdef OFX_GPU_CV_USE_GUI
+
 	if (nParam1is > 0){
 		param1iSliders = new ofxIntSlider[nParam1is];
 	} else if ( nParam1is == 0 ){
 		param1iSliders = NULL;
 	}
-//#endif
+
 	
 	for (int i = 0; i < nParam1is; i++) {
 		param1is[i] = param1iDefaults[i].value;
 		
-//#ifdef OFX_GPU_CV_USE_GUI
+
 		string sliderName;
 		if(!param1iDefaults[i].name.compare("undefined")){ // Slider was not defined
 			sliderName = "param1i" + ofToString(i);
@@ -145,9 +146,9 @@ bool ExtendedFXObject::compileCode(){
 		param1iSliders[i].setup(sliderName, param1iDefaults[i].value, param1iDefaults[i].min, param1iDefaults[i].max);
 		param1iSliders[i].addListener(this, &ExtendedFXObject::onParam1iChange);
 		gui.add(&(param1iSliders[i]));
-//#endif
+
 	}
-//#ifdef OFX_GPU_CV_USE_GUI    
+    
     gui.loadFromFile(filename);
 	// kick the values in
 	float f = 0.0;
@@ -155,7 +156,7 @@ bool ExtendedFXObject::compileCode(){
 	onParam1fChange(f);
 	onParam1iChange(i);
 	onBypassChange(gui.getToggle("Bypass"));
-//#endif
+
 	
 	return ofxFXObject::compileCode();
 }
@@ -226,7 +227,7 @@ string ExtendedFXObject::getName(){
 	return name;
 }
 
-//#ifdef OFX_GPU_CV_USE_GUI
+
 void ExtendedFXObject::setGUIPosition(float x, float y){
 	gui.setPosition(x,y);
 }
@@ -246,4 +247,3 @@ void ExtendedFXObject::onParam1iChange(int & value){
 void ExtendedFXObject::onBypassChange(bool & value){
 	setBypass(value);
 }
-//#endif
