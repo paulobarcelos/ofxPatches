@@ -16,7 +16,7 @@ void testApp::setup(){
 	
 	manager.setup(1, "My stack");
 	manager.allocate(640, 480);
-	manager.registerPatch<ofxGPUCv::RedBoost>();	
+	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 	
 	

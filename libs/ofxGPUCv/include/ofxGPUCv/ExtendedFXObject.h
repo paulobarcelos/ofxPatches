@@ -44,6 +44,10 @@ namespace ofxGPUCv {
 		virtual void drawGUI();
 		virtual void applyGuiValues(); // useful when loading the settings;
 		
+		// TODO, try to get this changes into ofxFX
+		void setTexture(ofTexture& tex, int _texNum = 0);
+		void begin(int _texNum = 0);
+		
 
 		bool compileCode();
 		void update();

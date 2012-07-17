@@ -4,3 +4,6 @@
 #define OFX_GPU_CV_PATCH_CONNECTOR_SIZE 10
 
 #define OFX_GPU_CV_SETTINGS_FOLDER "ofxGPUCv/"
+
+#define OFX_GPU_CV_REGISTER_ALL_EFFECTS(m) \
+	m.registerPatch<ofxGPUCv::ChannelBalancer>();

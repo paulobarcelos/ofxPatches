@@ -35,7 +35,7 @@ namespace ofxGPUCv {
 		
 		void update(){
 			pingPong.dst->begin();        
-			ofClear(0);
+			ofClear(0,0,0,0);
 			if(source) source->draw(0, 0, width, height);  
 			pingPong.dst->end();        
 			pingPong.swap();

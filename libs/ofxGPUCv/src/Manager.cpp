@@ -198,7 +198,7 @@ void Manager::update(){
 	}
 	
 	pingPong.dst->begin();        
-	ofClear(0);
+	ofClear(0,0,0,0);
 	textures[nTextures-1].draw(0, 0, width, height);  
 	pingPong.dst->end();        
 	pingPong.swap();

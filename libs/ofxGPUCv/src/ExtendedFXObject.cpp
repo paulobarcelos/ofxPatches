@@ -248,3 +248,27 @@ void ExtendedFXObject::applyGuiValues(){
 	onParam1fChange(f);
 	onParam1iChange(i);
 }
+
+
+//TODO, try to get this on ofxFX intead, can't see the point of the texture alpha being set to one!
+
+// A simplified way of filling the insides texture
+void ExtendedFXObject::setTexture(ofTexture& tex, int _texNum){ 
+    if ((_texNum < nTextures) && ( _texNum >= 0)){
+        textures[_texNum].begin(); 
+        ofClear(0,0);
+        ofSetColor(255);
+        tex.draw(0,0); 
+        textures[_texNum].end();
+    }
+};
+
+// With begin(int) and end(int) the textures allocated can be filled with data
+void ExtendedFXObject::begin(int _texNum ) {
+    if ((_texNum < nTextures) && ( _texNum >= 0)){
+        ofPushStyle();
+        ofPushMatrix();
+        textures[_texNum].begin();
+        ofClear(0,0);
+    }
+}
