@@ -26,13 +26,13 @@ namespace ofxGPUCv {
 			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;
-									   uniform sampler2DRect frontbuffer;
+									   uniform sampler2DRect backbuffer;
 									   uniform float param1f0;
 									   
 									   void main(void){
 										   vec2 st = gl_TexCoord[0].st;
 										   
-										   vec4 src = texture2DRect(frontbuffer, st);
+										   vec4 src = texture2DRect(backbuffer, st);
 										   vec4 dst = texture2DRect(tex0, st);
 										   
 										   gl_FragColor = mix(src, dst, param1f0);

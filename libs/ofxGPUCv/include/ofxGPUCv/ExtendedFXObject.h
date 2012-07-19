@@ -68,7 +68,8 @@ namespace ofxGPUCv {
 		
 		int nParam1fs, nParam1is;
 		
-		ofFbo frontbuffer;
+		ofFbo lastBuffer; // Acts as a buffer "buffer", so we can provide the last rendered buffer from the
+						   // previous update as the backbuffer of the first pass of the current update
 		
 		Param1fDefaults param1fDefaults[OFX_GPU_CV_MAX_PARAMETERS];
 		Param1iDefaults param1iDefaults[OFX_GPU_CV_MAX_PARAMETERS];

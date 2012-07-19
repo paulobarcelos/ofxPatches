@@ -70,7 +70,7 @@ void ExtendedFXObject::allocate(int _width, int _height, int _internalFormat){
     allocate(_width, _height);
 };
 void ExtendedFXObject::allocate(int _width, int _height){
-	frontbuffer.allocate(_width, _height, internalFormat);
+	lastBuffer.allocate(_width, _height, internalFormat);
 	ofxFXObject::allocate(_width, _height);
 }
 
@@ -193,8 +193,9 @@ void ExtendedFXObject::update(){
 			pingPong.dst->begin();        
 			ofClear(0);
 			shader.begin();
-			shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
-			shader.setUniformTexture("frontbuffer", frontbuffer.getTextureReference(), 1 );
+			// on the first pass, use the last rendered buffer as the backbuffer
+			if(i == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
+			else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
 			
 			for( int j = 0; j < nParam1fs; j++){
 				string paramName = "param1f" + ofToString(j); 
@@ -225,9 +226,11 @@ void ExtendedFXObject::update(){
 			pingPong.dst->end();       
 			pingPong.swap();
 			
-			frontbuffer.begin();
-			pingPong.src->draw(0, 0);
-			frontbuffer.end();
+			if(i == passes -1){
+				lastBuffer.begin();
+				pingPong.src->draw(0, 0);
+				lastBuffer.end();
+			}
 		}
 	}
     pingPong.swap();
