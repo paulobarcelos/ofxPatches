@@ -7,3 +7,4 @@
 
 #include "ofxGPUCv/effects/FixedSource.h"
 #include "ofxGPUCv/effects/ChannelBalancer.h"
+#include "ofxGPUCv/effects/Accumulator.h"

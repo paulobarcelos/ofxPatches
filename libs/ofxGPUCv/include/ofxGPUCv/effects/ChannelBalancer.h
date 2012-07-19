@@ -15,7 +15,7 @@ namespace ofxGPUCv {
 		ChannelBalancer(){
 			name = "Channel Balancer";
 			
-			passes = 1;
+			maxPasses = 3;
 			internalFormat = GL_RGBA;
 			
 			param1fDefaults[0].name = "Red";
@@ -40,6 +40,8 @@ namespace ofxGPUCv {
 			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;
+									   uniform sampler2DRect backbuffer;
+									   uniform int pass;
 									   uniform float param1f0;
 									   uniform float param1f1;
 									   uniform float param1f2;
@@ -48,7 +50,9 @@ namespace ofxGPUCv {
 									   void main(void){
 										   vec2 st = gl_TexCoord[0].st;
 										   
-										   vec4 col = texture2DRect(tex0, st);
+										   vec4 col;
+										   if(pass > 0) col = texture2DRect(backbuffer, st);
+										   else col = texture2DRect(tex0, st);
 										   col.r += param1f0;
 										   col.g += param1f1;
 										   col.b += param1f2;

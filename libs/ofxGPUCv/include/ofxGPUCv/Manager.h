@@ -86,7 +86,7 @@ int Manager::registerPatch(){
 	Patch * patch = new PatchType();
 	
 	ofxButton * patchButton = new ofxButton();
-	patchButton->setup(patch->getName());
+	patchButton->setup(patch->getName(),OFX_GPU_CV_GUI_SIZE);
 	
 	ManagerPatchGUIHandler * handler = new ManagerPatchGUIHandler(this, registeredPatches.size());
 	patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);

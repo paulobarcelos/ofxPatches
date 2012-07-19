@@ -4,15 +4,15 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/ExtendedFXObject.cpp"
-         timestampString = "364236103.154831"
+         timestampString = "364304509.15139"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156">
+         startingLineNumber = "182"
+         endingLineNumber = "182">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -56,22 +56,22 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Manager.cpp"
-         timestampString = "364248569.431131"
+         timestampString = "364251737.888981"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "142"
-         endingLineNumber = "142">
+         startingLineNumber = "146"
+         endingLineNumber = "146">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/include/ofxGPUCv/Patch.h"
-         timestampString = "364235914.086435"
+         timestampString = "364303825.928762"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "23"
-         endingLineNumber = "23"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
          landmarkName = "class Patch"
          landmarkType = "3">
       </FileBreakpoint>
@@ -80,11 +80,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Patch.cpp"
-         timestampString = "364235914.086435"
+         timestampString = "364303825.928762"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
          landmarkName = "Patch::setInput(Patch * patch, int index)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -117,11 +117,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Patch.cpp"
-         timestampString = "364235914.086435"
+         timestampString = "364303825.928762"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
          landmarkName = "Patch::onDelete(bool &amp; value)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -143,11 +143,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Manager.cpp"
-         timestampString = "364248569.431131"
+         timestampString = "364251737.888981"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "157"
-         endingLineNumber = "157"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "Manager::removePatch(int id)"
          landmarkType = "5">
       </FileBreakpoint>
@@ -169,11 +169,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "../libs/ofxGPUCv/src/Manager.cpp"
-         timestampString = "364248569.431131"
+         timestampString = "364251737.888981"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
          landmarkName = "Manager::addPatch(int label, int id)"
          landmarkType = "5">
       </FileBreakpoint>

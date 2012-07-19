@@ -20,6 +20,8 @@ namespace ofxGPUCv {
 		virtual Patch * create() { return new Patch();};
 		
 		virtual void setup(Manager * manager, string name = "", string filename = "", int id = rand());
+		
+		virtual void registerDefaultGui();
 			
 		virtual bool compileCode();	
 		virtual void update();		

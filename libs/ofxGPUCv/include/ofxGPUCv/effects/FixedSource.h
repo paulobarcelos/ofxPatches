@@ -18,6 +18,19 @@ namespace ofxGPUCv {
 			fragmentShader = STRINGIFY(  uniform sampler2DRect tex0; );
 		}
 		
+		void registerDefaultGui(){			
+			// Add the delete button
+			ofxButton * deleteButton = new ofxButton();
+			deleteButton->setup("Delete", OFX_GPU_CV_GUI_SIZE);
+			deleteButton->addListener((Patch*)this, &Patch::onDelete);
+			gui.add(deleteButton);
+			
+			// Add the preview button
+			ofxToggle * previewToogle = new ofxToggle();
+			previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
+			previewToogle->addListener((Patch*)this, &Patch::onPreview);
+			gui.add(previewToogle);
+		};
 		
 		bool compileCode(){
 			bool compileSucess = Patch::compileCode();

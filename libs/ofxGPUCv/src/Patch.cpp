@@ -27,20 +27,26 @@ void Patch::setup(Manager * manager, string name, string filename, int id){
 		this->filename = this->name + ".xml";
 	}
 	
-	if(manager)	this->filename = manager->baseFolder + this->filename;	
-	
-	ExtendedFXObject::setup();
 	this->manager = manager;
 	this->id = id;
 	
+	if(manager)	this->filename = manager->baseFolder + this->filename;	
+	
+	ExtendedFXObject::setup();	
+}
+
+void Patch::registerDefaultGui(){
+	ExtendedFXObject::registerDefaultGui();
+	
 	// Add the delete button
 	ofxButton * deleteButton = new ofxButton();
-	deleteButton->setup("Delete");
+	deleteButton->setup("Delete", OFX_GPU_CV_GUI_SIZE);
 	deleteButton->addListener(this, &Patch::onDelete);
 	gui.add(deleteButton);
 	
 	// Add the preview button
-	ofxToggle * previewToogle = new ofxToggle("Preview", true);
+	ofxToggle * previewToogle = new ofxToggle();
+	previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
 	previewToogle->addListener(this, &Patch::onPreview);
 	gui.add(previewToogle);
 }
@@ -79,13 +85,8 @@ void Patch::update(){
 		else {
 			begin(i);
 			ofPushStyle();
-			ofSetColor(255);
-			ofLine(0, 0, width, height);
-			ofLine(0, height, width, 0);
-			ofPushStyle();
-			ofSetColor(255,0,0);
-			ofDrawBitmapString(string("Input " + ofToString(i) + " undefined"), 10, height/2);
-			ofPopStyle();
+			ofSetColor(255,10,10);
+			ofRect(0,0,width,height);		
 			ofPopStyle();
 			end(i);
 		}

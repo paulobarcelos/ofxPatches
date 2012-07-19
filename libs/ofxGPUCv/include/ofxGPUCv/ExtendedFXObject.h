@@ -33,12 +33,18 @@ namespace ofxGPUCv {
 		
 		virtual void setup(string name = "", string filename = "");
 		
+		virtual void allocate(int _width, int _height, int _internalFormat);
+		virtual void allocate(int _width, int _height);
+		
 		virtual void setParam1f(float param, int _paramNum = 0);
 		virtual void setParam1i(int param, int _paramNum = 0);
 		
 		virtual void setBypass(bool value);
+		virtual void setPasses(int value);
 		
 		virtual string getName();
+		
+		virtual void registerDefaultGui();
 		
 		virtual void setGUIPosition(float x, float y);
 		virtual void drawGUI();
@@ -56,10 +62,13 @@ namespace ofxGPUCv {
 		string name;
 		string filename;
 		bool bypass;
+		int maxPasses;
 		float * param1fs;
 		int * param1is;
 		
 		int nParam1fs, nParam1is;
+		
+		ofFbo frontbuffer;
 		
 		Param1fDefaults param1fDefaults[OFX_GPU_CV_MAX_PARAMETERS];
 		Param1iDefaults param1iDefaults[OFX_GPU_CV_MAX_PARAMETERS];
@@ -70,5 +79,6 @@ namespace ofxGPUCv {
 		void onParam1fChange(float & value);
 		void onParam1iChange(int & value);
 		void onBypassChange(bool & value);
+		void onPassesChange(int & value);
 	};
 }

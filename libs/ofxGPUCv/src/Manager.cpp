@@ -35,33 +35,37 @@ void Manager::setup(int nSources, string name, string filename){
 	}
 	
 	gui.setup(this->name, this->filename);
-	gui.setPosition(ofGetWidth()/2, ofGetHeight()/2);
+	gui.setSize(OFX_GPU_CV_GUI_SIZE);
+	gui.setPosition(20, 20);
 	gui.clear();
 	
 	
 	// Add th load / save buttons
 	ofxButton * saveSettingsButton = new ofxButton();
-	saveSettingsButton->setup("Save");
+	saveSettingsButton->setup("Save",OFX_GPU_CV_GUI_SIZE);
 	saveSettingsButton->addListener(this, &Manager::onSaveSettings);
 	gui.add(saveSettingsButton);
 	
 	ofxButton * loadSettingsButton = new ofxButton();
-	loadSettingsButton->setup("Load");
+	loadSettingsButton->setup("Load",OFX_GPU_CV_GUI_SIZE);
 	loadSettingsButton->addListener(this, &Manager::onLoadSettings);
 	gui.add(loadSettingsButton);
 	
 	// Add the edit toogle
-	ofxToggle * editToogle = new ofxToggle("Edit", true);
+	ofxToggle * editToogle = new ofxToggle();
+	editToogle->setup("Edit", true, OFX_GPU_CV_GUI_SIZE);
 	editToogle->addListener(this, &Manager::onEdit);
 	gui.add(editToogle);
 	
 	// Add the preview toogle
-	ofxToggle * previewToogle = new ofxToggle("Preview", true);
+	ofxToggle * previewToogle = new ofxToggle();
+	previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
 	previewToogle->addListener((Patch*)this, &Patch::onPreview);
 	gui.add(previewToogle);
 	
-	patchesGui.setup("Patches", baseFolder + "patches_gui.xml");	
-	patchesGui.setPosition(100, 100);	
+	patchesGui.setup("Patches", baseFolder + "patches_gui.xml");
+	patchesGui.setSize(OFX_GPU_CV_GUI_SIZE);
+	patchesGui.setPosition(gui.getShape().x+ gui.getShape().width + 2, 20);	
 }
 
 bool Manager::compileCode(){
@@ -74,7 +78,7 @@ bool Manager::compileCode(){
 		Patch * patch = new FixedSource(&(textures[i]), string("Source " + ofToString(i)));
 		
 		ofxButton * patchButton = new ofxButton();
-		patchButton->setup(patch->getName());
+		patchButton->setup(patch->getName(),OFX_GPU_CV_GUI_SIZE);
 		
 		ManagerPatchGUIHandler * handler = new ManagerPatchGUIHandler(this, registeredPatches.size());
 		patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);
@@ -186,13 +190,8 @@ void Manager::update(){
 	else {
 		begin(nTextures-1);
 		ofPushStyle();
-		ofSetColor(255);
-		ofLine(0, 0, width, height);
-		ofLine(0, height, width, 0);
-		ofPushStyle();
-		ofSetColor(255,0,0);
-		ofDrawBitmapString(string("Input  undefined"), 10, height/2);
-		ofPopStyle();
+		ofSetColor(255,10,10);
+		ofRect(0,0,width,height);		
 		ofPopStyle();
 		end(nTextures-1);
 	}

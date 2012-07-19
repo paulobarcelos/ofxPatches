@@ -5,6 +5,7 @@ ExtendedFXObject::ExtendedFXObject(){
 	name = "undefined";
 	filename = "";
 	bypass = false;
+	maxPasses = 1;
 	param1fs = NULL;
 	param1is = NULL;
 	param1fSliders = NULL;
@@ -40,16 +41,41 @@ void ExtendedFXObject::setup(string name, string filename){
 	}
 		
 	gui.setup(this->name, this->filename);
+	gui.setSize(OFX_GPU_CV_GUI_SIZE);
 	// Reset the gui
 	gui.clear();
 	
+	if(maxPasses < 1) maxPasses = 1;
+	registerDefaultGui();
+}
+
+void ExtendedFXObject::registerDefaultGui(){
 	// Add the bypass toogle	
-	ofxToggle * bypassToggle = new ofxToggle("Bypass", false);
+	ofxToggle * bypassToggle = new ofxToggle();
+	bypassToggle->setup("Bypass", false, OFX_GPU_CV_GUI_SIZE);
 	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
 	gui.add(bypassToggle);
+	
+	// Add passes slider
+	if(maxPasses > 1){
+		ofxIntSlider * passesSlider = new ofxIntSlider();
+		passesSlider->setup("Passes", 1, 1, maxPasses, OFX_GPU_CV_GUI_SIZE);
+		passesSlider->addListener(this, &ExtendedFXObject::onPassesChange);
+		gui.add(passesSlider);
+	}
 }
- 
+
+void ExtendedFXObject::allocate(int _width, int _height, int _internalFormat){
+    internalFormat = _internalFormat;
+    allocate(_width, _height);
+};
+void ExtendedFXObject::allocate(int _width, int _height){
+	frontbuffer.allocate(_width, _height, internalFormat);
+	ofxFXObject::allocate(_width, _height);
+}
+
 bool ExtendedFXObject::compileCode(){
+	
 	
     int num;
     // See how many float parameters it's need on the injected fragment shader
@@ -94,7 +120,7 @@ bool ExtendedFXObject::compileCode(){
 			sliderName = param1fDefaults[i].name;
 			
 		}
-		param1fSliders[i].setup(sliderName, param1fDefaults[i].value, param1fDefaults[i].min, param1fDefaults[i].max);
+		param1fSliders[i].setup(sliderName, param1fDefaults[i].value, param1fDefaults[i].min, param1fDefaults[i].max, OFX_GPU_CV_GUI_SIZE);
 		param1fSliders[i].addListener(this, &ExtendedFXObject::onParam1fChange);
 		gui.add(&(param1fSliders[i]));
 
@@ -162,32 +188,33 @@ void ExtendedFXObject::update(){
         pingPong.swap();
 	}
     else {
-		// All the following update process has been copied from the ofxFXObject original update,
-		// the only new things are the injected float and in parameters
 		for(int i = 0; i < passes; i++) {
 			
 			pingPong.dst->begin();        
 			ofClear(0);
 			shader.begin();
 			shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
+			shader.setUniformTexture("frontbuffer", frontbuffer.getTextureReference(), 1 );
 			
-			for( int i = 0; i < nParam1fs; i++){
-				string paramName = "param1f" + ofToString(i); 
-				shader.setUniform1f(paramName.c_str(), param1fs[i]);
+			for( int j = 0; j < nParam1fs; j++){
+				string paramName = "param1f" + ofToString(j); 
+				shader.setUniform1f(paramName.c_str(), param1fs[j]);
 			}
 			
-			for( int i = 0; i < nParam1is; i++){
-				string paramName = "param1i" + ofToString(i); 
-				shader.setUniform1i(paramName.c_str(), param1is[i]);
+			for( int j = 0; j < nParam1is; j++){
+				string paramName = "param1i" + ofToString(j); 
+				shader.setUniform1i(paramName.c_str(), param1is[j]);
 			}
 			
-			for( int i = 0; i < nTextures; i++){
+			for( int j = 0; j < nTextures; j++){
 				string texName = "tex" + ofToString(i); 
-				shader.setUniformTexture(texName.c_str(), textures[i].getTextureReference(), i+1 );
-				string texRes = "size" + ofToString(i); 
-				shader.setUniform2f(texRes.c_str() , (float)textures[i].getWidth(), (float)textures[i].getHeight());
+				shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+2 );
+				string texRes = "size" + ofToString(j); 
+				shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
 			}
 			
+			shader.setUniform1i("passes", passes );
+			shader.setUniform1i("pass", i );
 			shader.setUniform1f("time", ofGetElapsedTimef() );
 			shader.setUniform2f("size", (float)width, (float)height);
 			shader.setUniform2f("resolution", (float)width, (float)height);
@@ -195,8 +222,12 @@ void ExtendedFXObject::update(){
 			
 			renderFrame();        
 			shader.end();        
-			pingPong.dst->end();        
+			pingPong.dst->end();       
 			pingPong.swap();
+			
+			frontbuffer.begin();
+			pingPong.src->draw(0, 0);
+			frontbuffer.end();
 		}
 	}
     pingPong.swap();
@@ -215,18 +246,11 @@ void ExtendedFXObject::setParam1i(int param, int _paramNum){
 void ExtendedFXObject::setBypass(bool value){
 	bypass = value;
 }
-
-string ExtendedFXObject::getName(){
-	return name;
+void ExtendedFXObject::setPasses(int value){
+	if(value < 1) value = 1;
+	passes = value;
 }
 
-
-void ExtendedFXObject::setGUIPosition(float x, float y){
-	gui.setPosition(x,y);
-}
-void ExtendedFXObject::drawGUI(){
-	gui.draw();
-}
 void ExtendedFXObject::onParam1fChange(float & value){
 	for (int i = 0; i < nParam1fs; i++) {
 		setParam1f(param1fSliders[i], i);
@@ -240,6 +264,21 @@ void ExtendedFXObject::onParam1iChange(int & value){
 void ExtendedFXObject::onBypassChange(bool & value){
 	setBypass(value);
 }
+void ExtendedFXObject::onPassesChange(int & value){
+	setPasses(value);
+}
+
+string ExtendedFXObject::getName(){
+	return name;
+}
+
+void ExtendedFXObject::setGUIPosition(float x, float y){
+	gui.setPosition(x,y);
+}
+void ExtendedFXObject::drawGUI(){
+	gui.draw();
+}
+
 
 void ExtendedFXObject::applyGuiValues(){
 	onBypassChange(gui.getToggle("Bypass"));
