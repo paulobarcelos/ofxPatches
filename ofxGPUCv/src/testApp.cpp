@@ -1,8 +1,10 @@
 #include "testApp.h"
 
+
+
+
 //--------------------------------------------------------------
 void testApp::setup(){
-	
 	ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
 	
