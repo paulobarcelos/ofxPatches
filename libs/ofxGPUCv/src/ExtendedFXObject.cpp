@@ -71,6 +71,9 @@ void ExtendedFXObject::allocate(int _width, int _height, int _internalFormat){
 };
 void ExtendedFXObject::allocate(int _width, int _height){
 	lastBuffer.allocate(_width, _height, internalFormat);
+	lastBuffer.begin();
+	ofClear(0,0);
+	lastBuffer.end();
 	ofxFXObject::allocate(_width, _height);
 }
 
@@ -178,7 +181,7 @@ bool ExtendedFXObject::compileCode(){
 		else{
 			sliderName = param1iDefaults[i].name;
 		}
-		param1iSliders[i].setup(sliderName, param1iDefaults[i].value, param1iDefaults[i].min, param1iDefaults[i].max);
+		param1iSliders[i].setup(sliderName, param1iDefaults[i].value, param1iDefaults[i].min, param1iDefaults[i].max, OFX_GPU_CV_GUI_SIZE);
 		param1iSliders[i].addListener(this, &ExtendedFXObject::onParam1iChange);
 		gui.add(&(param1iSliders[i]));
 
@@ -193,7 +196,7 @@ bool ExtendedFXObject::compileCode(){
 void ExtendedFXObject::update(){
 	if(bypass){
 		pingPong.dst->begin();        
-        ofClear(0);
+        ofClear(0,0);
 		textures[0].draw(0, 0);  
         pingPong.dst->end();        
         pingPong.swap();
@@ -202,7 +205,7 @@ void ExtendedFXObject::update(){
 		for(int i = 0; i < passes; i++) {
 			
 			pingPong.dst->begin();        
-			ofClear(0);
+			ofClear(0,0);
 			shader.begin();
 			
 			// on the first pass, use the last rendered buffer as the backbuffer

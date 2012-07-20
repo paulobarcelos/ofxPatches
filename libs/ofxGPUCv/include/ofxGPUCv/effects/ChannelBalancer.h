@@ -40,8 +40,6 @@ namespace ofxGPUCv {
 			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;
-									   uniform sampler2DRect backbuffer;
-									   uniform int pass;
 									   uniform float param1f0;
 									   uniform float param1f1;
 									   uniform float param1f2;
