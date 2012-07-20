@@ -68,7 +68,8 @@ namespace ofxGPUCv {
 		
 		int nParam1fs, nParam1is;
 		
-		ofFbo frontbuffer;
+		ofFbo lastBuffer; // Acts as a buffer "buffer", so we can provide the last rendered buffer from the
+						  // last update as the backbuffer of the first pass of the current update
 		
 		Param1fDefaults param1fDefaults[OFX_GPU_CV_MAX_PARAMETERS];
 		Param1iDefaults param1iDefaults[OFX_GPU_CV_MAX_PARAMETERS];
@@ -76,9 +77,13 @@ namespace ofxGPUCv {
 		ofxPanel gui;
 		ofxFloatSlider * param1fSliders;
 		ofxIntSlider * param1iSliders;
-		void onParam1fChange(float & value);
-		void onParam1iChange(int & value);
-		void onBypassChange(bool & value);
-		void onPassesChange(int & value);
+		virtual void onParam1fChange(float & value);
+		virtual void onParam1iChange(int & value);
+		virtual void onBypassChange(bool & value);
+		virtual void onPassesChange(int & value);
+		
+		// this will run just before the frame is rendered, making
+		// it a good place to inject custom variables into the shader
+		virtual void onRenderPass(int pass){};
 	};
 }

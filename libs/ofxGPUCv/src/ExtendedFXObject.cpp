@@ -70,11 +70,22 @@ void ExtendedFXObject::allocate(int _width, int _height, int _internalFormat){
     allocate(_width, _height);
 };
 void ExtendedFXObject::allocate(int _width, int _height){
-	frontbuffer.allocate(_width, _height, internalFormat);
+	lastBuffer.allocate(_width, _height, internalFormat);
 	ofxFXObject::allocate(_width, _height);
 }
 
 bool ExtendedFXObject::compileCode(){
+	// Add the defaults variables into the shader
+	string defaultVariables = "";
+	defaultVariables += "uniform sampler2DRect backbuffer;";
+	defaultVariables += "uniform float time;";
+	defaultVariables += "uniform vec2 size;";
+	defaultVariables += "uniform vec2 resolution;";
+	defaultVariables += "uniform vec2 mouse;";
+	defaultVariables += "uniform int passes;";
+	defaultVariables += "uniform int pass;";
+	
+	fragmentShader = defaultVariables + fragmentShader;
 	
 	
     int num;
@@ -193,8 +204,10 @@ void ExtendedFXObject::update(){
 			pingPong.dst->begin();        
 			ofClear(0);
 			shader.begin();
-			shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
-			shader.setUniformTexture("frontbuffer", frontbuffer.getTextureReference(), 1 );
+			
+			// on the first pass, use the last rendered buffer as the backbuffer
+			if(i == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
+			else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
 			
 			for( int j = 0; j < nParam1fs; j++){
 				string paramName = "param1f" + ofToString(j); 
@@ -208,7 +221,7 @@ void ExtendedFXObject::update(){
 			
 			for( int j = 0; j < nTextures; j++){
 				string texName = "tex" + ofToString(i); 
-				shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+2 );
+				shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+1 );
 				string texRes = "size" + ofToString(j); 
 				shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
 			}
@@ -220,14 +233,20 @@ void ExtendedFXObject::update(){
 			shader.setUniform2f("resolution", (float)width, (float)height);
 			shader.setUniform2f("mouse", (float)(ofGetMouseX()/width), (float)(ofGetMouseY()/height));
 			
+			// hook where you can put custom code into the shader pass
+			onRenderPass(i);
+			
 			renderFrame();        
 			shader.end();        
 			pingPong.dst->end();       
 			pingPong.swap();
 			
-			frontbuffer.begin();
-			pingPong.src->draw(0, 0);
-			frontbuffer.end();
+			// store the last render into it's own buffer
+			if(i == passes -1){
+				lastBuffer.begin();
+				pingPong.src->draw(0, 0);
+				lastBuffer.end();
+			}
 		}
 	}
     pingPong.swap();
