@@ -24,7 +24,7 @@ namespace ofxGPUCv {
 			
 			param1fDefaults[0].name = "Rate";
 			param1fDefaults[0].value = 0.0;
-			param1fDefaults[0].min = 0.005;
+			param1fDefaults[0].min = 0.01;
 			param1fDefaults[0].max = 1.0;
 			
 			param1iDefaults[0].name = "Frames to skip";
