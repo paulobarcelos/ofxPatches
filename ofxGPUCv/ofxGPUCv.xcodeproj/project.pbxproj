@@ -128,6 +128,8 @@
 		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
 		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
 		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
+		386A81E015BAF94000A4809B /* Base5x5KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base5x5KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base5x5KernelEffect.h; sourceTree = "<group>"; };
+		386A81E115BB130600A4809B /* BlurGaussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlurGaussian.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BlurGaussian.h; sourceTree = "<group>"; };
 		38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimeMeasurements.cpp; sourceTree = "<group>"; };
 		38E271E315B9BF2D00C59BA2 /* ofxTimeMeasurements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTimeMeasurements.h; sourceTree = "<group>"; };
 		38E271E815B9E52300C59BA2 /* HayasakaBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HayasakaBlend.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/HayasakaBlend.h; sourceTree = "<group>"; };
@@ -920,6 +922,8 @@
 		da53f5083ab27c3f954a7808c1262d70 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				386A81E115BB130600A4809B /* BlurGaussian.h */,
+				386A81E015BAF94000A4809B /* Base5x5KernelEffect.h */,
 				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
 				38E2720315BA027B00C59BA2 /* CustomBW.h */,
 				38E271E815B9E52300C59BA2 /* HayasakaBlend.h */,

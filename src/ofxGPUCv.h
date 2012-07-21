@@ -13,4 +13,6 @@
 
 #include "ofxGPUCv/effects/DifferenceAbsolute.h"
 #include "ofxGPUCv/effects/DifferenceDarken.h"
-#include "ofxGPUCv/effects/DifferenceLigthen.h"
+#include "ofxGPUCv/effects/DifferenceLigthen.h"BlurGaussian
+
+#include "ofxGPUCv/effects/BlurGaussian.h"

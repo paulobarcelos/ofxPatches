@@ -14,4 +14,5 @@ m.registerPatch<ofxGPUCv::HayasakaBlend>();\
 m.registerPatch<ofxGPUCv::CustomBW>();\
 m.registerPatch<ofxGPUCv::DifferenceAbsolute>();\
 m.registerPatch<ofxGPUCv::DifferenceDarken>();\
-m.registerPatch<ofxGPUCv::DifferenceLigthen>();
+m.registerPatch<ofxGPUCv::DifferenceLigthen>();\
+m.registerPatch<ofxGPUCv::BlurGaussian>();
