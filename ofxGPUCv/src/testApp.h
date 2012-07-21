@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGPUCv.h"
+#include "ofxTimeMeasurements.h"
 
 class testApp : public ofBaseApp{
 

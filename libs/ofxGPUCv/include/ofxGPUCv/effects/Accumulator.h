@@ -33,6 +33,10 @@ namespace ofxGPUCv {
 			param1iDefaults[0].max = 30;
 			
 			fragmentShader = STRINGIFY(
+									   uniform sampler2DRect backbuffer;
+									   uniform int passes;
+									   uniform int pass;
+									   
 									   uniform sampler2DRect tex0;
 									   uniform float param1f0;
 									   uniform int param1i0;
@@ -66,18 +70,34 @@ namespace ofxGPUCv {
 									   );
 		}
 		
+		void registerDefaultGui(){			
+			Patch::registerDefaultGui();
+			
+			// Add the acc allumualte button
+			ofxButton * accumulate = new ofxButton();
+			accumulate->setup("Accumulate all", OFX_GPU_CV_GUI_SIZE);
+			accumulate->addListener(this, &Accumulator::onAccumulateAll);
+			gui.add(accumulate);
+		};
+		
+		void onAccumulateAll(bool & value){
+			if(value){
+				accumulateAll();
+			}
+		}
+		
 		void accumulateAll(){
-			lastBuffer.begin();
-			textures[0].draw(0, 0);
-			lastBuffer.end();
-			
-			pingPong.src->begin();
-			textures[0].draw(0, 0);
-			pingPong.src->end();
-			
-			pingPong.dst->begin();
-			textures[0].draw(0, 0);
-			pingPong.dst->end();
+				lastBuffer.begin();
+				textures[0].draw(0, 0);
+				lastBuffer.end();
+				
+				pingPong.src->begin();
+				textures[0].draw(0, 0);
+				pingPong.src->end();
+				
+				pingPong.dst->begin();
+				textures[0].draw(0, 0);
+				pingPong.dst->end();
 		}
 		
 		bool compileCode(){

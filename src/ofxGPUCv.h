@@ -8,3 +8,9 @@
 #include "ofxGPUCv/effects/FixedSource.h"
 #include "ofxGPUCv/effects/ChannelBalancer.h"
 #include "ofxGPUCv/effects/Accumulator.h"
+#include "ofxGPUCv/effects/HayasakaBlend.h"
+#include "ofxGPUCv/effects/CustomBW.h"
+
+#include "ofxGPUCv/effects/DifferenceAbsolute.h"
+#include "ofxGPUCv/effects/DifferenceDarken.h"
+#include "ofxGPUCv/effects/DifferenceLigthen.h"

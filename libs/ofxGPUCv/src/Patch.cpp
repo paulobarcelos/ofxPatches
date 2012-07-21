@@ -80,7 +80,7 @@ void Patch::setInput(Patch * patch, int index){
 }
 
 void Patch::update(){
-	for (int i = 0; i < inputs.size(); i++) {
+	for (int i = 0; i < inputs.size(); i++) {		
 		if(inputs[i]->getPatch()) setTexture(inputs[i]->getPatch()->getTextureReference(), i);
 		else {
 			begin(i);

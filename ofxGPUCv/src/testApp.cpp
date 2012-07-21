@@ -5,7 +5,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	ofSetVerticalSync(true);
+	//ofSetVerticalSync(true);
 	cam.initGrabber(640, 480);
 	
 	/**
@@ -21,24 +21,29 @@ void testApp::setup(){
 	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 	
-	
+	TIME_SAMPLE_SET_FRAMERATE(1000);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
 	cam.update();
 	if(cam.isFrameNew()){
+		TIME_SAMPLE_START("update");
 		manager.setTexture(cam.getTextureReference());
 		manager.update();
+		TIME_SAMPLE_STOP("update");
 	}
+	
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 	manager.draw(0,0);
+	TIME_SAMPLE_START("gui");
 	manager.drawGUI();
+	TIME_SAMPLE_STOP("gui");
 	
-	ofDrawBitmapString(ofToString(ofGetFrameRate()), 10,10);
+	TIME_SAMPLE_DRAW(10, 10);
 }
 
 //--------------------------------------------------------------

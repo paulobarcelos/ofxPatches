@@ -15,6 +15,7 @@
 		2023ef517ed2d8b397511d4bf2052690 /* Helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = b9076967f8c54a04362c04aa9e3bb906 /* Helpers.cpp */; };
 		250a95ba26587be85db0a353e6e1dea2 /* ofxCvColorImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ce9c7160245b19131dae61282ee6cb53 /* ofxCvColorImage.cpp */; };
 		375b8c5b419d8c3a250c8b43c9fb5c80 /* ofxFluid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = e03c3575d9d98939012df8f7a5b13ac5 /* ofxFluid.cpp */; };
+		38E271E615B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */; };
 		45cc483a999bf1065a6b926c53724159 /* Distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9dbd717072c35d324e1016697d7aa720 /* Distance.cpp */; };
 		4e08503ca9b585e259b787c36b1b6d50 /* ofxFlocking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9b552b2941718f15bdfbb2642c6604be /* ofxFlocking.cpp */; };
 		5355e99d8bbc71222aa2b9fd35c7e290 /* ofxFXObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4cf06da01d9a4561a5001b286d7033d5 /* ofxFXObject.cpp */; };
@@ -124,6 +125,13 @@
 		34267136a4cc27b2f395162c79d54c5f /* ChannelBalancer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelBalancer.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/ChannelBalancer.h; sourceTree = SOURCE_ROOT; };
 		3565d6514875740bc4a303c2636a93f5 /* PatchInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PatchInput.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/PatchInput.cpp; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
+		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
+		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
+		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
+		38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimeMeasurements.cpp; sourceTree = "<group>"; };
+		38E271E315B9BF2D00C59BA2 /* ofxTimeMeasurements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTimeMeasurements.h; sourceTree = "<group>"; };
+		38E271E815B9E52300C59BA2 /* HayasakaBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HayasakaBlend.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/HayasakaBlend.h; sourceTree = "<group>"; };
+		38E2720315BA027B00C59BA2 /* CustomBW.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomBW.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/CustomBW.h; sourceTree = "<group>"; };
 		3c232045833313b99efe0b14840b6108 /* ofxCvMain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvMain.h; path = ../../../addons/ofxOpenCv/src/ofxCvMain.h; sourceTree = SOURCE_ROOT; };
 		402c8f4015542356d362ac883b9c826c /* Calibration.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Calibration.cpp; path = ../../../addons/ofxCv/libs/ofxCv/src/Calibration.cpp; sourceTree = SOURCE_ROOT; };
 		43ff3f23d08e99df7581246e60900f60 /* Manager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Manager.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/Manager.cpp; sourceTree = SOURCE_ROOT; };
@@ -460,6 +468,24 @@
 			name = filters;
 			sourceTree = "<group>";
 		};
+		38E271DB15B9BF2D00C59BA2 /* ofxTimeMeasurements */ = {
+			isa = PBXGroup;
+			children = (
+				38E271E115B9BF2D00C59BA2 /* src */,
+			);
+			name = ofxTimeMeasurements;
+			path = ../../ofxTimeMeasurements;
+			sourceTree = "<group>";
+		};
+		38E271E115B9BF2D00C59BA2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */,
+				38E271E315B9BF2D00C59BA2 /* ofxTimeMeasurements.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
 		3e44059dcbc2444d65660b9c94e00100 /* imgproc */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +672,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				38E271DB15B9BF2D00C59BA2 /* ofxTimeMeasurements */,
 				6025faf6414c2ca589764d26b59a2f04 /* ofxCv */,
 				cabf1a23b637491112b10a007467a040 /* ofxFX */,
 				410e00a9d0d3f69ce1229faa51dc3dca /* ofxGPUCv */,
@@ -893,9 +920,14 @@
 		da53f5083ab27c3f954a7808c1262d70 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
+				38E2720315BA027B00C59BA2 /* CustomBW.h */,
+				38E271E815B9E52300C59BA2 /* HayasakaBlend.h */,
 				1731e6451218fa55f1d69074dd5585f3 /* Accumulator.h */,
 				34267136a4cc27b2f395162c79d54c5f /* ChannelBalancer.h */,
-				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
+				386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */,
+				386A81DD15BAA51900A4809B /* DifferenceDarken.h */,
+				386A81DE15BAA51900A4809B /* DifferenceLigthen.h */,
 			);
 			name = effects;
 			sourceTree = "<group>";
@@ -1062,6 +1094,7 @@
 				933a2227713c720ceff80fd967d0a8ee /* tinyxml.cpp in Sources */,
 				9d44dc88ef9e7991b4a09951e2e4769f /* tinyxmlerror.cpp in Sources */,
 				5a4349e9754d6fa14c0f2a3a1abc30b6 /* tinyxmlparser.cpp in Sources */,
+				38E271E615B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

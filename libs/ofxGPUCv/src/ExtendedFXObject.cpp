@@ -79,7 +79,7 @@ void ExtendedFXObject::allocate(int _width, int _height){
 
 bool ExtendedFXObject::compileCode(){
 	// Add the defaults variables into the shader
-	string defaultVariables = "";
+	/*string defaultVariables = "";
 	defaultVariables += "uniform sampler2DRect backbuffer;";
 	defaultVariables += "uniform float time;";
 	defaultVariables += "uniform vec2 size;";
@@ -88,7 +88,7 @@ bool ExtendedFXObject::compileCode(){
 	defaultVariables += "uniform int passes;";
 	defaultVariables += "uniform int pass;";
 	
-	fragmentShader = defaultVariables + fragmentShader;
+	fragmentShader = defaultVariables + fragmentShader;*/
 	
 	
     int num;
@@ -223,7 +223,7 @@ void ExtendedFXObject::update(){
 			}
 			
 			for( int j = 0; j < nTextures; j++){
-				string texName = "tex" + ofToString(i); 
+				string texName = "tex" + ofToString(j); 
 				shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+1 );
 				string texRes = "size" + ofToString(j); 
 				shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
