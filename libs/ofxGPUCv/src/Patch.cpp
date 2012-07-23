@@ -97,7 +97,13 @@ void Patch::update(){
 
 void Patch::drawGUI(){
 	ExtendedFXObject::drawGUI();
-
+	
+	ofPushStyle();
+	ofEnableAlphaBlending();	
+	ofSetColor(255);
+	ofDrawBitmapString(ofToString(id), gui.getShape().x, gui.getShape().y - 1);
+	ofPopStyle();
+	
 	if(preview) draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
 	
 	if(output) output->draw();	

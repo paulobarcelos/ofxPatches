@@ -126,6 +126,9 @@
 		3565d6514875740bc4a303c2636a93f5 /* PatchInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PatchInput.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/PatchInput.cpp; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
 		3853077415BDB10F003D9DCF /* BaseKernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseKernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BaseKernelEffect.h; sourceTree = "<group>"; };
+		3853077615BDB9A0003D9DCF /* Invert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invert.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Invert.h; sourceTree = "<group>"; };
+		3853077715BDB9A1003D9DCF /* Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Threshold.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Threshold.h; sourceTree = "<group>"; };
+		3853077A15BDBF67003D9DCF /* BandThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandThreshold.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BandThreshold.h; sourceTree = "<group>"; };
 		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
 		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
 		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
@@ -946,6 +949,9 @@
 				386A81E815BB1FF000A4809B /* EdgeSobel.h */,
 				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
 				38E2720315BA027B00C59BA2 /* CustomBW.h */,
+				3853077A15BDBF67003D9DCF /* BandThreshold.h */,
+				3853077615BDB9A0003D9DCF /* Invert.h */,
+				3853077715BDB9A1003D9DCF /* Threshold.h */,
 				38E271E815B9E52300C59BA2 /* HayasakaBlend.h */,
 				1731e6451218fa55f1d69074dd5585f3 /* Accumulator.h */,
 				34267136a4cc27b2f395162c79d54c5f /* ChannelBalancer.h */,
