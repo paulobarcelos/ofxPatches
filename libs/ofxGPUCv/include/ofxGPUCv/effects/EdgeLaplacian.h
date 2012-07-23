@@ -7,12 +7,12 @@
 
 namespace ofxGPUCv {
 	
-	class BlurGaussian : public Base5x5KernelEffect {	
+	class EdgeLaplacian : public Base5x5KernelEffect {	
 	public:
-		BlurGaussian * create() { return new BlurGaussian(); };
+		EdgeLaplacian * create() { return new EdgeLaplacian(); };
 		
-		BlurGaussian(){
-			name = "Gaussian Blur";
+		EdgeLaplacian(){
+			name = "Laplacian Edge";
 			
 			fragmentShader += STRINGIFY(
 										vec4 sample[25];
@@ -30,7 +30,6 @@ namespace ofxGPUCv {
 												}
 											}
 											
-			
 											// Gaussian weighting:
 											// 1  4  7  4 1
 											// 4 16 26 16 4
