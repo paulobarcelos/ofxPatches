@@ -25,4 +25,5 @@ m.registerPatch<ofxGPUCv::Dilate>();\
 m.registerPatch<ofxGPUCv::EdgeLaplacian>();\
 m.registerPatch<ofxGPUCv::EdgePrewitt>();\
 m.registerPatch<ofxGPUCv::EdgeSobel>();\
-m.registerPatch<ofxGPUCv::HayasakaBlend>();
+m.registerPatch<ofxGPUCv::HayasakaBlend>();\
+m.registerPatch<ofxGPUCv::ColorBlock>();

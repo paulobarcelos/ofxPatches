@@ -30,3 +30,5 @@
 #include "ofxGPUCv/effects/EdgeLaplacian.h"
 #include "ofxGPUCv/effects/EdgePrewitt.h"
 #include "ofxGPUCv/effects/EdgeSobel.h"
+
+#include "ofxGPUCv/effects/ColorBlock.h"
