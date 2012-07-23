@@ -128,6 +128,17 @@
 		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
 		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
 		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
+		386A81E015BAF94000A4809B /* Base5x5KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base5x5KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base5x5KernelEffect.h; sourceTree = "<group>"; };
+		386A81E115BB130600A4809B /* BlurGaussian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlurGaussian.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BlurGaussian.h; sourceTree = "<group>"; };
+		386A81E215BB1FED00A4809B /* Dilate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dilate.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Dilate.h; sourceTree = "<group>"; };
+		386A81E315BB1FED00A4809B /* Erode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Erode.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Erode.h; sourceTree = "<group>"; };
+		386A81E415BB1FEE00A4809B /* BlurMedian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlurMedian.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BlurMedian.h; sourceTree = "<group>"; };
+		386A81E515BB1FEE00A4809B /* Sharpen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Sharpen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Sharpen.h; sourceTree = "<group>"; };
+		386A81E615BB1FEF00A4809B /* EdgeLaplacian.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeLaplacian.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/EdgeLaplacian.h; sourceTree = "<group>"; };
+		386A81E715BB1FEF00A4809B /* EdgePrewitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgePrewitt.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/EdgePrewitt.h; sourceTree = "<group>"; };
+		386A81E815BB1FF000A4809B /* EdgeSobel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeSobel.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/EdgeSobel.h; sourceTree = "<group>"; };
+		38B2D52C15BD9F9400ED3E97 /* Base3x3KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base3x3KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base3x3KernelEffect.h; sourceTree = "<group>"; };
+		38B2D52D15BD9F9500ED3E97 /* Base7x7KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base7x7KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base7x7KernelEffect.h; sourceTree = "<group>"; };
 		38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimeMeasurements.cpp; sourceTree = "<group>"; };
 		38E271E315B9BF2D00C59BA2 /* ofxTimeMeasurements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTimeMeasurements.h; sourceTree = "<group>"; };
 		38E271E815B9E52300C59BA2 /* HayasakaBlend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HayasakaBlend.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/HayasakaBlend.h; sourceTree = "<group>"; };
@@ -920,6 +931,17 @@
 		da53f5083ab27c3f954a7808c1262d70 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				38B2D52C15BD9F9400ED3E97 /* Base3x3KernelEffect.h */,
+				386A81E015BAF94000A4809B /* Base5x5KernelEffect.h */,
+				38B2D52D15BD9F9500ED3E97 /* Base7x7KernelEffect.h */,
+				386A81E215BB1FED00A4809B /* Dilate.h */,
+				386A81E315BB1FED00A4809B /* Erode.h */,
+				386A81E415BB1FEE00A4809B /* BlurMedian.h */,
+				386A81E115BB130600A4809B /* BlurGaussian.h */,
+				386A81E515BB1FEE00A4809B /* Sharpen.h */,
+				386A81E615BB1FEF00A4809B /* EdgeLaplacian.h */,
+				386A81E715BB1FEF00A4809B /* EdgePrewitt.h */,
+				386A81E815BB1FF000A4809B /* EdgeSobel.h */,
 				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
 				38E2720315BA027B00C59BA2 /* CustomBW.h */,
 				38E271E815B9E52300C59BA2 /* HayasakaBlend.h */,
