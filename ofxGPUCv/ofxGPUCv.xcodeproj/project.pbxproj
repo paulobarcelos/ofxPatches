@@ -125,6 +125,7 @@
 		34267136a4cc27b2f395162c79d54c5f /* ChannelBalancer.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ChannelBalancer.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/ChannelBalancer.h; sourceTree = SOURCE_ROOT; };
 		3565d6514875740bc4a303c2636a93f5 /* PatchInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PatchInput.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/PatchInput.cpp; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
+		3853077415BDB10F003D9DCF /* BaseKernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BaseKernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BaseKernelEffect.h; sourceTree = "<group>"; };
 		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
 		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
 		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
@@ -931,6 +932,7 @@
 		da53f5083ab27c3f954a7808c1262d70 /* effects */ = {
 			isa = PBXGroup;
 			children = (
+				3853077415BDB10F003D9DCF /* BaseKernelEffect.h */,
 				38B2D52C15BD9F9400ED3E97 /* Base3x3KernelEffect.h */,
 				386A81E015BAF94000A4809B /* Base5x5KernelEffect.h */,
 				38B2D52D15BD9F9500ED3E97 /* Base7x7KernelEffect.h */,
