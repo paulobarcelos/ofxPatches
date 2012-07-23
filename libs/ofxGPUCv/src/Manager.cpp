@@ -137,8 +137,8 @@ void Manager::addPatch(int label, int id){
 	patch->setLabel(label);
 	patch->allocate(width, height, internalFormat);
 		
-	patch->setGUIPosition(ofGetWidth()/2 - patch->gui.getShape().width / 2 + currentPatches.size() * 30, 
-						 ofGetHeight()/2 - patch->gui.getShape().height / 2 + currentPatches.size()*30);
+	patch->setGUIPosition(ofGetWidth()/2 - patch->gui.getShape().width / 2 + currentPatches.size() * 14, 
+						 ofGetHeight()/2 - patch->gui.getShape().height / 2 + currentPatches.size() * 14);
 	
 	currentPatches.push_back(patch);
 }

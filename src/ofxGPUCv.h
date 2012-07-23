@@ -11,7 +11,10 @@
 #include "ofxGPUCv/effects/HayasakaBlend.h"
 
 #include "ofxGPUCv/effects/ChannelBalancer.h"
+#include "ofxGPUCv/effects/Invert.h"
 #include "ofxGPUCv/effects/CustomBW.h"
+#include "ofxGPUCv/effects/BandThreshold.h"
+#include "ofxGPUCv/effects/Threshold.h"
 
 #include "ofxGPUCv/effects/DifferenceAbsolute.h"
 #include "ofxGPUCv/effects/DifferenceDarken.h"

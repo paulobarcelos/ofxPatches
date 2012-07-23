@@ -24,5 +24,7 @@ class testApp : public ofBaseApp{
 	ofVideoGrabber cam;
 	ofxGPUCv::Manager manager;
 	
+	ofxGPUCv::Manager blender;
+	
 		
 };

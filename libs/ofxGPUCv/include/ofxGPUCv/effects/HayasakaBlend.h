@@ -50,6 +50,32 @@ public:
 		param1iDefaults[0].min = 0;
 		param1iDefaults[0].max = 24;
 		
+		blendNames[0] = "NORMAL";
+		blendNames[1] = "MULTIPLY";
+		blendNames[2] = "AVERAGE";
+		blendNames[3] = "ADD";
+		blendNames[4] = "SUBSTRACT";
+		blendNames[5] = "DIFFERENCE";
+		blendNames[6] = "NEGATION";
+		blendNames[7] = "EXCLUSION";
+		blendNames[8] = "SCREEN";
+		blendNames[9] = "OVERLAY";
+		blendNames[10] = "SOFTLIGHT";
+		blendNames[11] = "HARDLIGHT";
+		blendNames[12] = "COLORDODGE";
+		blendNames[13] = "COLORBURN";
+		blendNames[14] = "LINEARLIGHT";
+		blendNames[15] = "VIVIDLIGHT";
+		blendNames[16] = "PINLIGHT";
+		blendNames[17] = "HARDMIX";
+		blendNames[18] = "REGLECT";
+		blendNames[19] = "GLOW";
+		blendNames[20] = "PHOENIX";
+		blendNames[21] = "HUE";
+		blendNames[22] = "SATURATION";
+		blendNames[23] = "COLOR";
+		blendNames[24] = "LUMINOSITY";
+		
         fragmentShader = STRINGIFY(vec4 Desaturate(vec3 color, float Desaturation){
 										vec3 grayXfer = vec3(0.3, 0.59, 0.11);
 										vec3 gray = vec3(dot(grayXfer, color));
@@ -273,6 +299,22 @@ public:
         #define LevelsControl(color, minInput, gamma, maxInput, minOutput, maxOutput) LevelsControlOutputRange(LevelsControlInput(color, minInput, gamma, maxInput), minOutput, maxOutput)\n"
 		+ fragmentShader;
 	};
+	
+	void setParam1i(int param, int _paramNum = 0){
+		Patch::setParam1i(param, _paramNum);
+		
+		// mode is the 4th paramenter
+		if( _paramNum == 0){
+			if(param < 0) param = 0;
+			if(param > 24) param = 24;
+			gui.getControl(3)->setName(blendNames[param]);
+		}
+	}
+	
+	string blendNames[25]; 
+	
+	private:
 };
+
 }
 

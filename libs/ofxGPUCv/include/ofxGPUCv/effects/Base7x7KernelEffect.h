@@ -2,36 +2,17 @@
 
 #define STRINGIFY(A) #A
 
-#include "ofMain.h"
-#include "ofxGPUCv/Patch.h"
-
+#include "ofxGPUCv/effects/BaseKernelEffect.h"
 
 namespace ofxGPUCv {
 	
-	class Base7x7KernelEffect : public Patch {	
+	class Base7x7KernelEffect : public BaseKernelEffect {	
 	public:
 		Base7x7KernelEffect * create() { return new Base7x7KernelEffect(); };
 		
 		Base7x7KernelEffect(){
 			name = "Base 7x7 Kernel Effect";
 			
-			maxPasses = 100;
-
-			internalFormat = GL_RGBA;
-			
-			param1fDefaults[0].name = "Size";
-			param1fDefaults[0].value = 4.0;
-			param1fDefaults[0].min = 0.0;
-			param1fDefaults[0].max = 100.0;
-			
-			param1fDefaults[1].name = "x multiplier";
-			param1fDefaults[1].value = 1.0;
-			param1fDefaults[1].min = 0.0;
-			param1fDefaults[1].max = 1.0;
-			
-			param1fDefaults[2].name = "y multiplier";
-			param1fDefaults[2].value = 1.0;
-			param1fDefaults[2].min = 0.0;
 			param1fDefaults[2].max = 1.0;
 			
 			fragmentShader = STRINGIFY(
@@ -48,11 +29,6 @@ namespace ofxGPUCv {
 		
 		void onRenderPass(int pass){
 			shader.setUniform2fv("offset", offset, 49);
-		}
-		
-		void setParam1f(float param, int _paramNum = 0){
-			Patch::setParam1f(param, _paramNum);
-			calculateOffset();
 		}
 		
 	private:

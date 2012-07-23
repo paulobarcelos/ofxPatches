@@ -6,6 +6,8 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	//ofSetVerticalSync(true);
+	ofSetWindowPosition(0, 0);
+	ofSetWindowShape(1680, 1050);
 	cam.initGrabber(640, 480);
 	
 	/**
