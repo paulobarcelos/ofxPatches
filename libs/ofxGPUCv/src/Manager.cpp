@@ -57,11 +57,11 @@ void Manager::setup(int nSources, string name, string filename){
 	editToogle->addListener(this, &Manager::onEdit);
 	gui.add(editToogle);
 	
-	// Add the preview toogle
-	ofxToggle * previewToogle = new ofxToggle();
-	previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
-	previewToogle->addListener((Patch*)this, &Patch::onPreview);
-	gui.add(previewToogle);
+	// Add the preview slider
+	ofxFloatSlider * previewSlider = new ofxFloatSlider();
+	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_GPU_CV_GUI_SIZE);
+	previewSlider->addListener((Patch*)this, &Patch::onPreviewScaleChange);
+	gui.add(previewSlider);
 	
 	patchesGui.setup("Patches", baseFolder + "patches_gui.xml");
 	patchesGui.setSize(OFX_GPU_CV_GUI_SIZE);
@@ -209,7 +209,9 @@ void Manager::update(){
 void Manager::drawGUI(){
 	ExtendedFXObject::drawGUI();
 	
-	if(preview) draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
+	if(previewScale > 0) {
+		draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, width*previewScale, height*previewScale); 
+	}
 	
 	if(isEditing){
 		if(output) output->draw();	

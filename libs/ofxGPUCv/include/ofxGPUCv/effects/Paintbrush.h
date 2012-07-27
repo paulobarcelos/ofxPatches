@@ -65,6 +65,7 @@ namespace ofxGPUCv {
 									   );
 		}
 		
+		
 		void setParam1f(float param, int _paramNum = 0){
 			ColorBlock::setParam1f(param, _paramNum);
 		}
@@ -72,8 +73,8 @@ namespace ofxGPUCv {
 		void onRenderPass(int pass){
 			ColorBlock::onRenderPass(pass);
 			shader.setUniform2f("pos", 
-								((float) ofGetMouseX() - gui.getShape().x)/gui.getShape().width,
-								((float) ofGetMouseY() - gui.getShape().y - gui.getShape().height) / (gui.getShape().width * ((float)height/(float)width)));
+								((float) ofGetMouseX() - gui.getShape().x)/ (width * previewScale),
+								((float) ofGetMouseY() - gui.getShape().y - gui.getShape().height) / (height * previewScale));
 			shader.setUniform1i("pressed", (ofGetMousePressed())?1:0);			
 			
 		}
@@ -110,6 +111,7 @@ namespace ofxGPUCv {
 		private:
 			float size;
 			float softness;
+		
 	};
 	
 }

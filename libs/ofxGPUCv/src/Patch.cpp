@@ -8,7 +8,7 @@ using namespace ofxGPUCv;
 Patch::Patch(){
 	output = new PatchOutput(this);
 	manager = NULL;
-	preview = true;
+	previewScale = 0.25;
 	ExtendedFXObject::ExtendedFXObject();
 }
 
@@ -44,11 +44,11 @@ void Patch::registerDefaultGui(){
 	deleteButton->addListener(this, &Patch::onDelete);
 	gui.add(deleteButton);
 	
-	// Add the preview button
-	ofxToggle * previewToogle = new ofxToggle();
-	previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
-	previewToogle->addListener(this, &Patch::onPreview);
-	gui.add(previewToogle);
+	// Add the preview slider
+	ofxFloatSlider * previewSlider = new ofxFloatSlider();
+	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_GPU_CV_GUI_SIZE);
+	previewSlider->addListener(this, &Patch::onPreviewScaleChange);
+	gui.add(previewSlider);
 }
 
 void Patch::setLabel(int label){
@@ -104,7 +104,9 @@ void Patch::drawGUI(){
 	ofDrawBitmapString(ofToString(id), gui.getShape().x, gui.getShape().y - 1);
 	ofPopStyle();
 	
-	if(preview) draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, gui.getShape().width, gui.getShape().width * height/width); 
+	if(previewScale > 0){
+		draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, width*previewScale, height*previewScale); 
+	}
 	
 	if(output) output->draw();	
 	for (int i = 0; i < inputs.size(); i++) {
@@ -114,7 +116,7 @@ void Patch::drawGUI(){
 
 void Patch::applyGuiValues(){
 	ExtendedFXObject::applyGuiValues();
-	onPreview(gui.getToggle("Preview"));
+	onPreviewScaleChange(gui.getFloatSlider("Preview Scale"));
 }
 
 void Patch::setId(int id){
@@ -125,15 +127,19 @@ int Patch::getId(){
 	return  id;
 }
 
+void Patch::selfDelete(){
+	gui.clear();
+	manager->removePatch(id);
+}
+
 
 void Patch::onDelete(bool & value){
 	if(value){
-		gui.clear();
-		manager->removePatch(id);
+		selfDelete();
 	}
 }
 
-void Patch::onPreview(bool & value){
-	preview = value;
+void Patch::onPreviewScaleChange(float & value){
+	previewScale = value;
 }
 

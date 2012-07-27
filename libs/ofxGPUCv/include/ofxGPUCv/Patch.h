@@ -37,13 +37,16 @@ namespace ofxGPUCv {
 		virtual void setLabel(int label);
 		virtual int getLabel();
 		
+		void setPreviewScale(float scale);
+		void selfDelete();
+		
 		void onDelete(bool & value);
-		void onPreview(bool & value);
+		void onPreviewScaleChange(float & value);
 		
 	protected:
 		int id;
 		int label;
-		bool preview;
+		float previewScale;
 		vector<PatchInput*> inputs;
 		PatchOutput* output;
 		Manager * manager;

@@ -40,7 +40,6 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	manager.draw(0,0);
 	TIME_SAMPLE_START("gui");
 	manager.drawGUI();
 	TIME_SAMPLE_STOP("gui");

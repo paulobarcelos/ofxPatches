@@ -25,11 +25,11 @@ namespace ofxGPUCv {
 			deleteButton->addListener((Patch*)this, &Patch::onDelete);
 			gui.add(deleteButton);
 			
-			// Add the preview button
-			ofxToggle * previewToogle = new ofxToggle();
-			previewToogle->setup("Preview", true, OFX_GPU_CV_GUI_SIZE);
-			previewToogle->addListener((Patch*)this, &Patch::onPreview);
-			gui.add(previewToogle);
+			// Add the preview slider
+			ofxFloatSlider * previewSlider = new ofxFloatSlider();
+			previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_GPU_CV_GUI_SIZE);
+			previewSlider->addListener((Patch*)this, &Patch::onPreviewScaleChange);
+			gui.add(previewSlider);
 		};
 		
 		bool compileCode(){
