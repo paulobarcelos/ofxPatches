@@ -32,3 +32,4 @@
 #include "ofxGPUCv/effects/EdgeSobel.h"
 
 #include "ofxGPUCv/effects/ColorBlock.h"
+#include "ofxGPUCv/effects/Paintbrush.h"
