@@ -129,6 +129,8 @@
 		3853077615BDB9A0003D9DCF /* Invert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Invert.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Invert.h; sourceTree = "<group>"; };
 		3853077715BDB9A1003D9DCF /* Threshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Threshold.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Threshold.h; sourceTree = "<group>"; };
 		3853077A15BDBF67003D9DCF /* BandThreshold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BandThreshold.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/BandThreshold.h; sourceTree = "<group>"; };
+		3853078415BDDAA4003D9DCF /* Paintbrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Paintbrush.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Paintbrush.h; sourceTree = "<group>"; };
+		3853078715BDDFB8003D9DCF /* ColorBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorBlock.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/ColorBlock.h; sourceTree = "<group>"; };
 		386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceAbsolute.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceAbsolute.h; sourceTree = "<group>"; };
 		386A81DD15BAA51900A4809B /* DifferenceDarken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceDarken.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = "<group>"; };
 		386A81DE15BAA51900A4809B /* DifferenceLigthen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DifferenceLigthen.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceLigthen.h; sourceTree = "<group>"; };
@@ -958,6 +960,8 @@
 				386A81DC15BAA51900A4809B /* DifferenceAbsolute.h */,
 				386A81DD15BAA51900A4809B /* DifferenceDarken.h */,
 				386A81DE15BAA51900A4809B /* DifferenceLigthen.h */,
+				3853078415BDDAA4003D9DCF /* Paintbrush.h */,
+				3853078715BDDFB8003D9DCF /* ColorBlock.h */,
 			);
 			name = effects;
 			sourceTree = "<group>";

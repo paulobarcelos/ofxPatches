@@ -15,7 +15,7 @@ namespace ofxGPUCv {
 		ChannelBalancer(){
 			name = "Channel Balancer";
 			
-			maxPasses = 3;
+			maxPasses = 1;
 			internalFormat = GL_RGBA;
 			
 			param1fDefaults[0].name = "Red";
