@@ -66,6 +66,35 @@ namespace ofxGPUCv {
 		}
 		
 		
+		void allocate(int _width, int _height){
+			Patch::allocate(_width, _height);
+			diskImage.allocate(_width, _height, OF_IMAGE_COLOR_ALPHA);
+			
+		}
+		
+		void saveSettings(){
+			Patch::saveSettings();
+			pingPong.dst->readToPixels(diskImage.getPixelsRef());
+			diskImage.saveImage(manager->getBaseFolder() + ofToString(id) + ".png");
+		}
+		
+		void loadSettings(){
+			Patch::loadSettings();
+			diskImage.loadImage(manager->getBaseFolder() + ofToString(id) + ".png");
+			
+			pingPong.dst->begin();        
+			diskImage.draw(0, 0);
+			pingPong.dst->end();
+			
+			pingPong.src->begin();        
+			diskImage.draw(0, 0);
+			pingPong.src->end();
+			
+			lastBuffer.begin();        
+			diskImage.draw(0, 0);
+			lastBuffer.end();
+		}
+		
 		void setParam1f(float param, int _paramNum = 0){
 			ColorBlock::setParam1f(param, _paramNum);
 		}
@@ -111,6 +140,7 @@ namespace ofxGPUCv {
 		private:
 			float size;
 			float softness;
+			ofImage diskImage;
 		
 	};
 	

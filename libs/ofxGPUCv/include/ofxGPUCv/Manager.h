@@ -42,6 +42,8 @@ namespace ofxGPUCv {
 		void drawGUI();
 		void applyGuiValues(); // useful when loading the settings;
 		
+		string getBaseFolder();
+		
 		void saveSettings();
 		void loadSettings();
 		

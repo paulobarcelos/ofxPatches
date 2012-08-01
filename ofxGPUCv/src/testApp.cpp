@@ -5,12 +5,11 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	//ofSetVerticalSync(true);
+	ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
 	ofSetWindowShape(1680, 1050);
 	cam.initGrabber(640, 480);
-	
-	/**
+		/**
 	 Always this order:
 	 - setup
 	 - allocate
@@ -23,7 +22,7 @@ void testApp::setup(){
 	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 	
-	TIME_SAMPLE_SET_FRAMERATE(1000);
+	TIME_SAMPLE_SET_FRAMERATE(60);
 }
 
 //--------------------------------------------------------------

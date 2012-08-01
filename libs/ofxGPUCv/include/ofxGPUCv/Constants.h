@@ -27,4 +27,5 @@ m.registerPatch<ofxGPUCv::EdgePrewitt>();\
 m.registerPatch<ofxGPUCv::EdgeSobel>();\
 m.registerPatch<ofxGPUCv::HayasakaBlend>();\
 m.registerPatch<ofxGPUCv::ColorBlock>();\
-m.registerPatch<ofxGPUCv::Paintbrush>();
+m.registerPatch<ofxGPUCv::Paintbrush>();\
+m.registerPatch<ofxGPUCv::Mask>();
