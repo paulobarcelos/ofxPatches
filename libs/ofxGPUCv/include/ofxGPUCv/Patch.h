@@ -31,6 +31,9 @@ namespace ofxGPUCv {
 		
 		Patch * getOutput(float x, float y);
 		
+		virtual void saveSettings();
+		virtual void loadSettings();
+		
 		virtual void setId(int id);
 		virtual int getId();
 		

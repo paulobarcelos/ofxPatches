@@ -287,8 +287,8 @@ void Manager::saveSettings(){
 	settings.addTag("patches");
 	settings.pushTag("patches");
 	for (int i = 0; i < currentPatches.size(); i++) {
-		// Save each individual gui
-		currentPatches[i]->gui.saveToFile(currentPatches[i]->filename);
+		// Save each individual internal settings
+		currentPatches[i]->saveSettings();
 		
 		settings.addTag("patch");
 		settings.pushTag("patch", i);
@@ -350,9 +350,8 @@ void Manager::loadSettings(){
 		settings.pushTag("patch", i);
 		// create the patch
 		addPatch(settings.getValue("label", -1), settings.getValue("id", -1));
-		// load the gui
-		currentPatches[i]->gui.loadFromFile(currentPatches[i]->filename);
-		currentPatches[i]->applyGuiValues();
+		// load the internal settings
+		currentPatches[i]->loadSettings();
 		// set the position
 		currentPatches[i]->setGUIPosition(settings.getValue("gui_position:x", 0.0), settings.getValue("gui_position:y", 0.0));
 		// set all the inputs

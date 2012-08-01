@@ -119,6 +119,15 @@ void Patch::applyGuiValues(){
 	onPreviewScaleChange(gui.getFloatSlider("Preview Scale"));
 }
 
+void Patch::saveSettings(){
+	gui.saveToFile(filename);
+}
+
+void Patch::loadSettings(){
+	gui.loadFromFile(filename);
+	applyGuiValues();
+}
+
 void Patch::setId(int id){
 	this->id =  id;
 }
