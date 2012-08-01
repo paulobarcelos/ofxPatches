@@ -75,11 +75,24 @@ namespace ofxGPUCv {
 		void saveSettings(){
 			Patch::saveSettings();
 			pingPong.dst->readToPixels(diskImage.getPixelsRef());
-			//diskImage.saveImage(manager->baseFolder + ofToString(id) + ".png");
+			diskImage.saveImage(manager->getBaseFolder() + ofToString(id) + ".png");
 		}
 		
 		void loadSettings(){
 			Patch::loadSettings();
+			diskImage.loadImage(manager->getBaseFolder() + ofToString(id) + ".png");
+			
+			pingPong.dst->begin();        
+			diskImage.draw(0, 0);
+			pingPong.dst->end();
+			
+			pingPong.src->begin();        
+			diskImage.draw(0, 0);
+			pingPong.src->end();
+			
+			lastBuffer.begin();        
+			diskImage.draw(0, 0);
+			lastBuffer.end();
 		}
 		
 		void setParam1f(float param, int _paramNum = 0){

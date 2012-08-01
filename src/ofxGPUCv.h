@@ -20,6 +20,8 @@
 #include "ofxGPUCv/effects/DifferenceDarken.h"
 #include "ofxGPUCv/effects/DifferenceLigthen.h"
 
+#include "ofxGPUCv/effects/Mask.h"
+
 #include "ofxGPUCv/effects/BlurGaussian.h"
 #include "ofxGPUCv/effects/BlurMedian.h"
 #include "ofxGPUCv/effects/Sharpen.h"

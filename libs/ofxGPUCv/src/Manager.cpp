@@ -239,6 +239,11 @@ void Manager::applyGuiValues(){
 	onEdit(gui.getToggle("Edit"));
 }
 
+
+string Manager::getBaseFolder(){
+	return baseFolder;
+}
+
 void Manager::saveSettings(){
 	// make sure dir exists
 	ofDirectory::createDirectory(baseFolder, true, true);
