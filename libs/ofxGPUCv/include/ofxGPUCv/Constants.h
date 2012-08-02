@@ -29,4 +29,5 @@ m.registerPatch<ofxGPUCv::HayasakaBlend>();\
 m.registerPatch<ofxGPUCv::ColorBlock>();\
 m.registerPatch<ofxGPUCv::Paintbrush>();\
 m.registerPatch<ofxGPUCv::Mask>();\
-m.registerPatch<ofxGPUCv::Crop>();
+m.registerPatch<ofxGPUCv::Crop>();\
+m.registerPatch<ofxGPUCv::PerspectiveWarp>();

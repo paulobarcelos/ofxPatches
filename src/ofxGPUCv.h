@@ -37,3 +37,4 @@
 #include "ofxGPUCv/effects/Paintbrush.h"
 
 #include "ofxGPUCv/effects/Crop.h"
+#include "ofxGPUCv/effects/PerspectiveWarp.h"
