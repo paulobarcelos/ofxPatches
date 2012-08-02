@@ -56,7 +56,7 @@ namespace ofxGPUCv {
 			color = HSLToRGB(ofVec3f(param1fs[0], param1fs[1], param1fs[2]));
 		}
 		
-		void onRenderPass(int pass){
+		void onShaderPass(int pass){
 			shader.setUniform1f("r", color.x);
 			shader.setUniform1f("g", color.y);
 			shader.setUniform1f("b", color.z);

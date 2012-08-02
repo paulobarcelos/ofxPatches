@@ -26,7 +26,7 @@ namespace ofxGPUCv {
 									   );
 		}
 		
-		void onRenderPass(int pass){
+		void onShaderPass(int pass){
 			shader.setUniform2fv("offset", offset, 9);
 		}
 		

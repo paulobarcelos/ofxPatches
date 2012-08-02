@@ -144,6 +144,7 @@
 		386A81E715BB1FEF00A4809B /* EdgePrewitt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgePrewitt.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/EdgePrewitt.h; sourceTree = "<group>"; };
 		386A81E815BB1FF000A4809B /* EdgeSobel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EdgeSobel.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/EdgeSobel.h; sourceTree = "<group>"; };
 		38A48D3E15C9E5FF00F25097 /* Mask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mask.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Mask.h; sourceTree = "<group>"; };
+		38A48D4915C9ECB600F25097 /* Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crop.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Crop.h; sourceTree = "<group>"; };
 		38B2D52C15BD9F9400ED3E97 /* Base3x3KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base3x3KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base3x3KernelEffect.h; sourceTree = "<group>"; };
 		38B2D52D15BD9F9500ED3E97 /* Base7x7KernelEffect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base7x7KernelEffect.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/Base7x7KernelEffect.h; sourceTree = "<group>"; };
 		38E271E215B9BF2D00C59BA2 /* ofxTimeMeasurements.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTimeMeasurements.cpp; sourceTree = "<group>"; };
@@ -964,6 +965,7 @@
 				3853078415BDDAA4003D9DCF /* Paintbrush.h */,
 				3853078715BDDFB8003D9DCF /* ColorBlock.h */,
 				38A48D3E15C9E5FF00F25097 /* Mask.h */,
+				38A48D4915C9ECB600F25097 /* Crop.h */,
 			);
 			name = effects;
 			sourceTree = "<group>";

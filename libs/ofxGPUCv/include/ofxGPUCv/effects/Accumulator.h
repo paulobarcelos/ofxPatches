@@ -111,7 +111,7 @@ namespace ofxGPUCv {
 			Patch::update();
 		}
 		
-		void onRenderPass(int pass){
+		void onShaderPass(int pass){
 			if (pass == 0) {
 				base.begin();
 				lastBuffer.draw(0, 0);

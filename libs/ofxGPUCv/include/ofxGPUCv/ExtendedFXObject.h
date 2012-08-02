@@ -82,8 +82,11 @@ namespace ofxGPUCv {
 		virtual void onBypassChange(bool & value);
 		virtual void onPassesChange(int & value);
 		
+		// main render routine, overwrite if you want to control the render yourserlf
+		virtual void onRender(int pass);
+		
 		// this will run just before the frame is rendered, making
 		// it a good place to inject custom variables into the shader
-		virtual void onRenderPass(int pass){};
+		virtual void onShaderPass(int pass){};
 	};
 }

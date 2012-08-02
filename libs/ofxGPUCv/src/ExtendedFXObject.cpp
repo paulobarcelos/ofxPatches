@@ -205,42 +205,7 @@ void ExtendedFXObject::update(){
 		for(int i = 0; i < passes; i++) {
 			
 			pingPong.dst->begin();        
-			ofClear(0,0);
-			shader.begin();
-			
-			// on the first pass, use the last rendered buffer as the backbuffer
-			if(i == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
-			else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
-			
-			for( int j = 0; j < nParam1fs; j++){
-				string paramName = "param1f" + ofToString(j); 
-				shader.setUniform1f(paramName.c_str(), param1fs[j]);
-			}
-			
-			for( int j = 0; j < nParam1is; j++){
-				string paramName = "param1i" + ofToString(j); 
-				shader.setUniform1i(paramName.c_str(), param1is[j]);
-			}
-			
-			for( int j = 0; j < nTextures; j++){
-				string texName = "tex" + ofToString(j); 
-				shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+1 );
-				string texRes = "size" + ofToString(j); 
-				shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
-			}
-			
-			shader.setUniform1i("passes", passes );
-			shader.setUniform1i("pass", i );
-			shader.setUniform1f("time", ofGetElapsedTimef() );
-			shader.setUniform2f("size", (float)width, (float)height);
-			shader.setUniform2f("resolution", (float)width, (float)height);
-			shader.setUniform2f("mouse", (float)(ofGetMouseX()/width), (float)(ofGetMouseY()/height));
-			
-			// hook where you can put custom code into the shader pass
-			onRenderPass(i);
-			
-			renderFrame();        
-			shader.end();        
+			onRender(i);
 			pingPong.dst->end();       
 			pingPong.swap();
 			
@@ -253,6 +218,45 @@ void ExtendedFXObject::update(){
 		}
 	}
     pingPong.swap();
+}
+
+void ExtendedFXObject::onRender(int pass){
+	ofClear(0,0);
+	shader.begin();
+	
+	// on the first pass, use the last rendered buffer as the backbuffer
+	if(pass == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
+	else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
+	
+	for( int j = 0; j < nParam1fs; j++){
+		string paramName = "param1f" + ofToString(j); 
+		shader.setUniform1f(paramName.c_str(), param1fs[j]);
+	}
+	
+	for( int j = 0; j < nParam1is; j++){
+		string paramName = "param1i" + ofToString(j); 
+		shader.setUniform1i(paramName.c_str(), param1is[j]);
+	}
+	
+	for( int j = 0; j < nTextures; j++){
+		string texName = "tex" + ofToString(j); 
+		shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+1 );
+		string texRes = "size" + ofToString(j); 
+		shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
+	}
+	
+	shader.setUniform1i("passes", passes );
+	shader.setUniform1i("pass", pass );
+	shader.setUniform1f("time", ofGetElapsedTimef() );
+	shader.setUniform2f("size", (float)width, (float)height);
+	shader.setUniform2f("resolution", (float)width, (float)height);
+	shader.setUniform2f("mouse", (float)(ofGetMouseX()/width), (float)(ofGetMouseY()/height));
+	
+	// hook where you can put custom code into the shader pass
+	onShaderPass(pass);
+	
+	renderFrame();        
+	shader.end();   
 }
 
 void ExtendedFXObject::setParam1f(float param, int _paramNum){ 

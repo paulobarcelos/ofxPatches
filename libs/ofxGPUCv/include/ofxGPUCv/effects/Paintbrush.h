@@ -99,8 +99,8 @@ namespace ofxGPUCv {
 			ColorBlock::setParam1f(param, _paramNum);
 		}
 		
-		void onRenderPass(int pass){
-			ColorBlock::onRenderPass(pass);
+		void onShaderPass(int pass){
+			ColorBlock::onShaderPass(pass);
 			shader.setUniform2f("pos", 
 								((float) ofGetMouseX() - gui.getShape().x)/ (width * previewScale),
 								((float) ofGetMouseY() - gui.getShape().y - gui.getShape().height) / (height * previewScale));
