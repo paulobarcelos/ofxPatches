@@ -132,6 +132,7 @@
 		3565d6514875740bc4a303c2636a93f5 /* PatchInput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PatchInput.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/PatchInput.cpp; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
 		3824528815CAFE3400906A54 /* PerspectiveWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerspectiveWarp.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/PerspectiveWarp.h; sourceTree = "<group>"; };
+		3824529315CB1B2000906A54 /* SphericalDistortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SphericalDistortion.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/SphericalDistortion.h; sourceTree = "<group>"; };
 		3b5a19e3f38cceb44300e4cb952da9fe /* BaseKernelEffect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BaseKernelEffect.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/BaseKernelEffect.h; sourceTree = SOURCE_ROOT; };
 		3c232045833313b99efe0b14840b6108 /* ofxCvMain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvMain.h; path = ../../../addons/ofxOpenCv/src/ofxCvMain.h; sourceTree = SOURCE_ROOT; };
 		3fd68ad796b826c56ae754c384d30efb /* DifferenceDarken.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DifferenceDarken.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = SOURCE_ROOT; };
@@ -954,6 +955,7 @@
 				660b5a36375c746a5fcc9b558d48307e /* ColorBlock.h */,
 				08f274f61aa93746ea5feaaed8edb0a3 /* Crop.h */,
 				3824528815CAFE3400906A54 /* PerspectiveWarp.h */,
+				3824529315CB1B2000906A54 /* SphericalDistortion.h */,
 				7dd1cda278d89a6c004feebadbea2505 /* CustomBW.h */,
 				e9e096fc0e3f118f69c86fc27b916089 /* DifferenceAbsolute.h */,
 				3fd68ad796b826c56ae754c384d30efb /* DifferenceDarken.h */,

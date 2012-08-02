@@ -38,3 +38,4 @@
 
 #include "ofxGPUCv/effects/Crop.h"
 #include "ofxGPUCv/effects/PerspectiveWarp.h"
+#include "ofxGPUCv/effects/SphericalDistortion.h"

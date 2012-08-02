@@ -20,7 +20,7 @@ namespace ofxGPUCv {
 		PerspectiveWarp * create() { return new PerspectiveWarp(); };
 		
 		PerspectiveWarp(){
-			name = "Persp. Warp";
+			name = "Perspective Warp";
 			
 			corners[0].x = 0.0;
 			corners[0].y = 0.0;
