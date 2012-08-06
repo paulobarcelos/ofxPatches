@@ -133,6 +133,8 @@
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
 		3824528815CAFE3400906A54 /* PerspectiveWarp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PerspectiveWarp.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/PerspectiveWarp.h; sourceTree = "<group>"; };
 		3824529315CB1B2000906A54 /* SphericalDistortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SphericalDistortion.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/SphericalDistortion.h; sourceTree = "<group>"; };
+		38ACAB9515CD2BBD0088BA53 /* ChannelMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChannelMask.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/ChannelMask.h; sourceTree = "<group>"; };
+		38ACAB9615CD2BD90088BA53 /* AlphaMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlphaMask.h; path = ../libs/ofxGPUCv/include/ofxGPUCv/effects/AlphaMask.h; sourceTree = "<group>"; };
 		3b5a19e3f38cceb44300e4cb952da9fe /* BaseKernelEffect.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BaseKernelEffect.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/BaseKernelEffect.h; sourceTree = SOURCE_ROOT; };
 		3c232045833313b99efe0b14840b6108 /* ofxCvMain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvMain.h; path = ../../../addons/ofxOpenCv/src/ofxCvMain.h; sourceTree = SOURCE_ROOT; };
 		3fd68ad796b826c56ae754c384d30efb /* DifferenceDarken.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DifferenceDarken.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/DifferenceDarken.h; sourceTree = SOURCE_ROOT; };
@@ -186,7 +188,6 @@
 		7c3f3329ecfca7dbdc35cd0db713784f /* PatchOutput.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = PatchOutput.cpp; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/src/PatchOutput.cpp; sourceTree = SOURCE_ROOT; };
 		7c663351bc086b919aa8f0b7246493dc /* ofxWater.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxWater.cpp; path = ../../../addons/ofxFX/src/interactive/ofxWater.cpp; sourceTree = SOURCE_ROOT; };
 		7dd1cda278d89a6c004feebadbea2505 /* CustomBW.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CustomBW.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/CustomBW.h; sourceTree = SOURCE_ROOT; };
-		7def88f945364576ec754d1596acf842 /* Mask.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Mask.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/effects/Mask.h; sourceTree = SOURCE_ROOT; };
 		7e57aae3fab29f87d19451bc40b06273 /* sampling.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = sampling.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/sampling.h; sourceTree = SOURCE_ROOT; };
 		7f409e745a4dfe45ec22a9cfc57f95b0 /* ofxBokeh.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBokeh.h; path = ../../../addons/ofxFX/src/filters/ofxBokeh.h; sourceTree = SOURCE_ROOT; };
 		82abe3b0a2fd835e5937c06b7ea1ac59 /* PatchInput.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = PatchInput.h; path = ../../../addons/ofxGPUCv/libs/ofxGPUCv/include/ofxGPUCv/PatchInput.h; sourceTree = SOURCE_ROOT; };
@@ -968,7 +969,8 @@
 				a8b26c2d8942681291e9bdc9f0ea4146 /* FixedSource.h */,
 				db2c83f329a70ecac57271d24a3bc57c /* HayasakaBlend.h */,
 				f199f0eb9ff3cee8637036eb2984d459 /* Invert.h */,
-				7def88f945364576ec754d1596acf842 /* Mask.h */,
+				38ACAB9515CD2BBD0088BA53 /* ChannelMask.h */,
+				38ACAB9615CD2BD90088BA53 /* AlphaMask.h */,
 				5948cef32b554033b23e658f62f6f7db /* Paintbrush.h */,
 				a428e1f2af2c3eb418135b42de59a1c5 /* Sharpen.h */,
 				6e740b84d0339cc9c529cab0b394c83f /* Threshold.h */,

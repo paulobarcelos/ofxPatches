@@ -3,7 +3,7 @@
 #define OFX_GPU_CV_MAX_PARAMETERS 20
 #define OFX_GPU_CV_PATCH_CONNECTOR_SIZE 10
 
-#define OFX_GPU_CV_GUI_SIZE 170,14
+#define OFX_GPU_CV_GUI_SIZE 200,14
 
 #define OFX_GPU_CV_SETTINGS_FOLDER "ofxGPUCv/"
 
@@ -28,7 +28,8 @@ m.registerPatch<ofxGPUCv::EdgeSobel>();\
 m.registerPatch<ofxGPUCv::HayasakaBlend>();\
 m.registerPatch<ofxGPUCv::ColorBlock>();\
 m.registerPatch<ofxGPUCv::Paintbrush>();\
-m.registerPatch<ofxGPUCv::Mask>();\
+m.registerPatch<ofxGPUCv::AlphaMask>();\
+m.registerPatch<ofxGPUCv::ChannelMask>();\
 m.registerPatch<ofxGPUCv::Crop>();\
 m.registerPatch<ofxGPUCv::PerspectiveWarp>();\
 m.registerPatch<ofxGPUCv::SphericalDistortion>();

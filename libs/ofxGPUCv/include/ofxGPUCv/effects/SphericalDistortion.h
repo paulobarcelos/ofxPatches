@@ -18,12 +18,12 @@ namespace ofxGPUCv {
 			param1fDefaults[0].name = "size";
 			param1fDefaults[0].value = 1.0;
 			param1fDefaults[0].min = 0.0;
-			param1fDefaults[0].max = 10.0;
+			param1fDefaults[0].max = 2.0;
 			
 			param1fDefaults[1].name = "amount";
 			param1fDefaults[1].value = 0.0;
-			param1fDefaults[1].min = -5.0;
-			param1fDefaults[1].max = 5.0;
+			param1fDefaults[1].min = -1.0;
+			param1fDefaults[1].max = 1.0;
 			
 			
 			fragmentShader = STRINGIFY(

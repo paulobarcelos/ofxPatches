@@ -22,9 +22,12 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 	
 	ofVideoGrabber cam;
+	ofImage distorted;
+	ofImage distorted2;
+	
+	
 	ofxGPUCv::Manager manager;
 	
-	ofxGPUCv::Manager blender;
 	
 		
 };

@@ -8,7 +8,9 @@ void testApp::setup(){
 	ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
 	ofSetWindowShape(1680, 1050);
-	cam.initGrabber(640, 480);
+	cam.initGrabber(1280, 960);
+	distorted.loadImage("1.7mm_output.jpeg");
+	distorted2.loadImage("m12_2_8mm.gif");
 		/**
 	 Always this order:
 	 - setup
@@ -17,7 +19,7 @@ void testApp::setup(){
 	 - loadSettings
 	**/
 	
-	manager.setup(1, "My stack");
+	manager.setup(3, "My stack");
 	manager.allocate(640, 480);
 	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
@@ -30,7 +32,9 @@ void testApp::update(){
 	cam.update();
 	if(cam.isFrameNew()){
 		TIME_SAMPLE_START("update");
-		manager.setTexture(cam.getTextureReference());
+		manager.setTexture(cam.getTextureReference(),0);
+		manager.setTexture(distorted.getTextureReference(),1);
+		manager.setTexture(distorted2.getTextureReference(),2);
 		manager.update();
 		TIME_SAMPLE_STOP("update");
 	}

@@ -359,18 +359,24 @@ void Manager::loadSettings(){
 		currentPatches[i]->loadSettings();
 		// set the position
 		currentPatches[i]->setGUIPosition(settings.getValue("gui_position:x", 0.0), settings.getValue("gui_position:y", 0.0));
-		// set all the inputs
-		settings.pushTag("inputs");
-		for (int j = 0; j < settings.getNumTags("id"); j++) {
-			currentPatches[i]->setInput(getPatchById(settings.getValue("id", -1, j)), j);
-		}
-		settings.popTag();
 		
 		settings.popTag();
 	}
 	settings.popTag();
 	
-	// Now that all patches are created, we are safe to add the manager inputs
+	// Only now that all the patches were created, we can set the inputs
+	settings.pushTag("patches");
+	for (int i = 0; i < settings.getNumTags("patch"); i++) {
+		settings.pushTag("patch", i);;
+		settings.pushTag("inputs");
+		for (int j = 0; j < settings.getNumTags("id"); j++) {
+			currentPatches[i]->setInput(getPatchById(settings.getValue("id", -1, j)), j);
+		}
+		settings.popTag();		
+		settings.popTag();
+	}
+	settings.popTag();
+	
 	settings.pushTag("inputs");
 	for (int i = 0; i < settings.getNumTags("id"); i++) {
 		setInput(getPatchById(settings.getValue("id", -1, i)), i);

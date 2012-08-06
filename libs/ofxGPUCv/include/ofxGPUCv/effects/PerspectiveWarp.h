@@ -143,7 +143,7 @@ namespace ofxGPUCv {
 				float disty = corners[i].y - ((float)args.y - gui.getShape().y - gui.getShape().height)/(height*previewScale);
 				float dist  = sqrt( distx * distx + disty * disty);
 				
-				if(dist < smallestDist && dist < 0.5){
+				if(dist < smallestDist && dist < 0.1){
 					whichCorner = i;
 					smallestDist = dist;
 				}

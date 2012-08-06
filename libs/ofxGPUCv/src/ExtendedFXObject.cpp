@@ -323,7 +323,7 @@ void ExtendedFXObject::setTexture(ofTexture& tex, int _texNum){
         textures[_texNum].begin(); 
         ofClear(0,0);
         ofSetColor(255);
-        tex.draw(0,0); 
+        tex.draw(0,0, width, height); 
         textures[_texNum].end();
     }
 };

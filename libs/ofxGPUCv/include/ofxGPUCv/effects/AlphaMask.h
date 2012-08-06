@@ -8,12 +8,12 @@
 
 namespace ofxGPUCv {
 	
-	class Mask : public Patch {	
+	class AlphaMask : public Patch {	
 	public:
-		Mask * create() { return new Mask(); };
+		AlphaMask * create() { return new AlphaMask(); };
 		
-		Mask(){
-			name = "Mask";
+		AlphaMask(){
+			name = "Alpha Mask";
 			
 			maxPasses = 1;
 			
@@ -22,11 +22,11 @@ namespace ofxGPUCv {
 									   uniform sampler2DRect tex1;
 									   
 									   void main(void){
-										   vec2 st = gl_TexCoord[0].st;										   
-										   vec4 alpha = texture2DRect(tex0, st);
-										   vec4 content = texture2DRect(tex1, st);
+										   vec2 st = gl_TexCoord[0].st;	
+										   float alpha = texture2DRect(tex0, st).r; // assumes mask is BW
+										   vec4 color = texture2DRect(tex1, st);
 										   
-										   gl_FragColor = content * alpha;
+										   gl_FragColor = vec4(color.rgb, alpha);
 									   }
 									   );
 		}
