@@ -9,9 +9,12 @@
 
 #define OFX_GPU_CV_REGISTER_ALL_EFFECTS(m) \
 m.registerPatch<ofxPatches::Accumulator>();\
+m.registerPatch<ofxPatches::OpticalFlow>();\
 m.registerPatch<ofxPatches::ChannelBalancer>();\
 m.registerPatch<ofxPatches::Invert>();\
 m.registerPatch<ofxPatches::CustomBW>();\
+m.registerPatch<ofxPatches::HSL>();\
+m.registerPatch<ofxPatches::BrightnessContrast>();\
 m.registerPatch<ofxPatches::Threshold>();\
 m.registerPatch<ofxPatches::BandThreshold>();\
 m.registerPatch<ofxPatches::DifferenceAbsolute>();\
@@ -30,6 +33,7 @@ m.registerPatch<ofxPatches::ColorBlock>();\
 m.registerPatch<ofxPatches::Paintbrush>();\
 m.registerPatch<ofxPatches::AlphaMask>();\
 m.registerPatch<ofxPatches::ChannelMask>();\
+m.registerPatch<ofxPatches::TextureTiler>();\
 m.registerPatch<ofxPatches::Crop>();\
 m.registerPatch<ofxPatches::PerspectiveWarp>();\
 m.registerPatch<ofxPatches::SphericalDistortion>();

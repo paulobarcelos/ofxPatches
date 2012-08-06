@@ -125,7 +125,11 @@
 		33080e2b2248008a5aa1d27339b9841a /* Threshold.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Threshold.h; path = ../../../addons/ofxPatches/libs/ofxPatches/include/ofxPatches/patches/Threshold.h; sourceTree = SOURCE_ROOT; };
 		33ff03222909c1a0ece437531183b507 /* cv.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cv.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.h; sourceTree = SOURCE_ROOT; };
 		36f0ff7f8d7342d220cc6319cac5ad59 /* dummy.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = dummy.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/dummy.h; sourceTree = SOURCE_ROOT; };
+		3816CB7C15D002B300C220DD /* TextureTiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TextureTiler.h; path = ../libs/ofxPatches/include/ofxPatches/patches/TextureTiler.h; sourceTree = "<group>"; };
 		38812da622eef6a5a93a85efc2e2fdaa /* Dilate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Dilate.h; path = ../../../addons/ofxPatches/libs/ofxPatches/include/ofxPatches/patches/Dilate.h; sourceTree = SOURCE_ROOT; };
+		38D4F2A915D056CE00CA1F81 /* OpticalFlow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpticalFlow.h; path = ../libs/ofxPatches/include/ofxPatches/patches/OpticalFlow.h; sourceTree = "<group>"; };
+		38D4F2AA15D06D3100CA1F81 /* HSL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSL.h; path = ../libs/ofxPatches/include/ofxPatches/patches/HSL.h; sourceTree = "<group>"; };
+		38D4F2AB15D0716100CA1F81 /* BrightnessContrast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BrightnessContrast.h; path = ../libs/ofxPatches/include/ofxPatches/patches/BrightnessContrast.h; sourceTree = "<group>"; };
 		3a3e0acb0aec5a0c353c678e31f63b78 /* BandThreshold.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = BandThreshold.h; path = ../../../addons/ofxPatches/libs/ofxPatches/include/ofxPatches/patches/BandThreshold.h; sourceTree = SOURCE_ROOT; };
 		3c232045833313b99efe0b14840b6108 /* ofxCvMain.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxCvMain.h; path = ../../../addons/ofxOpenCv/src/ofxCvMain.h; sourceTree = SOURCE_ROOT; };
 		3fd50db1e273d27c1bc4d88dbc994005 /* Manager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Manager.cpp; path = ../../../addons/ofxPatches/libs/ofxPatches/src/Manager.cpp; sourceTree = SOURCE_ROOT; };
@@ -628,6 +632,7 @@
 			isa = PBXGroup;
 			children = (
 				a03c99e095e7bd42192db629d25cafc6 /* Accumulator.h */,
+				38D4F2A915D056CE00CA1F81 /* OpticalFlow.h */,
 				48887f92f3fe70bfc76f384e8b98ae2e /* AlphaMask.h */,
 				3a3e0acb0aec5a0c353c678e31f63b78 /* BandThreshold.h */,
 				f8ee25f14dbd4bbe51f5632512eb74eb /* Base3x3KernelEffect.h */,
@@ -636,11 +641,10 @@
 				ef616d77709a7ac296964bcea5dc35d2 /* BaseKernelEffect.h */,
 				5d609229b13d8b956a1a3f8abd2aa713 /* BlurGaussian.h */,
 				8efc9acfe4ca0750c3df8c0d94dcb433 /* BlurMedian.h */,
-				746d5cb10092a1c81b4acd2ca4f14cc3 /* ChannelBalancer.h */,
 				c10c86cc869d7ecfc41bd37d5d4ed515 /* ChannelMask.h */,
+				3816CB7C15D002B300C220DD /* TextureTiler.h */,
 				e718e6224b3511cd8cf8f10d38cb5712 /* ColorBlock.h */,
 				8c7ee50e025811e1ff1631a2fd22c9a4 /* Crop.h */,
-				27dcf3c033d8ebdd108c674ec4d416ea /* CustomBW.h */,
 				58cd89cc43dc0c2d6ac1d31e11031e88 /* DifferenceAbsolute.h */,
 				fd341b1f5e24a24b93f15906f0099d9e /* DifferenceDarken.h */,
 				d599e5d0930df40859e6353e996d8cc5 /* DifferenceLigthen.h */,
@@ -651,7 +655,11 @@
 				6e79f35bcc8686c3ff428aec7851e476 /* Erode.h */,
 				c990fbd430eebacc04f8fb39f6524991 /* FixedSource.h */,
 				d1da0cc4bf6d0c7afb4dc23ef5323ae1 /* HayasakaBlend.h */,
+				38D4F2AB15D0716100CA1F81 /* BrightnessContrast.h */,
+				27dcf3c033d8ebdd108c674ec4d416ea /* CustomBW.h */,
 				d31ba79f872b4de35c13191e89e1c7ba /* Invert.h */,
+				746d5cb10092a1c81b4acd2ca4f14cc3 /* ChannelBalancer.h */,
+				38D4F2AA15D06D3100CA1F81 /* HSL.h */,
 				6fca17bab33e169f66b1efb4bbec8e73 /* Paintbrush.h */,
 				63f08cf38def8f21877ff11f7a35ae03 /* PerspectiveWarp.h */,
 				acbd3598916c3aff6ff2dc80eda87d74 /* Sharpen.h */,

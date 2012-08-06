@@ -8,7 +8,7 @@ void testApp::setup(){
 	ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
 	ofSetWindowShape(1680, 1050);
-	cam.initGrabber(640, 48w0);
+	cam.initGrabber(640, 480);
 	distorted.loadImage("1.7mm_output.jpeg");
 	distorted2.loadImage("m12_2_8mm.gif");
 		/**

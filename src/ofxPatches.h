@@ -8,11 +8,14 @@
 #include "ofxPatches/patches/FixedSource.h"
 
 #include "ofxPatches/patches/Accumulator.h"
-#include "ofxPatches/patches/HayasakaBlend.h"
+#include "ofxPatches/patches/OpticalFlow.h"
 
 #include "ofxPatches/patches/ChannelBalancer.h"
 #include "ofxPatches/patches/Invert.h"
 #include "ofxPatches/patches/CustomBW.h"
+#include "ofxPatches/patches/BrightnessContrast.h"
+#include "ofxPatches/patches/HSL.h"
+
 #include "ofxPatches/patches/BandThreshold.h"
 #include "ofxPatches/patches/Threshold.h"
 
@@ -22,6 +25,8 @@
 
 #include "ofxPatches/patches/ChannelMask.h"
 #include "ofxPatches/patches/AlphaMask.h"
+#include "ofxPatches/patches/HayasakaBlend.h"
+#include "ofxPatches/patches/TextureTiler.h"
 
 #include "ofxPatches/patches/BlurGaussian.h"
 #include "ofxPatches/patches/BlurMedian.h"
