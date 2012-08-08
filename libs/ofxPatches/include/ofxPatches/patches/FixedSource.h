@@ -15,7 +15,7 @@ namespace ofxPatches {
 		FixedSource(ofBaseDraws * source = NULL, string name = "Fixed Source"){
 			this->source = source;
 			this->name = name;			
-			fragmentShader = STRINGIFY(  uniform sampler2DRect tex0; );
+			fragmentShader = STRINGIFY(  uniform sampler2DRect tex0; void main(void){};);
 		}
 		
 		void registerDefaultGui(){			
