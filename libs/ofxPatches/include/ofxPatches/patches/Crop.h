@@ -46,6 +46,12 @@ namespace ofxPatches {
 									   );
 		}
 		
+		bool compileCode(){
+			bool success = Patch::compileCode();
+			shader.unload();
+			return success;
+		}
+		
 		void onRender(int pass){
 			textures[0].getTextureReference().drawSubsection(0, 0, width, height, 
 															 param1fs[0] * width, 

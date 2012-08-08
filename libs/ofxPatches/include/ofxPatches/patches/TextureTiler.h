@@ -61,6 +61,12 @@ namespace ofxPatches {
 									   );
 		}
 		
+		bool compileCode(){
+			bool success = Patch::compileCode();
+			shader.unload();
+			return success;
+		}
+		
 		void onRender(int pass){
 			ofClear(255, 255, 255, 0);
 			

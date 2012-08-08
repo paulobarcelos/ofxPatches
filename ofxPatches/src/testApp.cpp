@@ -5,6 +5,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
+	ofSetLogLevel(OF_LOG_WARNING);
 	//ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
 	ofSetWindowShape(1680, 1050);

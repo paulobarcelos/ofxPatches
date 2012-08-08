@@ -7,6 +7,8 @@ Manager::Manager(){
 	filename = "";
 	output = NULL;
 	manager = this;
+	
+	fragmentShader = "void main(void){}";
 }
 Manager::~Manager(){
 }

@@ -50,6 +50,11 @@ namespace ofxPatches {
                                        void main(void){}
 									   );
 		}
+		bool compileCode(){
+			bool success = Patch::compileCode();
+			shader.unload();
+			return success;
+		}
 		
 		void saveSettings(){
 			Patch::saveSettings();

@@ -12,10 +12,16 @@ namespace ofxPatches {
 	public:
 		FixedSource * create() { return new FixedSource(source, name); };
 		
+		FixedSource(){
+			FixedSource(NULL, "Fixed Source");
+		}
 		FixedSource(ofBaseDraws * source = NULL, string name = "Fixed Source"){
 			this->source = source;
 			this->name = name;			
-			fragmentShader = STRINGIFY(  uniform sampler2DRect tex0; void main(void){};);
+			fragmentShader = STRINGIFY(  
+									   uniform sampler2DRect tex0; 
+									   void main(void){}
+									   );
 		}
 		
 		void registerDefaultGui(){			
@@ -34,6 +40,7 @@ namespace ofxPatches {
 		
 		bool compileCode(){
 			bool compileSucess = Patch::compileCode();
+			shader.unload();
 			
 			// make sure to remove all inputs
 			while (inputs.size()) {
