@@ -41,6 +41,8 @@ namespace ofxPatches {
 									   uniform float param1f1; //y
 									   uniform float param1f2; //w
 									   uniform float param1f3; //h
+                                       
+                                       void main(void){}
 									   );
 		}
 		

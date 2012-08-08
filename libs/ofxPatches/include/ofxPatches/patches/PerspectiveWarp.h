@@ -47,6 +47,7 @@ namespace ofxPatches {
 						
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;
+                                       void main(void){}
 									   );
 		}
 		

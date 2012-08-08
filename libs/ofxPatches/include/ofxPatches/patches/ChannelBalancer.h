@@ -40,10 +40,13 @@ namespace ofxPatches {
 			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;
+                                       uniform sampler2DRect backbuffer;
 									   uniform float param1f0;
 									   uniform float param1f1;
 									   uniform float param1f2;
 									   uniform float param1f3;
+                                       
+                                       uniform int pass;
 									   
 									   void main(void){
 										   vec2 st = gl_TexCoord[0].st;

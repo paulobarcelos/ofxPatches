@@ -57,6 +57,7 @@ namespace ofxPatches {
 									   uniform float param1f0; // horizontal overlap
 									   uniform float param1f1; // vertical overlap
 									   
+                                       void main(void){}
 									   );
 		}
 		

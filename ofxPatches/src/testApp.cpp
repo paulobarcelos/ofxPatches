@@ -5,7 +5,7 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	ofSetVerticalSync(true);
+	//ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
 	ofSetWindowShape(1680, 1050);
 	cam.initGrabber(640, 480);
@@ -20,7 +20,7 @@ void testApp::setup(){
 	**/
 	
 	manager.setup(3, "My stack");
-	manager.allocate(640, 480);
+	manager.allocate(320, 240);
 	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 	

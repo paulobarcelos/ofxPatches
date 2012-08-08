@@ -52,7 +52,9 @@ namespace ofxPatches {
 										   vec4 currentColor;
 										   vec4 mixColor;
 										   
-										   if(internalCount % (param1i0 + 1) == 0){
+                                           int control = param1i0 + 1;
+                                           
+										   if((internalCount - control * (internalCount / control)) == 0){
 											   // in the first pass, we consider tex0 as our current color
 											   if(pass == 0){
 												   currentColor = texture2DRect(tex0, st);										   
