@@ -32,6 +32,8 @@ namespace ofxPatches {
 			param1iDefaults[0].min = 0;
 			param1iDefaults[0].max = 30;
 			
+			useBackbuffer = true;
+			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect backbuffer;
 									   uniform int passes;

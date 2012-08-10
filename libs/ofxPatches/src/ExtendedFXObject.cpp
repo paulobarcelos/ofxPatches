@@ -12,6 +12,7 @@ ExtendedFXObject::ExtendedFXObject(){
 	param1iSliders = NULL;
 	nParam1fs = 0;
 	nParam1is = 0;
+	useBackbuffer = false;
 }
 
 ExtendedFXObject::~ExtendedFXObject(){
@@ -209,11 +210,13 @@ void ExtendedFXObject::update(){
 			pingPong.dst->end();       
 			pingPong.swap();
 			
-			// store the last render into it's own buffer
-			if(i == passes -1){
-				lastBuffer.begin();
-				pingPong.src->draw(0, 0);
-				lastBuffer.end();
+			if(useBackbuffer){
+				// store the last render into it's own buffer
+				if(i == passes -1){
+					lastBuffer.begin();
+					pingPong.src->draw(0, 0);
+					lastBuffer.end();
+				}
 			}
 		}
 	}
@@ -224,9 +227,11 @@ void ExtendedFXObject::onRender(int pass){
 	ofClear(0,0);
 	shader.begin();
 	
-	// on the first pass, use the last rendered buffer as the backbuffer
-	if(pass == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
-	else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
+	if(useBackbuffer){
+		// on the first pass, use the last rendered buffer as the backbuffer
+		if(pass == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
+		else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
+	}
 	
 	for( int j = 0; j < nParam1fs; j++){
 		string paramName = "param1f" + ofToString(j); 
