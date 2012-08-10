@@ -22,12 +22,12 @@ namespace ofxPatches {
 			param1fDefaults[0].name = "Scale";
 			param1fDefaults[0].value = 0.0;
 			param1fDefaults[0].min = 0.0;
-			param1fDefaults[0].max = 5.0;
+			param1fDefaults[0].max = 20.0;
 			
 			param1fDefaults[1].name = "Offset";
 			param1fDefaults[1].value = 0.0;
 			param1fDefaults[1].min = 0.0;
-			param1fDefaults[1].max = 5.0;
+			param1fDefaults[1].max = 20.0;
 			
 			param1fDefaults[2].name = "Lambda";
 			param1fDefaults[2].value = 0.0;

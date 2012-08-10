@@ -61,6 +61,20 @@ namespace ofxPatches {
 									   );
 		}
 		
+		void draw(ofRectangle &_rect){ draw(_rect.x,_rect.y,_rect.width,_rect.height);};
+		void draw(int _x = -1, int _y = -1, float _width = -1, float _height = -1){
+			if (_x == -1) _x = x;
+			if (_y == -1) _y = y;
+			
+			if (_width == -1) _width = width;
+			if (_height == -1) _height = height;
+			
+			ofPushStyle();
+			ofDisableAlphaBlending();
+			pingPong.dst->draw(_x, _y, _width, _height);
+			ofPopStyle();
+		}
+		
 		bool compileCode(){
 			bool success = Patch::compileCode();
 			shader.unload();
@@ -68,7 +82,7 @@ namespace ofxPatches {
 		}
 		
 		void onRender(int pass){
-			ofClear(255, 255, 255, 0);
+			ofClear(0, 0, 0, 0);
 			
 			int col = 0;
 			int row = 0;
@@ -88,7 +102,6 @@ namespace ofxPatches {
 			float wFinalHalf = wFinal / 2.;
 			float hFinalHalf = hFinal / 2.;
 			
-	
 			for (int i = 0; i < param1is[0]; i++) {
 				textures[i].draw(col * w + wHalf - wFinalHalf,
 								 row * h + hHalf - hFinalHalf,

@@ -50,6 +50,12 @@ namespace ofxPatches {
 		virtual void drawGUI();
 		virtual void applyGuiValues(); // useful when loading the settings;
 		
+		// They are not virtual in ofxFXObject
+		virtual void draw(ofRectangle &_rect){ draw(_rect.x,_rect.y,_rect.width,_rect.height);};
+		virtual void draw(int _x = -1, int _y = -1, float _width = -1, float _height = -1){
+			ofxFXObject::draw(_x, _y, _width, _height);
+		}
+		
 		// TODO, try to get this changes into ofxFX
 		void setTexture(ofTexture& tex, int _texNum = 0);
 		void begin(int _texNum = 0);

@@ -81,7 +81,11 @@ void Patch::setInput(Patch * patch, int index){
 
 void Patch::update(){
 	for (int i = 0; i < inputs.size(); i++) {		
-		if(inputs[i]->getPatch()) setTexture(inputs[i]->getPatch()->getTextureReference(), i);
+		if(inputs[i]->getPatch()){
+			begin(i);
+			inputs[i]->getPatch()->draw(0,0, width, height);
+			end(i);
+		}
 		else {
 			begin(i);
 			ofPushStyle();
