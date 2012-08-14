@@ -50,6 +50,9 @@ namespace ofxPatches {
 		virtual void drawGUI();
 		virtual void applyGuiValues(); // useful when loading the settings;
 		
+		virtual GLuint getFbo(){return pingPong.dst->getFbo();};
+		virtual ofFbo & getFboReference(){return *(pingPong.dst);};
+		
 		// They are not virtual in ofxFXObject
 		virtual void draw(ofRectangle &_rect){ draw(_rect.x,_rect.y,_rect.width,_rect.height);};
 		virtual void draw(int _x = -1, int _y = -1, float _width = -1, float _height = -1){

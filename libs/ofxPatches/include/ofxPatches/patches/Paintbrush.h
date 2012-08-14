@@ -24,6 +24,8 @@ namespace ofxPatches {
 			param1fDefaults[5].min = 0.0;
 			param1fDefaults[5].max = 1.0;
 			
+			useBackbuffer = true;
+			
 			fragmentShader = STRINGIFY(
 									   
 									   uniform float param1f0; //h
