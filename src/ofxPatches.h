@@ -14,6 +14,7 @@
 #include "ofxPatches/patches/Invert.h"
 #include "ofxPatches/patches/CustomBW.h"
 #include "ofxPatches/patches/BrightnessContrast.h"
+#include "ofxPatches/patches/Gamma.h"
 #include "ofxPatches/patches/HSL.h"
 
 #include "ofxPatches/patches/BandThreshold.h"

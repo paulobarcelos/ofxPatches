@@ -15,6 +15,7 @@ m.registerPatch<ofxPatches::Invert>();\
 m.registerPatch<ofxPatches::CustomBW>();\
 m.registerPatch<ofxPatches::HSL>();\
 m.registerPatch<ofxPatches::BrightnessContrast>();\
+m.registerPatch<ofxPatches::Gamma>();\
 m.registerPatch<ofxPatches::Threshold>();\
 m.registerPatch<ofxPatches::BandThreshold>();\
 m.registerPatch<ofxPatches::DifferenceAbsolute>();\

@@ -117,6 +117,7 @@
 		22d82b140684245a264395b86480b0c7 /* ofxBlur.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxBlur.h; path = ../../../addons/ofxFX/src/filters/ofxBlur.h; sourceTree = SOURCE_ROOT; };
 		27dcf3c033d8ebdd108c674ec4d416ea /* CustomBW.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CustomBW.h; path = ../../../addons/ofxPatches/libs/ofxPatches/include/ofxPatches/patches/CustomBW.h; sourceTree = SOURCE_ROOT; };
 		2834d88a62cd23f3de2c47d1c39bd645 /* ofxButton.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxButton.h; path = ../../../addons/ofxGui/src/ofxButton.h; sourceTree = SOURCE_ROOT; };
+		2DEB493A15EBC9EA00477BE8 /* Gamma.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gamma.h; path = ../libs/ofxPatches/include/ofxPatches/patches/Gamma.h; sourceTree = "<group>"; };
 		2b40eda85beb63e46785bc299a638898 /* tinyxml.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxml.cpp; path = ../../../addons/ofxXmlSettings/libs/tinyxml.cpp; sourceTree = SOURCE_ROOT; };
 		2e411f99e3ab7154484b4f96165f5cff /* kmeans_index.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = kmeans_index.h; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv2/flann/kmeans_index.h; sourceTree = SOURCE_ROOT; };
 		30884ecd9c171ab1b1bdfc3f6449c692 /* cv.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = cv.hpp; path = ../../../addons/ofxOpenCv/libs/opencv/include/opencv/cv.hpp; sourceTree = SOURCE_ROOT; };
@@ -656,6 +657,7 @@
 				c990fbd430eebacc04f8fb39f6524991 /* FixedSource.h */,
 				d1da0cc4bf6d0c7afb4dc23ef5323ae1 /* HayasakaBlend.h */,
 				38D4F2AB15D0716100CA1F81 /* BrightnessContrast.h */,
+				2DEB493A15EBC9EA00477BE8 /* Gamma.h */,
 				27dcf3c033d8ebdd108c674ec4d416ea /* CustomBW.h */,
 				d31ba79f872b4de35c13191e89e1c7ba /* Invert.h */,
 				746d5cb10092a1c81b4acd2ca4f14cc3 /* ChannelBalancer.h */,

@@ -20,14 +20,10 @@ class testApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
-	
-	ofVideoGrabber cam;
-	ofImage distorted;
-	ofImage distorted2;
-	
+
+	ofImage image;
 	
 	ofxPatches::Manager manager;
-	
 	
 		
 };

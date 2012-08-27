@@ -6,12 +6,9 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	ofSetLogLevel(OF_LOG_WARNING);
-	//ofSetVerticalSync(true);
+	ofSetVerticalSync(true);
 	ofSetWindowPosition(0, 0);
-	ofSetWindowShape(1680, 1050);
-	cam.initGrabber(640, 480);
-	distorted.loadImage("1.7mm_output.jpeg");
-	distorted2.loadImage("m12_2_8mm.gif");
+	image.loadImage("lena.jpeg");
 		/**
 	 Always this order:
 	 - setup
@@ -20,8 +17,8 @@ void testApp::setup(){
 	 - loadSettings
 	**/
 	
-	manager.setup(3, "My stack");
-	manager.allocate(320, 240);
+	manager.setup(1, "My stack");
+	manager.allocate(600, 600);
 	OFX_GPU_CV_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 	
@@ -30,15 +27,12 @@ void testApp::setup(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-	cam.update();
-	if(cam.isFrameNew()){
+	
 		TIME_SAMPLE_START("update");
-		manager.setTexture(cam.getTextureReference(),0);
-		manager.setTexture(distorted.getTextureReference(),1);
-		manager.setTexture(distorted2.getTextureReference(),2);
-		manager.update();
+    manager.begin();
+    image.draw(0, 0, 600, 600);
+    manager.end();
 		TIME_SAMPLE_STOP("update");
-	}
 	
 }
 
