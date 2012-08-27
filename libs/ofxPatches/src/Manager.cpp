@@ -215,7 +215,7 @@ void Manager::drawGUI(){
 		draw(gui.getShape().x, gui.getShape().y + gui.getShape().height, width*previewScale, height*previewScale); 
 	}
 	
-	if(isEditing){
+	if(editing){
 		if(output) output->draw();	
 		for (int i = 0; i < inputs.size(); i++) {
 			inputs[i]->draw();	
@@ -408,9 +408,13 @@ void Manager::onEdit(bool & value){
 }
 
 void Manager::enableEditing(){
-	isEditing = true;
+	editing = true;
 }
 
 void Manager::disableEditing(){
-	isEditing = false;
+	editing = false;
+}
+
+bool Manager::isEditing(){
+	return editing;
 }

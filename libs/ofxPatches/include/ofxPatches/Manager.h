@@ -49,6 +49,7 @@ namespace ofxPatches {
 		
 		void enableEditing();
 		void disableEditing();
+		bool isEditing();
 		
 	protected:
 		string baseFolder;
@@ -59,7 +60,7 @@ namespace ofxPatches {
 		
 		ofxPanel patchesGui;
 		
-		bool isEditing;
+		bool editing;
 		
 		void onSaveSettings(bool & value);
 		void onLoadSettings(bool & value);
