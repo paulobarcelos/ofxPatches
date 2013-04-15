@@ -79,7 +79,7 @@ namespace ofxPatches {
 			
 			// Add the acc allumualte button
 			ofxButton * accumulate = new ofxButton();
-			accumulate->setup("Accumulate all", OFX_GPU_CV_GUI_SIZE);
+			accumulate->setup("Accumulate all", OFX_PATCHES_GUI_SIZE);
 			accumulate->addListener(this, &Accumulator::onAccumulateAll);
 			gui.add(accumulate);
 		};

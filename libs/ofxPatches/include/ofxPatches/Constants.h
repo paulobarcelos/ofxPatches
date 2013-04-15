@@ -1,13 +1,25 @@
 #pragma once
 
-#define OFX_GPU_CV_MAX_PARAMETERS 20
-#define OFX_GPU_CV_PATCH_CONNECTOR_SIZE 10
+#ifndef OFX_PATCHES_MAX_PARAMETERS
+	#define OFX_PATCHES_MAX_PARAMETERS 20
+#endif
 
-#define OFX_GPU_CV_GUI_SIZE 200,14
 
-#define OFX_GPU_CV_SETTINGS_FOLDER "ofxPatches/"
+#ifndef OFX_PATCHES_PATCH_CONNECTOR_SIZE
+	#define OFX_PATCHES_PATCH_CONNECTOR_SIZE 10
+#endif
 
-#define OFX_GPU_CV_REGISTER_ALL_EFFECTS(m) \
+
+#ifndef OFX_PATCHES_GUI_SIZE
+#define OFX_PATCHES_GUI_SIZE 200,14
+#endif
+
+
+#ifndef OFX_PATCHES_SETTINGS_FOLDER
+	#define OFX_PATCHES_SETTINGS_FOLDER "ofxPatches/"
+#endif
+
+#define OFX_PATCHES_REGISTER_ALL_EFFECTS(m) \
 m.registerPatch<ofxPatches::Accumulator>();\
 m.registerPatch<ofxPatches::OpticalFlow>();\
 m.registerPatch<ofxPatches::ChannelBalancer>();\

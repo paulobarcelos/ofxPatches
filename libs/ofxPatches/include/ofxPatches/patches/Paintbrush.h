@@ -115,7 +115,7 @@ namespace ofxPatches {
 			
 			// Add the clear button
 			ofxButton * clear = new ofxButton();
-			clear->setup("Clear", OFX_GPU_CV_GUI_SIZE);
+			clear->setup("Clear", OFX_PATCHES_GUI_SIZE);
 			clear->addListener(this, &Paintbrush::onClearPress);
 			gui.add(clear);
 		};

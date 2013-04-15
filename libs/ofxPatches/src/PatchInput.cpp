@@ -88,7 +88,7 @@ void PatchInput::draw(){
 ofRectangle PatchInput::getShape(){
 	if(!parent) return ofRectangle();
 	ofRectangle gui = parent->gui.getShape();
-	return ofRectangle(gui.x - OFX_GPU_CV_PATCH_CONNECTOR_SIZE - 1, gui.y + inputIndex * (OFX_GPU_CV_PATCH_CONNECTOR_SIZE + 2) + 2, OFX_GPU_CV_PATCH_CONNECTOR_SIZE, OFX_GPU_CV_PATCH_CONNECTOR_SIZE);
+	return ofRectangle(gui.x - OFX_PATCHES_PATCH_CONNECTOR_SIZE - 1, gui.y + inputIndex * (OFX_PATCHES_PATCH_CONNECTOR_SIZE + 2) + 2, OFX_PATCHES_PATCH_CONNECTOR_SIZE, OFX_PATCHES_PATCH_CONNECTOR_SIZE);
 }
 
 Patch * PatchInput::getPatchIfInside(float x, float y){

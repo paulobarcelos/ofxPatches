@@ -40,13 +40,13 @@ void Patch::registerDefaultGui(){
 	
 	// Add the delete button
 	ofxButton * deleteButton = new ofxButton();
-	deleteButton->setup("Delete", OFX_GPU_CV_GUI_SIZE);
+	deleteButton->setup("Delete", OFX_PATCHES_GUI_SIZE);
 	deleteButton->addListener(this, &Patch::onDelete);
 	gui.add(deleteButton);
 	
 	// Add the preview slider
 	ofxFloatSlider * previewSlider = new ofxFloatSlider();
-	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_GPU_CV_GUI_SIZE);
+	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_PATCHES_GUI_SIZE);
 	previewSlider->addListener(this, &Patch::onPreviewScaleChange);
 	gui.add(previewSlider);
 }

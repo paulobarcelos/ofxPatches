@@ -26,47 +26,47 @@ void Manager::setup(int nSources, string name, string filename){
 		this->filename = this->name + ".xml";
 	}
 	
-	baseFolder = OFX_GPU_CV_SETTINGS_FOLDER + ofFilePath::removeExt(this->filename) + "/";
+	baseFolder = OFX_PATCHES_SETTINGS_FOLDER + ofFilePath::removeExt(this->filename) + "/";
 	ofDirectory::createDirectory(baseFolder, true, true);
 	
 	this->filename = baseFolder + this->filename;	
 	
-	fragmentShader = "";
+	fragmentShader = "void main(void){}";
 	for (int i  = 0;  i < nSources; i ++) {
 		fragmentShader += string("uniform sampler2DRect tex" + ofToString(i) +"; ");
 	}
 	
 	gui.setup(this->name, this->filename);
-	gui.setSize(OFX_GPU_CV_GUI_SIZE);
+	gui.setSize(OFX_PATCHES_GUI_SIZE);
 	gui.setPosition(20, 20);
 	gui.clear();
 	
 	
 	// Add th load / save buttons
 	ofxButton * saveSettingsButton = new ofxButton();
-	saveSettingsButton->setup("Save",OFX_GPU_CV_GUI_SIZE);
+	saveSettingsButton->setup("Save",OFX_PATCHES_GUI_SIZE);
 	saveSettingsButton->addListener(this, &Manager::onSaveSettings);
 	gui.add(saveSettingsButton);
 	
 	ofxButton * loadSettingsButton = new ofxButton();
-	loadSettingsButton->setup("Load",OFX_GPU_CV_GUI_SIZE);
+	loadSettingsButton->setup("Load",OFX_PATCHES_GUI_SIZE);
 	loadSettingsButton->addListener(this, &Manager::onLoadSettings);
 	gui.add(loadSettingsButton);
 	
 	// Add the edit toogle
 	ofxToggle * editToogle = new ofxToggle();
-	editToogle->setup("Edit", true, OFX_GPU_CV_GUI_SIZE);
+	editToogle->setup("Edit", true, OFX_PATCHES_GUI_SIZE);
 	editToogle->addListener(this, &Manager::onEdit);
 	gui.add(editToogle);
 	
 	// Add the preview slider
 	ofxFloatSlider * previewSlider = new ofxFloatSlider();
-	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_GPU_CV_GUI_SIZE);
+	previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_PATCHES_GUI_SIZE);
 	previewSlider->addListener((Patch*)this, &Patch::onPreviewScaleChange);
 	gui.add(previewSlider);
 	
 	patchesGui.setup("Patches", baseFolder + "patches_gui.xml");
-	patchesGui.setSize(OFX_GPU_CV_GUI_SIZE);
+	patchesGui.setSize(OFX_PATCHES_GUI_SIZE);
 	patchesGui.setPosition(gui.getShape().x+ gui.getShape().width + 2, 20);	
 }
 
@@ -80,7 +80,7 @@ bool Manager::compileCode(){
 		Patch * patch = new FixedSource(&(textures[i]), string("Source " + ofToString(i)));
 		
 		ofxButton * patchButton = new ofxButton();
-		patchButton->setup(patch->getName(),OFX_GPU_CV_GUI_SIZE);
+		patchButton->setup(patch->getName(),OFX_PATCHES_GUI_SIZE);
 		
 		ManagerPatchGUIHandler * handler = new ManagerPatchGUIHandler(this, registeredPatches.size());
 		patchButton->addListener(handler, &ManagerPatchGUIHandler::onPatchButton);

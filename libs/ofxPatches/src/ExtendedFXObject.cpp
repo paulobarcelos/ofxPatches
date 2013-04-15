@@ -42,7 +42,7 @@ void ExtendedFXObject::setup(string name, string filename){
 	}
 		
 	gui.setup(this->name, this->filename);
-	gui.setSize(OFX_GPU_CV_GUI_SIZE);
+	gui.setSize(OFX_PATCHES_GUI_SIZE);
 	// Reset the gui
 	gui.clear();
 	
@@ -53,14 +53,14 @@ void ExtendedFXObject::setup(string name, string filename){
 void ExtendedFXObject::registerDefaultGui(){
 	// Add the bypass toogle	
 	ofxToggle * bypassToggle = new ofxToggle();
-	bypassToggle->setup("Bypass", false, OFX_GPU_CV_GUI_SIZE);
+	bypassToggle->setup("Bypass", false, OFX_PATCHES_GUI_SIZE);
 	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
 	gui.add(bypassToggle);
 	
 	// Add passes slider
 	if(maxPasses > 1){
 		ofxIntSlider * passesSlider = new ofxIntSlider();
-		passesSlider->setup("Passes", 1, 1, maxPasses, OFX_GPU_CV_GUI_SIZE);
+		passesSlider->setup("Passes", 1, 1, maxPasses, OFX_PATCHES_GUI_SIZE);
 		passesSlider->addListener(this, &ExtendedFXObject::onPassesChange);
 		gui.add(passesSlider);
 	}
@@ -95,7 +95,7 @@ bool ExtendedFXObject::compileCode(){
     int num;
     // See how many float parameters it's need on the injected fragment shader
     num = 0;
-    for (int i = 0; i < OFX_GPU_CV_MAX_PARAMETERS; i++){
+    for (int i = 0; i < OFX_PATCHES_MAX_PARAMETERS; i++){
         string searchFor = "param1f" + ofToString(i);
         if ( fragmentShader.find(searchFor)!= -1)
             num++;
@@ -135,7 +135,7 @@ bool ExtendedFXObject::compileCode(){
 			sliderName = param1fDefaults[i].name;
 			
 		}
-		param1fSliders[i].setup(sliderName, param1fDefaults[i].value, param1fDefaults[i].min, param1fDefaults[i].max, OFX_GPU_CV_GUI_SIZE);
+		param1fSliders[i].setup(sliderName, param1fDefaults[i].value, param1fDefaults[i].min, param1fDefaults[i].max, OFX_PATCHES_GUI_SIZE);
 		param1fSliders[i].addListener(this, &ExtendedFXObject::onParam1fChange);
 		gui.add(&(param1fSliders[i]));
 
@@ -143,7 +143,7 @@ bool ExtendedFXObject::compileCode(){
 	
 	// See how many int parameters it's need on the injected fragment shader
     num = 0;
-    for (int i = 0; i < OFX_GPU_CV_MAX_PARAMETERS; i++){
+    for (int i = 0; i < OFX_PATCHES_MAX_PARAMETERS; i++){
         string searchFor = "param1i" + ofToString(i);
         if ( fragmentShader.find(searchFor)!= -1)
             num++;
@@ -182,7 +182,7 @@ bool ExtendedFXObject::compileCode(){
 		else{
 			sliderName = param1iDefaults[i].name;
 		}
-		param1iSliders[i].setup(sliderName, param1iDefaults[i].value, param1iDefaults[i].min, param1iDefaults[i].max, OFX_GPU_CV_GUI_SIZE);
+		param1iSliders[i].setup(sliderName, param1iDefaults[i].value, param1iDefaults[i].min, param1iDefaults[i].max, OFX_PATCHES_GUI_SIZE);
 		param1iSliders[i].addListener(this, &ExtendedFXObject::onParam1iChange);
 		gui.add(&(param1iSliders[i]));
 
@@ -323,12 +323,16 @@ void ExtendedFXObject::applyGuiValues(){
 //TODO, try to get this on ofxFX intead, can't see the point of the texture alpha being set to one!
 
 // A simplified way of filling the insides texture
-void ExtendedFXObject::setTexture(ofTexture& tex, int _texNum){ 
+void ExtendedFXObject::setTexture(ofTexture& tex, int _texNum){
+	setTexture(tex, _texNum);
+}
+
+void ExtendedFXObject::setTexture(ofBaseDraws& base, int _texNum){
     if ((_texNum < nTextures) && ( _texNum >= 0)){
         textures[_texNum].begin(); 
         ofClear(0,0);
         ofSetColor(255);
-        tex.draw(0,0, width, height); 
+        base.draw(0,0, width, height); 
         textures[_texNum].end();
     }
 };

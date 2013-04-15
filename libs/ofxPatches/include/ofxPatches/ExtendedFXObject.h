@@ -61,6 +61,7 @@ namespace ofxPatches {
 		
 		// TODO, try to get this changes into ofxFX
 		void setTexture(ofTexture& tex, int _texNum = 0);
+		void setTexture(ofBaseDraws& base, int _texNum = 0);
 		void begin(int _texNum = 0);
 		
 
@@ -81,8 +82,8 @@ namespace ofxPatches {
 		ofFbo lastBuffer; // Acts as a buffer "buffer", so we can provide the last rendered buffer from the
 						  // last update as the backbuffer of the first pass of the current update
 		
-		Param1fDefaults param1fDefaults[OFX_GPU_CV_MAX_PARAMETERS];
-		Param1iDefaults param1iDefaults[OFX_GPU_CV_MAX_PARAMETERS];
+		Param1fDefaults param1fDefaults[OFX_PATCHES_MAX_PARAMETERS];
+		Param1iDefaults param1iDefaults[OFX_PATCHES_MAX_PARAMETERS];
 
 		ofxPanel gui;
 		ofxFloatSlider * param1fSliders;

@@ -63,7 +63,7 @@ namespace ofxPatches {
 		
 		void loadSettings(){
 			Patch::loadSettings();
-			load(manager->getBaseFolder() + ofToString(id) + "+_warp.xml");
+			loadXML(manager->getBaseFolder() + ofToString(id) + "+_warp.xml");
 			
 			
 		}
@@ -77,7 +77,7 @@ namespace ofxPatches {
 			Patch::registerDefaultGui();
 			
 			ofxToggle * enableWarpingToogle = new ofxToggle();
-			enableWarpingToogle->setup("Enable warping", false, OFX_GPU_CV_GUI_SIZE);
+			enableWarpingToogle->setup("Enable warping", false, OFX_PATCHES_GUI_SIZE);
 			enableWarpingToogle->addListener(this, &PerspectiveWarp::onEnableWarping);
 			gui.add(enableWarpingToogle);
 		}
@@ -305,7 +305,7 @@ namespace ofxPatches {
 		 XML.saveFile(saveFile);
 		 }
 		//--------------------------------------------------------------
-		void load(string loadFile){
+		void loadXML(string loadFile){
 			 ofxXmlSettings XML;
 			 if( !XML.loadFile(loadFile) ){
 				 ofLog(OF_LOG_ERROR, "ofxGLWarper : xml file not loaded. Check file path.");
