@@ -60,7 +60,6 @@ namespace ofxPatches {
 		}
 		
 		// TODO, try to get this changes into ofxFX
-		void setTexture(ofTexture& tex, int _texNum = 0);
 		void setTexture(ofBaseDraws& base, int _texNum = 0);
 		void begin(int _texNum = 0);
 		

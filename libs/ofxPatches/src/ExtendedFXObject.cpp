@@ -321,12 +321,7 @@ void ExtendedFXObject::applyGuiValues(){
 
 
 //TODO, try to get this on ofxFX intead, can't see the point of the texture alpha being set to one!
-
 // A simplified way of filling the insides texture
-void ExtendedFXObject::setTexture(ofTexture& tex, int _texNum){
-	setTexture(tex, _texNum);
-}
-
 void ExtendedFXObject::setTexture(ofBaseDraws& base, int _texNum){
     if ((_texNum < nTextures) && ( _texNum >= 0)){
         textures[_texNum].begin(); 
