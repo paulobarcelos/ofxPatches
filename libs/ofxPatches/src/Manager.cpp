@@ -407,6 +407,10 @@ void Manager::onEdit(bool & value){
 	}
 }
 
+void Manager::toggleEditing(){
+	if(editing) disableEditing();
+	else enableEditing();
+}
 void Manager::enableEditing(){
 	editing = true;
 }

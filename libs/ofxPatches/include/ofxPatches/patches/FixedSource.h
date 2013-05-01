@@ -17,27 +17,14 @@ namespace ofxPatches {
 		}
 		FixedSource(ofBaseDraws * source = NULL, string name = "Fixed Source"){
 			this->source = source;
-			this->name = name;			
+			this->name = name;
+			allowBypass = false;
 			fragmentShader = STRINGIFY(  
 									   uniform sampler2DRect tex0; 
 									   void main(void){}
 									   );
 		}
-		
-		void registerDefaultGui(){			
-			// Add the delete button
-			ofxButton * deleteButton = new ofxButton();
-			deleteButton->setup("Delete", OFX_PATCHES_GUI_SIZE);
-			deleteButton->addListener((Patch*)this, &Patch::onDelete);
-			gui.add(deleteButton);
-			
-			// Add the preview slider
-			ofxFloatSlider * previewSlider = new ofxFloatSlider();
-			previewSlider->setup("Preview Scale", 0.25, 0., 1., OFX_PATCHES_GUI_SIZE);
-			previewSlider->addListener((Patch*)this, &Patch::onPreviewScaleChange);
-			gui.add(previewSlider);
-		};
-		
+				
 		bool compileCode(){
 			bool compileSucess = Patch::compileCode();
 			shader.unload();

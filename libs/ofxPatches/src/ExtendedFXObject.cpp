@@ -4,6 +4,7 @@ using namespace ofxPatches;
 ExtendedFXObject::ExtendedFXObject(){
 	name = "undefined";
 	filename = "";
+	allowBypass = true;
 	bypass = false;
 	maxPasses = 1;
 	param1fs = NULL;
@@ -51,11 +52,13 @@ void ExtendedFXObject::setup(string name, string filename){
 }
 
 void ExtendedFXObject::registerDefaultGui(){
-	// Add the bypass toogle	
-	ofxToggle * bypassToggle = new ofxToggle();
-	bypassToggle->setup("Bypass", false, OFX_PATCHES_GUI_SIZE);
-	bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
-	gui.add(bypassToggle);
+	// Add the bypass toogle
+	if(allowBypass){
+		ofxToggle * bypassToggle = new ofxToggle();
+		bypassToggle->setup("Bypass", false, OFX_PATCHES_GUI_SIZE);
+		bypassToggle->addListener(this, &ExtendedFXObject::onBypassChange);
+		gui.add(bypassToggle);
+	}	
 	
 	// Add passes slider
 	if(maxPasses > 1){
@@ -198,7 +201,7 @@ void ExtendedFXObject::update(){
 	if(bypass){
 		pingPong.dst->begin();        
         ofClear(0,0);
-		textures[0].draw(0, 0);  
+		textures[0].draw(0, 0);
         pingPong.dst->end();        
         pingPong.swap();
 	}

@@ -47,6 +47,7 @@ namespace ofxPatches {
 		void saveSettings();
 		void loadSettings();
 		
+		void toggleEditing();
 		void enableEditing();
 		void disableEditing();
 		bool isEditing();

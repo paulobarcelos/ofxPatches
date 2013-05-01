@@ -50,6 +50,14 @@ public:
 		param1iDefaults[0].min = 0;
 		param1iDefaults[0].max = 24;
 		
+		// This parameter doesn't do anything
+		// we will only use it to hack it's label
+		// to display the name of the current mode
+		param1iDefaults[1].name = "Mode Name";
+		param1iDefaults[1].value = 1;
+		param1iDefaults[1].min = 0;
+		param1iDefaults[1].max = 1;
+		
 		blendNames[0] = "NORMAL";
 		blendNames[1] = "MULTIPLY";
 		blendNames[2] = "AVERAGE";
@@ -183,6 +191,7 @@ public:
 									uniform sampler2DRect tex0;
 									uniform sampler2DRect tex1;
 									uniform int param1i0;
+								   uniform int param1i1;
 									
 									void main(){
 										int mode = param1i0;
@@ -303,11 +312,11 @@ public:
 	void setParam1i(int param, int _paramNum = 0){
 		Patch::setParam1i(param, _paramNum);
 		
-		// mode is the 4th paramenter
+		// mode name is the 5th paramenter
 		if( _paramNum == 0){
 			if(param < 0) param = 0;
 			if(param > 24) param = 24;
-			gui.getControl(3)->setName(blendNames[param]);
+			gui.getControl(4)->setName(blendNames[param]);
 		}
 	}
 	

@@ -14,6 +14,8 @@ namespace ofxPatches {
 		Paintbrush(){
 			name = "Paintbrush";
 			
+			allowBypass = false;
+			
 			param1fDefaults[4].name = "Brush Size";
 			param1fDefaults[4].value = 50.0;
 			param1fDefaults[4].min = 0.0;

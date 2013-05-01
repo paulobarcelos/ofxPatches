@@ -6,10 +6,10 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	ofSetLogLevel(OF_LOG_WARNING);
-	ofSetVerticalSync(true);
-	ofSetWindowPosition(0, 0);
-	image.loadImage("lena.jpeg");
-		/**
+	foreground.loadImage("foreground.jpg");
+	background.loadImage("background.jpg");
+	
+	/**
 	 Always this order:
 	 - setup
 	 - allocate
@@ -17,66 +17,21 @@ void testApp::setup(){
 	 - loadSettings
 	**/
 	
-	manager.setup(1, "My stack");
-	manager.allocate(600, 600);
+	manager.setup(2, "Patches");
+	manager.allocate(720, 480);
 	OFX_PATCHES_REGISTER_ALL_EFFECTS(manager);	
 	manager.loadSettings();
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
-	
-    manager.setTexture(image);
-	
+void testApp::update(){	
+    manager.setTexture(foreground, 0);
+	manager.setTexture(background, 1);
 	manager.update();
+	ofSetWindowTitle(ofToString(ofGetFrameRate()));
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 	manager.drawGUI();
-}
-
-//--------------------------------------------------------------
-void testApp::keyPressed(int key){
-	
-}
-
-//--------------------------------------------------------------
-void testApp::keyReleased(int key){
-
-}
-
-//--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
-
-}
-
-//--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
-
 }

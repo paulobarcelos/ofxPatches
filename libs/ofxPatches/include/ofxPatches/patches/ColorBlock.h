@@ -12,6 +12,8 @@ namespace ofxPatches {
 		
 		ColorBlock(){
 			name = "Color Block";
+			
+			allowBypass = false;
 						
 			param1fDefaults[0].name = "Hue";
 			param1fDefaults[0].value = 0.0;

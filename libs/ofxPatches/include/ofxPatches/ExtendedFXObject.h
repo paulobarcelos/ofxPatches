@@ -72,6 +72,7 @@ namespace ofxPatches {
 		string filename;
 		bool useBackbuffer;
 		bool bypass;
+		bool allowBypass;
 		int maxPasses;
 		float * param1fs;
 		int * param1is;
