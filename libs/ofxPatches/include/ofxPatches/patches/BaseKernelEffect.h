@@ -19,10 +19,10 @@ namespace ofxPatches {
 
 			internalFormat = GL_RGBA;
 			
-			useBackbuffer = true;
+			//useBackbuffer = true;
 			
 			param1fDefaults[0].name = "Size";
-			param1fDefaults[0].value = 4.0;
+			param1fDefaults[0].value = 1.0;
 			param1fDefaults[0].min = 0.0;
 			param1fDefaults[0].max = 30.0;
 			
