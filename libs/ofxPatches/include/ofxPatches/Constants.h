@@ -36,6 +36,9 @@ m.registerPatch<ofxPatches::BandPass>();\
 m.registerPatch<ofxPatches::DifferenceAbsolute>();\
 m.registerPatch<ofxPatches::DifferenceDarken>();\
 m.registerPatch<ofxPatches::DifferenceLigthen>();\
+m.registerPatch<ofxPatches::BitwiseAND>();\
+m.registerPatch<ofxPatches::BitwiseOR>();\
+m.registerPatch<ofxPatches::BitwiseXOR>();\
 m.registerPatch<ofxPatches::BlurGaussian>();\
 m.registerPatch<ofxPatches::BlurMedian>();\
 m.registerPatch<ofxPatches::Sharpen>();\
