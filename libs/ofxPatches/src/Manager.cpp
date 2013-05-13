@@ -304,6 +304,8 @@ void Manager::saveSettings(){
 		settings.setValue("id", currentPatches[i]->getId());
 		settings.addTag("label");
 		settings.setValue("label", currentPatches[i]->getLabel());
+		settings.addTag("name");
+		settings.setValue("name", currentPatches[i]->getName());
 		
 		settings.addTag("gui_position");
 		settings.pushTag("gui_position");
