@@ -27,6 +27,10 @@
 #include "ofxPatches/patches/DifferenceDarken.h"
 #include "ofxPatches/patches/DifferenceLigthen.h"
 
+#include "ofxPatches/patches/BitwiseAND.h"
+#include "ofxPatches/patches/BitwiseOR.h"
+#include "ofxPatches/patches/BitwiseXOR.h"
+
 #include "ofxPatches/patches/ChannelCombiner.h"
 #include "ofxPatches/patches/ChannelMask.h"
 #include "ofxPatches/patches/AlphaMask.h"
