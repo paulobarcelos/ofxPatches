@@ -35,6 +35,7 @@ namespace ofxPatches {
 		int getPatchLabelById(int id);
 		
 		void addPatch(int label, int id);
+		void addPatch(string name, int id);
 		void removePatch(int id);
 		
 		void setGUIPosition(float x, float y);

@@ -145,6 +145,30 @@ void Manager::addPatch(int label, int id){
 	currentPatches.push_back(patch);
 }
 
+void Manager::addPatch(string name, int id){
+	Patch * patch = NULL;
+	int label;
+	for (int i = 0; i < registeredPatches.size(); i++) {
+		if(name.compare(registeredPatches[i]->name) == 0){
+			patch = registeredPatches[i]->create();
+			label = i;
+			break;
+		}
+	}
+	if(!patch){
+		ofLogWarning("Manager: Trying to add an patch that is not registred.");
+		return;
+	}
+	patch->setup(this, patch->getName(), string(ofToString(id) + ".xml"), id);
+	patch->setLabel(label);
+	patch->allocate(width, height, internalFormat);
+	
+	patch->setGUIPosition(ofGetWidth()/2 - patch->gui.getShape().width / 2 + currentPatches.size() * 14,
+						  ofGetHeight()/2 - patch->gui.getShape().height / 2 + currentPatches.size() * 14);
+	
+	currentPatches.push_back(patch);
+}
+
 void Manager::removePatch(int id){
 	int label = getPatchLabelById(id);
 	if(label == -1) return;
@@ -302,8 +326,6 @@ void Manager::saveSettings(){
 		
 		settings.addTag("id");
 		settings.setValue("id", currentPatches[i]->getId());
-		settings.addTag("label");
-		settings.setValue("label", currentPatches[i]->getLabel());
 		settings.addTag("name");
 		settings.setValue("name", currentPatches[i]->getName());
 		
@@ -358,7 +380,7 @@ void Manager::loadSettings(){
 	for (int i = 0; i < settings.getNumTags("patch"); i++) {
 		settings.pushTag("patch", i);
 		// create the patch
-		addPatch(settings.getValue("label", -1), settings.getValue("id", -1));
+		addPatch(settings.getValue("name", ""), settings.getValue("id", -1));
 		// load the internal settings
 		currentPatches[i]->loadSettings();
 		// set the position
