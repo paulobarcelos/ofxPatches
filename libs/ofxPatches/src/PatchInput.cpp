@@ -35,11 +35,13 @@ int PatchInput::getInputIndex(){
 
 void PatchInput::mouseMoved(ofMouseEventArgs & args){};
 void PatchInput::mousePressed(ofMouseEventArgs & args){
-	if (getShape().inside(args.x, args.y)) {
-		isConnecting = true;
-		patch = NULL;
-		mouse.set(args.x, args.y);
-	}
+	if(parent && parent->manager && parent->manager->isEditing()){
+		if (getShape().inside(args.x, args.y)) {
+			isConnecting = true;
+			patch = NULL;
+			mouse.set(args.x, args.y);
+		}
+	}	
 };
 void PatchInput::mouseDragged(ofMouseEventArgs & args){
 	if (isConnecting) {
