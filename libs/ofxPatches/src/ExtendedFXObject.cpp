@@ -302,8 +302,20 @@ void ExtendedFXObject::onPassesChange(int & value){
 	setPasses(value);
 }
 
+void ExtendedFXObject::setName(string name){
+	this->name = name;
+}
+
 string ExtendedFXObject::getName(){
 	return name;
+}
+
+void ExtendedFXObject::setFilename(string filename){
+	this->filename = filename;
+}
+
+string ExtendedFXObject::getFilename(){
+	return filename;
 }
 
 void ExtendedFXObject::setGUIPosition(float x, float y){

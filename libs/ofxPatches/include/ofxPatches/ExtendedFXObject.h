@@ -42,7 +42,11 @@ namespace ofxPatches {
 		virtual void setBypass(bool value);
 		virtual void setPasses(int value);
 		
+		virtual void setName(string name);
 		virtual string getName();
+		
+		virtual void setFilename(string filename);
+		virtual string getFilename();
 		
 		virtual void registerDefaultGui();
 		
