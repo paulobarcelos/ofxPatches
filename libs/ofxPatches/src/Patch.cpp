@@ -14,6 +14,9 @@ Patch::Patch(){
 
 Patch::~Patch(){
 	if(output) delete output;
+	for(int i = 0; i < inputs.size(); i++){
+		if(inputs[i]) delete inputs[i];
+	}
 }
 
 void Patch::setup(Manager * manager, string name, string filename, int id){
