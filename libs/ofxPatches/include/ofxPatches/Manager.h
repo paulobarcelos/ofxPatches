@@ -64,8 +64,8 @@ namespace ofxPatches {
 		
 		bool editing;
 		
-		void onSaveSettings(bool & value);
-		void onLoadSettings(bool & value);
+		void onSaveSettings();
+		void onLoadSettings();
 		void onEdit(bool & value);
 	};
 	
@@ -75,8 +75,8 @@ namespace ofxPatches {
 			this->manager = manager;
 			this->patchLabel = patchLabel;
 		};
-		void onPatchButton(bool & value){
-			if(value)manager->addPatch(patchLabel, rand());
+		void onPatchButton(){
+			manager->addPatch(patchLabel, rand());
 		};
 	private:
 		Manager * manager;

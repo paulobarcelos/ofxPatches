@@ -123,7 +123,8 @@ void Patch::drawGUI(){
 
 void Patch::applyGuiValues(){
 	ExtendedFXObject::applyGuiValues();
-	onPreviewScaleChange(gui.getFloatSlider("Preview Scale"));
+	float previewScale = gui.getFloatSlider("Preview Scale");
+	onPreviewScaleChange(previewScale);
 }
 
 void Patch::saveSettings(){
@@ -149,10 +150,8 @@ void Patch::selfDelete(){
 }
 
 
-void Patch::onDelete(bool & value){
-	if(value){
-		selfDelete();
-	}
+void Patch::onDelete(){
+	selfDelete();
 }
 
 void Patch::onPreviewScaleChange(float & value){

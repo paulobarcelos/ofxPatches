@@ -70,7 +70,8 @@ namespace ofxPatches {
 		
 		void applyGuiValues(){
 			Patch::applyGuiValues();
-			onEnableWarping(gui.getToggle("Enable warping"));
+			bool enableWarping = gui.getToggle("Enable warping");
+			onEnableWarping(enableWarping);
 		}
 		
 		void registerDefaultGui(){

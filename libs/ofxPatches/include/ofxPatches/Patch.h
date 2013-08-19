@@ -43,7 +43,7 @@ namespace ofxPatches {
 		void setPreviewScale(float scale);
 		void selfDelete();
 		
-		void onDelete(bool & value);
+		void onDelete();
 		void onPreviewScaleChange(float & value);
 		
 	protected:

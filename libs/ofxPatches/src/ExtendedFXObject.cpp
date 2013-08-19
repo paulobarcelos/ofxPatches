@@ -327,7 +327,8 @@ void ExtendedFXObject::drawGUI(){
 
 
 void ExtendedFXObject::applyGuiValues(){
-	onBypassChange(gui.getToggle("Bypass"));
+	bool bypass = gui.getToggle("Bypass");
+	onBypassChange(bypass);
 	float f = 0.0;
 	int i = 0;
 	onParam1fChange(f);
