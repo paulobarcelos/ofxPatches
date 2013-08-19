@@ -131,7 +131,7 @@ int Manager::getPatchLabelById(int id){
 
 void Manager::addPatch(int label, int id){
 	if (label < 0 || label >= registeredPatches.size()) {
-		ofLogWarning("Manager: Trying to add an patch that is not registred.");
+		ofLogWarning("Manager: Can't add Patch (label \"" + ofToString(label) + "\"). It is not registered.");
 		return;
 	}
 	Patch * patch = registeredPatches[label]->create();
@@ -156,7 +156,7 @@ void Manager::addPatch(string name, int id){
 		}
 	}
 	if(!patch){
-		ofLogWarning("Manager: Trying to add an patch that is not registred.");
+		ofLogWarning("Manager: Can't add Patch (name \"" + name + "\"). It is not registered.");
 		return;
 	}
 	patch->setup(this, patch->getName(), string(ofToString(id) + ".xml"), id);
