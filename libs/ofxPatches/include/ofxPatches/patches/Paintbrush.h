@@ -122,10 +122,8 @@ namespace ofxPatches {
 			gui.add(clear);
 		};
 		
-		void onClearPress(bool & value){
-			if(value){
-				clear();
-			}
+		void onClearPress(){
+			clear();
 		}
 		
 		void clear(){

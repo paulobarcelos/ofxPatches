@@ -84,10 +84,8 @@ namespace ofxPatches {
 			gui.add(accumulate);
 		};
 		
-		void onAccumulateAll(bool & value){
-			if(value){
-				accumulateAll();
-			}
+		void onAccumulateAll(){
+			accumulateAll();
 		}
 		
 		void accumulateAll(){

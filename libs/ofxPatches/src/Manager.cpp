@@ -262,7 +262,8 @@ void Manager::setPatchesGUIPosition(float x, float y){
 
 void Manager::applyGuiValues(){
 	Patch::applyGuiValues();
-	onEdit(gui.getToggle("Edit"));
+	bool edit = gui.getToggle("Edit");
+	onEdit(edit);
 }
 
 
@@ -410,16 +411,12 @@ void Manager::loadSettings(){
 	settings.popTag();
 }
 
-void Manager::onSaveSettings(bool & value){
-	if(value){
-		saveSettings();
-	}
+void Manager::onSaveSettings(){
+	saveSettings();
 }
 
-void Manager::onLoadSettings(bool & value){
-	if(value){
-		loadSettings();
-	}
+void Manager::onLoadSettings(){
+	loadSettings();
 }
 
 void Manager::onEdit(bool & value){
