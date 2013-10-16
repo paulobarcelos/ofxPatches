@@ -1,0 +1,8 @@
+<Accumulator>
+	<Bypass>0</Bypass>
+	<Passes>1</Passes>
+	<Preview_Scale>0.155</Preview_Scale>
+	<Rate>0.01495</Rate>
+	<Frames_to_skip>15</Frames_to_skip>
+<Accumulator/>
+</Accumulator>

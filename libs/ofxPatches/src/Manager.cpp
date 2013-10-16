@@ -3,11 +3,11 @@
 using namespace ofxPatches;
 
 Manager::Manager(){
-	name = "undefined";
+	name = "Manager";
 	filename = "";
 	output = NULL;
 	manager = this;
-	
+	allowBypass = false;
 	fragmentShader = "void main(void){}";
 }
 Manager::~Manager(){
@@ -182,8 +182,11 @@ void Manager::removePatch(int id){
 	// remove the settings file
 	//ofFile::removeFile(patch->filename);
 	
-	// delete and remove from the collection
-	delete currentPatches[currentPatches.size()-1];
+    // store patch for garbage collection (we can't delete them immediately
+    // as that will cause the gui mutex to go bananas)
+    garbageCollection.push_back(currentPatches[currentPatches.size()-1]);
+    
+    // remove patch from collection
 	currentPatches.pop_back();
 	
 	// loop through all the remaining patches and remove the connector
@@ -229,7 +232,14 @@ void Manager::update(){
 	pingPong.swap();
 	pingPong.swap();
 	
-	
+	// Garbage disposal
+    int garbageIndex = garbageCollection.size() - 1;
+    while (garbageIndex > 0) {
+        delete garbageCollection[garbageIndex];
+        garbageCollection.pop_back();
+        garbageIndex = garbageCollection.size() - 1;
+    }
+   
 }
 
 void Manager::drawGUI(){

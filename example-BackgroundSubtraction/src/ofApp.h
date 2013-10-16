@@ -3,14 +3,13 @@
 #include "ofMain.h"
 #include "ofxPatches.h"
 
-class testApp : public ofBaseApp{
+class ofApp : public ofBaseApp{
 
 	public:
 		void setup();
 		void update();
 		void draw();
 
-		ofImage foreground;
-		ofImage background;
-		ofxPatches::Manager manager;		
+        ofVideoGrabber cam;
+        ofxPatches::Manager manager;
 };
