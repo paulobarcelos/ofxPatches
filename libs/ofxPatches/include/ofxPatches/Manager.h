@@ -59,6 +59,7 @@ namespace ofxPatches {
 		vector<Patch*> registeredPatches;
 		vector<ManagerPatchGUIHandler*> registeredPatchesHandlers;
 		vector<Patch*> currentPatches;
+        vector<Patch*> garbageCollection;
 		
 		ofxPanel patchesGui;
 		

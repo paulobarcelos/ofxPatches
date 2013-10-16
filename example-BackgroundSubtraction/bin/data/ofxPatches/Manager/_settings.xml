@@ -1,0 +1,101 @@
+<inputs>
+    <id>328175472</id>
+</inputs>
+<gui_position>
+    <x>20.000000000</x>
+    <y>20.000000000</y>
+</gui_position>
+<patches_gui_position>
+    <x>353.000000000</x>
+    <y>4.000000000</y>
+</patches_gui_position>
+<patches>
+    <patch>
+        <id>1972103412</id>
+        <name>Source 0</name>
+        <gui_position>
+            <x>582.000000000</x>
+            <y>10.000000000</y>
+        </gui_position>
+        <inputs></inputs>
+    </patch>
+    <patch>
+        <id>879437686</id>
+        <name>Accumulator</name>
+        <gui_position>
+            <x>816.000000000</x>
+            <y>36.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1972103412</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1726729948</id>
+        <name>Diff - Absolute</name>
+        <gui_position>
+            <x>582.000000000</x>
+            <y>142.000000000</y>
+        </gui_position>
+        <inputs>
+            <id>1972103412</id>
+            <id>879437686</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>56230478</id>
+        <name>Erode</name>
+        <gui_position>
+            <x>818.000000000</x>
+            <y>236.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1726729948</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>172839066</id>
+        <name>Dilate</name>
+        <gui_position>
+            <x>581.000000000</x>
+            <y>293.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>56230478</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1508291518</id>
+        <name>Gaussian Blur</name>
+        <gui_position>
+            <x>817.000000000</x>
+            <y>431.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>172839066</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>958573838</id>
+        <name>Threshold</name>
+        <gui_position>
+            <x>580.000000000</x>
+            <y>532.000000000</y>
+        </gui_position>
+        <inputs>
+            <id>1508291518</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>328175472</id>
+        <name>Alpha Mask</name>
+        <gui_position>
+            <x>814.000000000</x>
+            <y>624.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>958573838</id>
+            <id>1972103412</id>
+        </inputs>
+    </patch>
+</patches>
