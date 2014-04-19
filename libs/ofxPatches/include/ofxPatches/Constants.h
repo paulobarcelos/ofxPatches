@@ -20,6 +20,7 @@
 #endif
 
 #define OFX_PATCHES_REGISTER_ALL_EFFECTS(m) \
+m.registerPatch<ofxPatches::Delay>();\
 m.registerPatch<ofxPatches::Accumulator>();\
 m.registerPatch<ofxPatches::OpticalFlow>();\
 m.registerPatch<ofxPatches::ChannelBalancer>();\

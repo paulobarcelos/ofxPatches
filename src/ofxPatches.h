@@ -7,6 +7,7 @@
 
 #include "ofxPatches/patches/FixedSource.h"
 
+#include "ofxPatches/patches/Delay.h"
 #include "ofxPatches/patches/Accumulator.h"
 #include "ofxPatches/patches/OpticalFlow.h"
 
