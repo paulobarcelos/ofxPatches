@@ -1,0 +1,7 @@
+<Band_Threshold>
+	<Bypass>0</Bypass>
+	<Preview_Scale>0.265</Preview_Scale>
+	<Low_Value>0.065</Low_Value>
+	<High_Value>0.555</High_Value>
+<Band_Threshold/>
+</Band_Threshold>
