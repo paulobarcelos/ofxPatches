@@ -97,7 +97,7 @@ namespace ofxPatches {
 		}
 		
 		void setParam1i(int param, int _paramNum = 0){
-			Patch::setParam1f(param);
+			Patch::setParam1i(param);
 			if(_paramNum == 0) setBufferSize(param);
 		}
 

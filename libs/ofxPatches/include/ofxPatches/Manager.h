@@ -33,6 +33,7 @@ namespace ofxPatches {
 		
 		Patch * getPatchById(int id);
 		int getPatchLabelById(int id);
+        vector<Patch*> getPatchesByName(string name);
 		
 		void addPatch(int label, int id);
 		void addPatch(string name, int id);

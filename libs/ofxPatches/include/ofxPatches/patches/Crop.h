@@ -18,22 +18,22 @@ namespace ofxPatches {
 			param1fDefaults[0].name = "x";
 			param1fDefaults[0].value = 0.0;
 			param1fDefaults[0].min = 0.0;
-			param1fDefaults[0].max = 1.0;
+			param1fDefaults[0].max = 3.0;
 			
 			param1fDefaults[1].name = "y";
 			param1fDefaults[1].value = 0.0;
 			param1fDefaults[1].min = 0.0;
-			param1fDefaults[1].max = 1.0;
+			param1fDefaults[1].max = 3.0;
 			
 			param1fDefaults[2].name = "w";
 			param1fDefaults[2].value = 1.0;
 			param1fDefaults[2].min = 0.0;
-			param1fDefaults[2].max = 1.0;
+			param1fDefaults[2].max = 3.0;
 			
 			param1fDefaults[3].name = "h";
 			param1fDefaults[3].value = 1.0;
 			param1fDefaults[3].min = 0.0;
-			param1fDefaults[3].max = 1.0;
+			param1fDefaults[3].max = 3.0;
 			
 			fragmentShader = STRINGIFY(
 									   uniform sampler2DRect tex0;

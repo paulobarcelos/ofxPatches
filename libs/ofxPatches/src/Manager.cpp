@@ -128,6 +128,17 @@ int Manager::getPatchLabelById(int id){
 	}
 	return -1;
 }
+vector<Patch*> Manager::getPatchesByName(string name){
+    vector<Patch*> patches = vector<Patch*>();
+    
+	for (int i = 0; i < currentPatches.size(); i++) {
+        if(currentPatches[i]->getName().compare(name)){
+            patches.push_back(currentPatches[i]);
+        }
+	}
+	return patches;
+}
+
 
 void Manager::addPatch(int label, int id){
 	if (label < 0 || label >= registeredPatches.size()) {

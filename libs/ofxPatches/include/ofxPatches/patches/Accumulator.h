@@ -77,7 +77,7 @@ namespace ofxPatches {
 		void registerDefaultGui(){			
 			Patch::registerDefaultGui();
 			
-			// Add the acc allumualte button
+			// Add the accumulate button
 			ofxButton * accumulate = new ofxButton();
 			accumulate->setup("Accumulate all", OFX_PATCHES_GUI_SIZE);
 			accumulate->addListener(this, &Accumulator::onAccumulateAll);
@@ -103,8 +103,14 @@ namespace ofxPatches {
 		}
 		
 		bool compileCode(){
-			base.allocate(width, height, internalFormat);
-			return Patch::compileCode();
+			Patch::compileCode();
+            base.allocate(width, height, internalFormat);
+            base.begin();
+            ofClear(0, 0, 0, 255);
+            base.end();
+            lastBuffer.begin();
+            ofClear(0, 0, 0, 255);
+            lastBuffer.end();
 		}
 		
 		void update(){
