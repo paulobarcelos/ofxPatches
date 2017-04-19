@@ -126,7 +126,7 @@ namespace ofxPatches {
 				base.end();
 			}
 			
-			shader.setUniformTexture("base", lastBuffer.getTextureReference(), nTextures + 1 );
+			shader.setUniformTexture("base", lastBuffer.getTexture(), nTextures + 1 );
 			shader.setUniform1f("rate", rate );
 			shader.setUniform1i("internalCount", internalCount );
 		}

@@ -1,0 +1,9 @@
+<Gaussian_Blur>
+	<Bypass>0</Bypass>
+	<Passes>2</Passes>
+	<Preview_Scale>0.215</Preview_Scale>
+	<Size>0.45</Size>
+	<x_multiplier>1</x_multiplier>
+	<y_multiplier>1</y_multiplier>
+<Gaussian_Blur/>
+</Gaussian_Blur>

@@ -232,8 +232,8 @@ void ExtendedFXObject::onRender(int pass){
 	
 	if(useBackbuffer){
 		// on the first pass, use the last rendered buffer as the backbuffer
-		if(pass == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTextureReference(), 0 );
-		else shader.setUniformTexture("backbuffer", pingPong.src->getTextureReference(), 0 );
+		if(pass == 0) shader.setUniformTexture("backbuffer", lastBuffer.getTexture(), 0 );
+		else shader.setUniformTexture("backbuffer", pingPong.src->getTexture(), 0 );
 	}
 	
 	for( int j = 0; j < nParam1fs; j++){
@@ -248,7 +248,7 @@ void ExtendedFXObject::onRender(int pass){
 	
 	for( int j = 0; j < nTextures; j++){
 		string texName = "tex" + ofToString(j); 
-		shader.setUniformTexture(texName.c_str(), textures[j].getTextureReference(), j+1 );
+		shader.setUniformTexture(texName.c_str(), textures[j].getTexture(), j+1 );
 		string texRes = "size" + ofToString(j); 
 		shader.setUniform2f(texRes.c_str() , (float)textures[j].getWidth(), (float)textures[j].getHeight());
 	}

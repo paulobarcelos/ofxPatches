@@ -116,7 +116,7 @@ namespace ofxPatches {
 				ofSetColor(255, 255, 0);
 				ofSetLineWidth(2);
 				ofNoFill();
-				ofRect(-1,-1, width+1,height+1);
+				ofDrawRectangle(-1,-1, width+1,height+1);
 				ofPopStyle();
 				
 				end();			
@@ -163,6 +163,13 @@ namespace ofxPatches {
 		}
 		//--------------------------------------------------------------
 		void mouseMoved(ofMouseEventArgs &args){}
+        //--------------------------------------------------------------
+        void mouseScrolled(ofMouseEventArgs &args){}
+        //--------------------------------------------------------------
+        void mouseEntered(ofMouseEventArgs &args){}
+        //--------------------------------------------------------------
+        void mouseExited(ofMouseEventArgs &args){}
+     
 		
 		
 	private:

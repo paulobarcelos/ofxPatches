@@ -93,7 +93,7 @@ void Patch::update(){
 			begin(i);
 			ofPushStyle();
 			ofSetColor(255,10,10);
-			ofRect(0,0,width,height);		
+			ofDrawRectangle(0,0,width,height);		
 			ofPopStyle();
 			end(i);
 		}

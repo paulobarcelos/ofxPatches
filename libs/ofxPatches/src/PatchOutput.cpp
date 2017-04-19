@@ -20,7 +20,7 @@ void PatchOutput::draw(){
 	
 	ofPushStyle();
 	ofSetColor(0);
-	ofCircle(shape.getCenter(), shape.width/2);
+	ofDrawCircle(shape.getCenter(), shape.width/2);
 	ofPopStyle();
 };
 

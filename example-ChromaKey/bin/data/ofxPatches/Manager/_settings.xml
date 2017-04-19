@@ -1,0 +1,119 @@
+<inputs></inputs>
+<gui_position>
+    <x>20.000000000</x>
+    <y>20.000000000</y>
+</gui_position>
+<patches_gui_position>
+    <x>222.000000000</x>
+    <y>20.000000000</y>
+</patches_gui_position>
+<patches>
+    <patch>
+        <id>1755948975</id>
+        <name>Source 0</name>
+        <gui_position>
+            <x>219.000000000</x>
+            <y>579.000000000</y>
+        </gui_position>
+        <inputs></inputs>
+    </patch>
+    <patch>
+        <id>1514145751</id>
+        <name>RGB to HSL</name>
+        <gui_position>
+            <x>442.000000000</x>
+            <y>22.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1755948975</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>566420107</id>
+        <name>Custom BW</name>
+        <gui_position>
+            <x>657.000000000</x>
+            <y>22.000000000</y>
+        </gui_position>
+        <inputs>
+            <id>1514145751</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>27731198</id>
+        <name>Band Threshold</name>
+        <gui_position>
+            <x>433.000000000</x>
+            <y>224.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>566420107</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1811003110</id>
+        <name>Hayasaka Blend</name>
+        <gui_position>
+            <x>680.000000000</x>
+            <y>456.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1755948975</id>
+            <id>1639565281</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>824602697</id>
+        <name>Gaussian Blur</name>
+        <gui_position>
+            <x>654.000000000</x>
+            <y>238.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>27731198</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1385554388</id>
+        <name>Threshold</name>
+        <gui_position>
+            <x>868.000000000</x>
+            <y>239.000000000</y>
+        </gui_position>
+        <inputs>
+            <id>824602697</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1847414695</id>
+        <name>Gaussian Blur</name>
+        <gui_position>
+            <x>1081.000000000</x>
+            <y>240.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1385554388</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>1639565281</id>
+        <name>Alpha Mask</name>
+        <gui_position>
+            <x>899.000000000</x>
+            <y>14.500000000</y>
+        </gui_position>
+        <inputs>
+            <id>1847414695</id>
+            <id>602904850</id>
+        </inputs>
+    </patch>
+    <patch>
+        <id>602904850</id>
+        <name>Source 1</name>
+        <gui_position>
+            <x>11.000000000</x>
+            <y>420.000000000</y>
+        </gui_position>
+        <inputs></inputs>
+    </patch>
+</patches>
