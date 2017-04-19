@@ -6,6 +6,7 @@
 #include "ofxPatches/Manager.h"
 
 #include "ofxPatches/patches/FixedSource.h"
+#include "ofxPatches/patches/Noise.h"
 
 #include "ofxPatches/patches/Delay.h"
 #include "ofxPatches/patches/Accumulator.h"
@@ -15,6 +16,7 @@
 #include "ofxPatches/patches/Invert.h"
 #include "ofxPatches/patches/CustomBW.h"
 #include "ofxPatches/patches/BrightnessContrast.h"
+#include "ofxPatches/patches/LinearLevels.h"
 #include "ofxPatches/patches/Gamma.h"
 #include "ofxPatches/patches/HSL.h"
 #include "ofxPatches/patches/RGBtoHSL.h"
