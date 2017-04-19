@@ -90,7 +90,7 @@ namespace ofxPatches {
             
             pingPong.dst->begin();
 			ofClear(0,0,0,0);
-            buffer[internalIndex]->getTextureReference().draw(0, 0, width, height);
+            buffer[internalIndex]->getTexture().draw(0, 0, width, height);
 			pingPong.dst->end();
 			pingPong.swap();
             

@@ -226,12 +226,12 @@ void Manager::update(){
 		currentPatches[i]->update();
 	}
 	
-	if(inputs[0]->getPatch()) setTexture(inputs[0]->getPatch()->getTextureReference(), nTextures-1);
+	if(inputs[0]->getPatch()) setTexture(inputs[0]->getPatch()->getTexture(), nTextures-1);
 	else {
 		begin(nTextures-1);
 		ofPushStyle();
 		ofSetColor(255,10,10);
-		ofRect(0,0,width,height);		
+		ofDrawRectangle(0,0,width,height);		
 		ofPopStyle();
 		end(nTextures-1);
 	}

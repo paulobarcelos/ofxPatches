@@ -95,7 +95,7 @@ namespace ofxPatches {
 		}
 		
 		void onShaderPass(int pass){
-			shader.setUniformTexture("last", last.getTextureReference(), nTextures + 1 );
+			shader.setUniformTexture("last", last.getTexture(), nTextures + 1 );
 		}
 		
 		private:

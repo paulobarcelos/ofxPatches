@@ -20,6 +20,7 @@
 #endif
 
 #define OFX_PATCHES_REGISTER_ALL_EFFECTS(m) \
+m.registerPatch<ofxPatches::Noise>();\
 m.registerPatch<ofxPatches::Delay>();\
 m.registerPatch<ofxPatches::Accumulator>();\
 m.registerPatch<ofxPatches::OpticalFlow>();\
@@ -29,6 +30,7 @@ m.registerPatch<ofxPatches::CustomBW>();\
 m.registerPatch<ofxPatches::HSL>();\
 m.registerPatch<ofxPatches::RGBtoHSL>();\
 m.registerPatch<ofxPatches::BrightnessContrast>();\
+m.registerPatch<ofxPatches::LinearLevels>();\
 m.registerPatch<ofxPatches::Gamma>();\
 m.registerPatch<ofxPatches::Threshold>();\
 m.registerPatch<ofxPatches::BandThreshold>();\

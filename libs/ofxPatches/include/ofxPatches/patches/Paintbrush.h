@@ -78,13 +78,13 @@ namespace ofxPatches {
 		
 		void saveSettings(){
 			Patch::saveSettings();
-			pingPong.dst->readToPixels(diskImage.getPixelsRef());
-			diskImage.saveImage(manager->getBaseFolder() + ofToString(id) + ".png");
+			pingPong.dst->readToPixels(diskImage.getPixels());
+			diskImage.save(manager->getBaseFolder() + ofToString(id) + ".png");
 		}
 		
 		void loadSettings(){
 			Patch::loadSettings();
-			diskImage.loadImage(manager->getBaseFolder() + ofToString(id) + ".png");
+			diskImage.load(manager->getBaseFolder() + ofToString(id) + ".png");
 			
 			pingPong.dst->begin();        
 			diskImage.draw(0, 0);

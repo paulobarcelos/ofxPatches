@@ -25,6 +25,9 @@ namespace ofxPatches {
 		void mousePressed(ofMouseEventArgs & args);
 		void mouseDragged(ofMouseEventArgs & args);
 		void mouseReleased(ofMouseEventArgs & args);
+        void mouseScrolled(ofMouseEventArgs &args){};
+        void mouseEntered(ofMouseEventArgs &args){};
+        void mouseExited(ofMouseEventArgs &args){};
 		
 		void draw();
 		

@@ -53,7 +53,7 @@ namespace ofxPatches {
 		}
 		
 		void onRender(int pass){
-			textures[0].getTextureReference().drawSubsection(0, 0, width, height, 
+			textures[0].getTexture().drawSubsection(0, 0, width, height, 
 															 param1fs[0] * width, 
 															 param1fs[1] * height, 
 															 param1fs[2] * width,

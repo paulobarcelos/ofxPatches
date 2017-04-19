@@ -68,7 +68,7 @@ void PatchInput::draw(){
 	ofPushStyle();
 	if(patch) ofSetColor(255,255,0);
 	else ofSetColor(255);
-	ofCircle(shape.getCenter(), shape.width/2);
+	ofDrawCircle(shape.getCenter(), shape.width/2);
 	ofPopStyle();
 	
 	if(patch){				
@@ -76,13 +76,13 @@ void PatchInput::draw(){
 		
 		ofPushStyle();
 		ofSetColor(255);
-		ofLine(shape.getCenter(), shape2.getCenter());
+		ofDrawLine(shape.getCenter(), shape2.getCenter());
 		ofPopStyle();
 	}
 	else if(isConnecting){
 		ofPushStyle();
 		ofSetColor(255);
-		ofLine(shape.getCenter(), mouse);
+		ofDrawLine(shape.getCenter(), mouse);
 		ofPopStyle();
 	}
 };
