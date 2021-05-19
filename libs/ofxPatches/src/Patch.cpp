@@ -9,7 +9,7 @@ Patch::Patch(){
 	output = new PatchOutput(this);
 	manager = NULL;
 	previewScale = 0.25;
-	ExtendedFXObject::ExtendedFXObject();
+	//ExtendedFXObject::ExtendedFXObject();
 }
 
 Patch::~Patch(){
