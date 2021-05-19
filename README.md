@@ -29,6 +29,9 @@ N/A
 Version history
 ------------
 
+### Version 1.0.1 (2021.05.19):
+- Added correct ofxFx dependency
+
 ### Version 1.0.0 (2021.05.19):
 - Adapted to official addons template
 - Cleanup
