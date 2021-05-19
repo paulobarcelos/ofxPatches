@@ -26,7 +26,7 @@ common:
 	# or use += in several lines
 	ADDON_DEPENDENCIES = ofxGui ofxXmlSettings
 	ADDON_DEPENDENCIES += paulobarcelos/ofxHomography
-	ADDON_DEPENDENCIES += patriciogonzalezvivo/ofxHomography
+	ADDON_DEPENDENCIES += patriciogonzalezvivo/ofxFx
 
 	# include search paths, this will be usually parsed from the file system
 	# but if the addon or addon libraries need special search paths they can be
