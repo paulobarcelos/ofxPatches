@@ -59,4 +59,5 @@ m.registerPatch<ofxPatches::ChannelCombiner>();\
 m.registerPatch<ofxPatches::TextureTiler>();\
 m.registerPatch<ofxPatches::Crop>();\
 m.registerPatch<ofxPatches::PerspectiveWarp>();\
-m.registerPatch<ofxPatches::SphericalDistortion>();
+m.registerPatch<ofxPatches::SphericalDistortion>();\
+m.registerPatch<ofxPatches::Kaleidoscope>();

@@ -66,10 +66,12 @@ namespace ofxPatches {
 		// TODO, try to get this changes into ofxFX
 		void setTexture(ofBaseDraws& base, int _texNum = 0);
 		void begin(int _texNum = 0);
-		
 
 		bool compileCode();
 		void update();
+        
+        ofxFloatSlider* getParam1f(int i);
+        ofxIntSlider* getParam1i(int i);
 
 	protected:
 		string name;
@@ -90,12 +92,12 @@ namespace ofxPatches {
 		Param1iDefaults param1iDefaults[OFX_PATCHES_MAX_PARAMETERS];
 
 		ofxPanel gui;
-		ofxFloatSlider * param1fSliders;
-		ofxIntSlider * param1iSliders;
-		virtual void onParam1fChange(float & value);
-		virtual void onParam1iChange(int & value);
-		virtual void onBypassChange(bool & value);
-		virtual void onPassesChange(int & value);
+		ofxFloatSlider* param1fSliders;
+		ofxIntSlider* param1iSliders;
+		virtual void onParam1fChange(float& value);
+		virtual void onParam1iChange(int& value);
+		virtual void onBypassChange(bool& value);
+		virtual void onPassesChange(int& value);
 		
 		// main render routine, overwrite if you want to control the render yourserlf
 		virtual void onRender(int pass);

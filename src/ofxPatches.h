@@ -57,3 +57,4 @@
 #include "ofxPatches/patches/Crop.h"
 #include "ofxPatches/patches/PerspectiveWarp.h"
 #include "ofxPatches/patches/SphericalDistortion.h"
+#include "ofxPatches/patches/Kaleidoscope.h"
