@@ -359,3 +359,11 @@ void ExtendedFXObject::begin(int _texNum ) {
         ofClear(0,0);
     }
 }
+
+ofxFloatSlider* ExtendedFXObject::getParam1f(int i) {
+    return &param1fSliders[i];
+}
+
+ofxIntSlider* ExtendedFXObject::getParam1i(int i) {
+    return &param1iSliders[i];
+}

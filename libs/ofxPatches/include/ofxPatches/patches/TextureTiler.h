@@ -25,7 +25,7 @@ namespace ofxPatches {
 			param1iDefaults[1].name = "Columns";
 			param1iDefaults[1].value = 2;
 			param1iDefaults[1].min = 1;
-			param1iDefaults[1].max = 6;
+			param1iDefaults[1].max = 12;
 			
 			param1iDefaults[2].name = "Rows";
 			param1iDefaults[2].value = 1;
@@ -49,6 +49,12 @@ namespace ofxPatches {
 									   uniform sampler2DRect tex3;
 									   uniform sampler2DRect tex4;
 									   uniform sampler2DRect tex5;
+                                       uniform sampler2DRect tex6;
+                                       uniform sampler2DRect tex7;
+                                       uniform sampler2DRect tex8;
+                                       uniform sampler2DRect tex9;
+                                       uniform sampler2DRect tex10;
+                                       uniform sampler2DRect tex11;
 									   
 									   uniform int param1i0; // num used textutres
 									   uniform int param1i1; // rows
